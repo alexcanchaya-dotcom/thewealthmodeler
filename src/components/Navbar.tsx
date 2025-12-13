@@ -10,8 +10,8 @@ const navItems = [
   { name: 'Home', href: '/', icon: HomeIcon },
   {
     name: 'Calculators',
-    href: '#',
-    icon: CalculatorIcon,
+    href: '/calculators/compound-interest',    icon: CalculatorIcon,
+        icon: CalculatorIcon,
     children: [
       { name: 'Compound Interest', href: '/calculators/compound-interest' },
       { name: 'FIRE', href: '/calculators/fire' },
