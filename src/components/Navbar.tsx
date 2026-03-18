@@ -3,15 +3,15 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Bars3Icon, XMarkIcon, CalculatorIcon, HomeIcon, InformationCircleIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon, CalculatorIcon, HomeIcon, InformationCircleIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 
 const navItems = [
   { name: 'Home', href: '/', icon: HomeIcon },
   {
     name: 'Calculators',
-    href: '/calculators/compound-interest',    icon: CalculatorIcon,
-        icon: CalculatorIcon,
+    href: '/calculators/compound-interest',
+    icon: CalculatorIcon,
     children: [
       { name: 'Compound Interest', href: '/calculators/compound-interest' },
       { name: 'FIRE', href: '/calculators/fire' },
@@ -19,6 +19,7 @@ const navItems = [
     ],
   },
   { name: 'About', href: '/about', icon: InformationCircleIcon },
+  { name: 'Pricing', href: '/pricing', icon: SparklesIcon },
 ];
 
 export default function Navbar() {
