@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
+import EmailCapture from '@/components/EmailCapture';
+import AdUnit from '@/components/AdUnit';
 import { HERO_CONTENT } from '@/lib/constants';
 
 export default function HomePage() {
@@ -60,6 +62,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Ad unit below the hero */}
+      <AdUnit slot="1111111111" format="horizontal" />
+
       <section className="space-y-6">
         <div className="flex items-center justify-between">
           <div>
@@ -93,6 +98,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Email newsletter capture */}
+      <EmailCapture />
+
       <section className="grid gap-6 rounded-2xl bg-white p-8 shadow-card md:grid-cols-3">
         {[{ title: '100% Free', desc: 'No paywalls or subscriptions. Calculate as much as you want.' }, { title: 'Data Privacy', desc: 'Your inputs stay on your device—no account required.' }, { title: 'Mobile Friendly', desc: 'Designed with responsive layouts for phones and tablets.' }].map(
           (benefit) => (
@@ -103,6 +111,9 @@ export default function HomePage() {
           )
         )}
       </section>
+
+      {/* Bottom ad unit */}
+      <AdUnit slot="2222222222" format="rectangle" />
     </div>
   );
 }

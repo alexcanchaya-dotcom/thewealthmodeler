@@ -5,6 +5,9 @@ import { Switch } from '@headlessui/react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
 import ResultsDisplay from '@/components/ResultsDisplay';
+import AdUnit from '@/components/AdUnit';
+import AffiliateLinks from '@/components/AffiliateLinks';
+import PremiumCTA from '@/components/PremiumCTA';
 import { calculateFIRENumber, calculateYearsToFIRE } from '@/lib/calculations';
 import { calculateSavingsRate, formatCurrency, formatNumber } from '@/lib/utils';
 
@@ -55,106 +58,120 @@ export default function FIREPage() {
   );
 
   return (
-    <div className="grid gap-8 lg:grid-cols-2">
-      <div className="card space-y-4">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-900">FIRE Calculator</h1>
-          <p className="text-sm text-gray-600">Find your FIRE number, timeline, and how much to save each month.</p>
-        </div>
-        <div className="grid gap-4 sm:grid-cols-2">
-          <InputField
-            label="Current Age"
-            register={register('currentAge', { valueAsNumber: true, required: 'Required', min: { value: 1, message: 'Invalid age' } })}
-            error={formState.errors.currentAge}
-          />
-          <InputField
-            label="Current Net Worth"
-            register={register('netWorth', { valueAsNumber: true, required: 'Required', min: { value: 0, message: 'Must be >= 0' } })}
-            error={formState.errors.netWorth}
-          />
-          <InputField
-            label="Annual Income"
-            register={register('income', { valueAsNumber: true, required: 'Required', min: { value: 0, message: 'Must be >= 0' } })}
-            error={formState.errors.income}
-          />
-          <InputField
-            label="Annual Expenses"
-            register={register('expenses', { valueAsNumber: true, required: 'Required', min: { value: 0, message: 'Must be >= 0' } })}
-            error={formState.errors.expenses}
-          />
-          <InputField
-            label="Expected Investment Return (%)"
-            step="0.1"
-            register={register('expectedReturn', { valueAsNumber: true, required: 'Required', min: { value: 0, message: 'Must be >= 0' } })}
-            error={formState.errors.expectedReturn}
-            suffix="%"
-          />
-          <InputField
-            label="Safe Withdrawal Rate (%)"
-            step="0.1"
-            register={register('withdrawalRate', {
-              valueAsNumber: true,
-              required: 'Required',
-              min: { value: 1, message: 'Too low' },
-              max: { value: 10, message: 'Too high' },
-            })}
-            error={formState.errors.withdrawalRate}
-            suffix="%"
-          />
-        </div>
-
-        <div className="flex flex-wrap gap-4 rounded-xl border border-gray-100 bg-gray-50 p-4">
-          <Toggle label="Coast FIRE" enabled={coastFire} onChange={setCoastFire} description="Pause contributions once your current investments can grow to target." />
-          <Toggle label="Barista FIRE" enabled={baristaFire} onChange={setBaristaFire} description="Supplement savings with part-time work." />
-        </div>
-      </div>
-
-      <div className="space-y-4">
-        <ResultsDisplay
-          title="FIRE Snapshot"
-          rows={[
-            { label: 'Your FIRE Number', value: fireNumber, highlight: true },
-            { label: 'Years Until FIRE', value: formatNumber(yearsToFire, 1) + ' years' },
-            { label: 'Age at FIRE', value: formatNumber(ageAtFire, 1) },
-            { label: 'Savings Rate', value: `${formatNumber(savingsRate * 100, 1)}%` },
-            { label: 'Monthly Savings Needed', value: monthlySavingsNeeded },
-          ]}
-          extra={
-            <div className="rounded-lg bg-blue-50 px-4 py-3 text-xs text-blue-800">
-              Savings rate is calculated as (Income - Expenses) / Income. Adjust Coast or Barista modes to see how different strategies impact your timeline.
-            </div>
-          }
-        />
-
+    <div className="space-y-8">
+      <div className="grid gap-8 lg:grid-cols-2">
         <div className="card space-y-4">
-          <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-gray-900">Progress to FIRE</h3>
-            <span className="text-sm font-semibold text-primary">{formatCurrency(values.netWorth)}</span>
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900">FIRE Calculator</h1>
+            <p className="text-sm text-gray-600">Find your FIRE number, timeline, and how much to save each month.</p>
           </div>
-          <div className="h-3 w-full overflow-hidden rounded-full bg-gray-100">
-            <div className="h-full bg-gradient-primary" style={{ width: `${progress}%` }} />
+          <div className="grid gap-4 sm:grid-cols-2">
+            <InputField
+              label="Current Age"
+              register={register('currentAge', { valueAsNumber: true, required: 'Required', min: { value: 1, message: 'Invalid age' } })}
+              error={formState.errors.currentAge}
+            />
+            <InputField
+              label="Current Net Worth"
+              register={register('netWorth', { valueAsNumber: true, required: 'Required', min: { value: 0, message: 'Must be >= 0' } })}
+              error={formState.errors.netWorth}
+            />
+            <InputField
+              label="Annual Income"
+              register={register('income', { valueAsNumber: true, required: 'Required', min: { value: 0, message: 'Must be >= 0' } })}
+              error={formState.errors.income}
+            />
+            <InputField
+              label="Annual Expenses"
+              register={register('expenses', { valueAsNumber: true, required: 'Required', min: { value: 0, message: 'Must be >= 0' } })}
+              error={formState.errors.expenses}
+            />
+            <InputField
+              label="Expected Investment Return (%)"
+              step="0.1"
+              register={register('expectedReturn', { valueAsNumber: true, required: 'Required', min: { value: 0, message: 'Must be >= 0' } })}
+              error={formState.errors.expectedReturn}
+              suffix="%"
+            />
+            <InputField
+              label="Safe Withdrawal Rate (%)"
+              step="0.1"
+              register={register('withdrawalRate', {
+                valueAsNumber: true,
+                required: 'Required',
+                min: { value: 1, message: 'Too low' },
+                max: { value: 10, message: 'Too high' },
+              })}
+              error={formState.errors.withdrawalRate}
+              suffix="%"
+            />
           </div>
-          <div className="flex justify-between text-xs text-gray-500">
-            <span>Current</span>
-            <span>Goal: {formatCurrency(fireNumber)}</span>
+
+          <div className="flex flex-wrap gap-4 rounded-xl border border-gray-100 bg-gray-50 p-4">
+            <Toggle label="Coast FIRE" enabled={coastFire} onChange={setCoastFire} description="Pause contributions once your current investments can grow to target." />
+            <Toggle label="Barista FIRE" enabled={baristaFire} onChange={setBaristaFire} description="Supplement savings with part-time work." />
           </div>
         </div>
 
-        <div className="card space-y-3">
-          <h3 className="text-lg font-semibold text-gray-900">Scenario Comparison</h3>
-          <div className="space-y-2">
-            {comparisonRows.map((row) => (
-              <div key={row.label} className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3">
-                <div>
-                  <p className="text-sm font-semibold text-gray-800">{row.label}</p>
-                  <p className="text-xs text-gray-600">{row.note}</p>
-                </div>
-                <p className="text-sm font-bold text-primary">{formatNumber(row.years, 1)} yrs</p>
+        <div className="space-y-4">
+          <ResultsDisplay
+            title="FIRE Snapshot"
+            rows={[
+              { label: 'Your FIRE Number', value: fireNumber, highlight: true },
+              { label: 'Years Until FIRE', value: formatNumber(yearsToFire, 1) + ' years' },
+              { label: 'Age at FIRE', value: formatNumber(ageAtFire, 1) },
+              { label: 'Savings Rate', value: `${formatNumber(savingsRate * 100, 1)}%` },
+              { label: 'Monthly Savings Needed', value: monthlySavingsNeeded },
+            ]}
+            extra={
+              <div className="rounded-lg bg-blue-50 px-4 py-3 text-xs text-blue-800">
+                Savings rate is calculated as (Income - Expenses) / Income. Adjust Coast or Barista modes to see how different strategies impact your timeline.
               </div>
-            ))}
+            }
+          />
+
+          <div className="card space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-semibold text-gray-900">Progress to FIRE</h3>
+              <span className="text-sm font-semibold text-primary">{formatCurrency(values.netWorth)}</span>
+            </div>
+            <div className="h-3 w-full overflow-hidden rounded-full bg-gray-100">
+              <div className="h-full bg-gradient-primary" style={{ width: `${progress}%` }} />
+            </div>
+            <div className="flex justify-between text-xs text-gray-500">
+              <span>Current</span>
+              <span>Goal: {formatCurrency(fireNumber)}</span>
+            </div>
+          </div>
+
+          <div className="card space-y-3">
+            <h3 className="text-lg font-semibold text-gray-900">Scenario Comparison</h3>
+            <div className="space-y-2">
+              {comparisonRows.map((row) => (
+                <div key={row.label} className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3">
+                  <div>
+                    <p className="text-sm font-semibold text-gray-800">{row.label}</p>
+                    <p className="text-xs text-gray-600">{row.note}</p>
+                  </div>
+                  <p className="text-sm font-bold text-primary">{formatNumber(row.years, 1)} yrs</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
+
+      {/* Ad between calculator and resources */}
+      <AdUnit slot="4444444444" format="horizontal" />
+
+      {/* Premium feature: saved scenarios */}
+      <PremiumCTA
+        feature="Save & Compare Scenarios"
+        description="Save multiple FIRE scenarios to your account and compare them side-by-side. Track your progress month over month with cloud sync."
+      />
+
+      {/* Contextual affiliate recommendations */}
+      <AffiliateLinks calculator="fire" />
     </div>
   );
 }
