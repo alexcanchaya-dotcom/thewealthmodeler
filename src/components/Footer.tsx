@@ -6,6 +6,7 @@ const footerLinks = [
   { name: 'FIRE', href: '/calculators/fire' },
   { name: 'Retirement', href: '/calculators/retirement' },
   { name: 'About', href: '/about' },
+  { name: 'Privacy', href: '/privacy' },
 ];
 
 export default function Footer() {

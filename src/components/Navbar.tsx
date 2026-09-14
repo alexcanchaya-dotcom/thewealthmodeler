@@ -29,9 +29,14 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full bg-gradient-primary text-white shadow-lg">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <Link href="/" className="text-xl font-bold tracking-tight">
-          The Wealth Modeler
-        </Link>
+        <div className="flex min-w-0 flex-1 flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
+          <Link href="/" className="text-xl font-bold tracking-tight">
+            The Wealth Modeler
+          </Link>
+          <span className="w-fit rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-medium leading-snug text-white/90">
+            US model — rules differ in Ireland &amp; EU
+          </span>
+        </div>
 
         <nav className="hidden items-center space-x-6 md:flex">
           {navItems.map((item) => (
