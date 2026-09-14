@@ -61,15 +61,10 @@ export default function HomePage() {
       </section>
 
       <section className="space-y-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase text-primary">Tools</p>
-            <h2 className="text-2xl font-bold text-gray-900">Featured Calculators</h2>
-          </div>
-          <Link href="/calculators/compound-interest" className="hidden items-center gap-2 text-sm font-semibold text-primary md:inline-flex">
-            View all calculators
-            <ArrowRightIcon className="h-5 w-5" />
-          </Link>
+        <div>
+          <p className="text-xs font-semibold uppercase text-primary">Tools</p>
+          <h2 className="text-2xl font-bold text-gray-900">Calculators</h2>
+          <p className="mt-1 text-sm text-gray-600">Three free tools. Your numbers stay in your browser.</p>
         </div>
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           <CalculatorCard

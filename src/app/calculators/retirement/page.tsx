@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
 import ResultsDisplay from '@/components/ResultsDisplay';
 import Chart from '@/components/Chart';
+import UsModelBadge from '@/components/UsModelBadge';
 import { calculateRetirement, calculateCompoundInterest } from '@/lib/calculations';
 import { formatCurrency, formatNumber } from '@/lib/utils';
 
@@ -72,7 +73,8 @@ export default function RetirementPage() {
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card space-y-4">
-        <div>
+        <div className="space-y-3">
+          <UsModelBadge />
           <h1 className="text-2xl font-bold text-gray-900">Retirement Calculator</h1>
           <p className="text-sm text-gray-600">Estimate your nest egg, monthly income in retirement, and how long it may last.</p>
         </div>
