@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { LONGEVITY_LINK_HREF } from '@/lib/irish-copy';
 
 const footerLinks = [
   { name: 'Home', href: '/' },
@@ -25,8 +26,19 @@ export default function Footer() {
               {link.name}
             </Link>
           ))}
+          <a
+            href={LONGEVITY_LINK_HREF}
+            className="hover:text-primary"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Longevity Modeler
+          </a>
         </div>
-        <div className="text-sm text-gray-500">© {new Date().getFullYear()} The Wealth Modeler</div>
+        <div className="text-sm text-gray-500">
+          <p>Not financial advice.</p>
+          <p>© {new Date().getFullYear()} The Wealth Modeler</p>
+        </div>
       </div>
     </footer>
   );

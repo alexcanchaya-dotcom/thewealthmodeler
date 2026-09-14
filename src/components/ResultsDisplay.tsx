@@ -5,7 +5,7 @@ interface ResultsDisplayProps {
   title: string;
   rows: Array<{ label: string; value: number | string; highlight?: boolean }>;
   extra?: ReactNode;
-  currency?: 'USD' | 'EUR';
+  currency?: 'USD' | 'EUR' | 'GBP';
 }
 
 export default function ResultsDisplay({ title, rows, extra, currency = 'USD' }: ResultsDisplayProps) {
