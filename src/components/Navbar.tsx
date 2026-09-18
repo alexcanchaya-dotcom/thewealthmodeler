@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Bars3Icon, XMarkIcon, CalculatorIcon, HomeIcon, InformationCircleIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
+import { IRELAND_BADGE } from '@/lib/irish-copy';
 
 const navItems = [
   { name: 'Home', href: '/', icon: HomeIcon },
@@ -36,7 +37,7 @@ export default function Navbar() {
             The Wealth Modeler
           </Link>
           <span className="w-fit rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-medium leading-snug text-white/90">
-            {isIrelandPage ? 'Ireland — take-home and FIRE using Irish numbers' : 'US model — rules differ in Ireland & EU'}
+            {isIrelandPage ? IRELAND_BADGE : 'US model — rules differ in Ireland & EU'}
           </span>
         </div>
 

@@ -3,8 +3,13 @@
 import { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
-import ResultsDisplay from '@/components/ResultsDisplay';
 import { calculateFIRENumber, calculateYearsToFIRE } from '@/lib/calculations';
+import {
+  EXAMPLE_NUMBERS_LINE,
+  IRELAND_BADGE,
+  LONGEVITY_LINK_HREF,
+  LONGEVITY_LINK_TEXT,
+} from '@/lib/irish-copy';
 import { calculateIrishTakeHome, IRELAND_TAX_ASSUMPTIONS, IRELAND_TAX_YEAR_LABEL } from '@/lib/ireland-tax';
 import { calculateSavingsRate, formatCurrency, formatNumber } from '@/lib/utils';
 
@@ -68,10 +73,10 @@ export default function IrishTakeHomeFirePage() {
       <div className="card space-y-4">
         <div className="space-y-3">
           <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
-            Ireland — take-home and FIRE using Irish numbers
+            {IRELAND_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-gray-900">Irish Take-Home → FIRE</h1>
-          <p className="mt-1 text-sm text-gray-700">These are example numbers — change them. Not advice.</p>
+          <p className="mt-1 text-sm text-gray-700">{EXAMPLE_NUMBERS_LINE}</p>
           <p className="text-sm text-gray-600">
             Start from a rough Irish take-home, subtract spending, then estimate a FIRE number and years to get there.
           </p>
@@ -173,35 +178,39 @@ export default function IrishTakeHomeFirePage() {
       </div>
 
       <div className="space-y-4">
-        <ResultsDisplay
-          title="FIRE number"
-          currency="EUR"
-          rows={[
-            { label: 'FIRE number', value: fireNumber, highlight: true },
-            { label: 'Take-home used', value: takeHome.takeHome },
-            { label: 'Estimated annual surplus', value: annualSurplus },
-            { label: 'Years to FIRE', value: yearsLabel },
-          ]}
-          extra={
-            <div className="space-y-3">
-              <p className="text-sm text-gray-700">
-                <a
-                  href="https://longevitymodeler.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-semibold text-primary hover:underline"
-                >
-                  Also see lifespan on longevitymodeler.com
-                </a>
-              </p>
-              {annualSurplus < 0 ? (
-                <div className="rounded-lg bg-emerald-50 px-4 py-3 text-xs text-emerald-900">
-                  Spending is above take-home in this example — years assume no new saving.
-                </div>
-              ) : null}
+        <div className="card space-y-4">
+          <div>
+            <p className="text-sm font-semibold text-gray-600">FIRE number</p>
+            <p className="mt-1 text-3xl font-bold text-primary">{formatCurrency(fireNumber, 0, 'EUR')}</p>
+          </div>
+          <div className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3">
+            <span className="text-sm font-semibold text-gray-600">Take-home used to get there</span>
+            <span className="text-sm font-bold text-gray-900">{formatCurrency(takeHome.takeHome, 0, 'EUR')}</span>
+          </div>
+          <div className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3">
+            <span className="text-sm font-semibold text-gray-600">Estimated annual surplus</span>
+            <span className="text-sm font-bold text-gray-900">{formatCurrency(annualSurplus, 0, 'EUR')}</span>
+          </div>
+          <div className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3">
+            <span className="text-sm font-semibold text-gray-600">Years to FIRE</span>
+            <span className="text-sm font-bold text-gray-900">{yearsLabel}</span>
+          </div>
+          <p className="text-sm text-gray-700">
+            <a
+              href={LONGEVITY_LINK_HREF}
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-primary hover:underline"
+            >
+              {LONGEVITY_LINK_TEXT}
+            </a>
+          </p>
+          {annualSurplus < 0 ? (
+            <div className="rounded-lg bg-emerald-50 px-4 py-3 text-xs text-emerald-900">
+              Spending is above take-home in this example — years assume no new saving.
             </div>
-          }
-        />
+          ) : null}
+        </div>
 
         <div className="card space-y-3">
           <h3 className="text-lg font-semibold text-gray-900">Tax sketch</h3>
