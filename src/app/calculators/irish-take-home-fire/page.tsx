@@ -68,7 +68,7 @@ export default function IrishTakeHomeFirePage() {
       <div className="card space-y-4">
         <div className="space-y-3">
           <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
-            Ireland model — simplified PAYE/USC/PRSI; not Revenue advice
+            Ireland — take-home and FIRE using Irish numbers
           </span>
           <h1 className="text-2xl font-bold text-gray-900">Irish Take-Home → FIRE</h1>
           <p className="mt-1 text-sm text-gray-700">These are example numbers — change them. Not advice.</p>
@@ -174,32 +174,31 @@ export default function IrishTakeHomeFirePage() {
 
       <div className="space-y-4">
         <ResultsDisplay
-          title="Irish take-home & FIRE"
+          title="FIRE number"
           currency="EUR"
           rows={[
-            { label: 'Rough Irish take-home', value: takeHome.takeHome, highlight: true },
+            { label: 'FIRE number', value: fireNumber, highlight: true },
+            { label: 'Take-home used', value: takeHome.takeHome },
             { label: 'Estimated annual surplus', value: annualSurplus },
-            { label: 'FIRE number', value: fireNumber },
             { label: 'Years to FIRE', value: yearsLabel },
           ]}
           extra={
             <div className="space-y-3">
-              <div className="rounded-lg bg-emerald-50 px-4 py-3 text-xs text-emerald-900">
-                Surplus is take-home minus annual spending. FIRE number is annual spending divided by your safe withdrawal rate.
-                {annualSurplus < 0 ? ' Spending is above take-home in this example — years assume no new saving.' : ''}
-              </div>
-              <p className="text-xs text-gray-600">
-                Planning a longer retirement? Sister site:{' '}
+              <p className="text-sm text-gray-700">
                 <a
                   href="https://longevitymodeler.com"
                   target="_blank"
                   rel="noreferrer"
                   className="font-semibold text-primary hover:underline"
                 >
-                  Longevity Modeler
+                  Also see lifespan on longevitymodeler.com
                 </a>
-                .
               </p>
+              {annualSurplus < 0 ? (
+                <div className="rounded-lg bg-emerald-50 px-4 py-3 text-xs text-emerald-900">
+                  Spending is above take-home in this example — years assume no new saving.
+                </div>
+              ) : null}
             </div>
           }
         />
