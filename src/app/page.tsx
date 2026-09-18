@@ -26,7 +26,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid gap-4 sm:grid-cols-3">
-            {[{ label: 'Total Users', value: '100% Free' }, { label: 'Data Privacy', value: 'No tracking' }, { label: 'Mobile Friendly', value: 'Responsive' }].map(
+            {[{ label: 'Total Users', value: '100% Free' }, { label: 'Your numbers', value: 'Stay in browser' }, { label: 'Mobile Friendly', value: 'Responsive' }].map(
               (item) => (
                 <div key={item.label} className="rounded-xl border border-gray-100 bg-gray-50 px-4 py-3">
                   <p className="text-xs font-semibold uppercase text-gray-500">{item.label}</p>
@@ -61,15 +61,10 @@ export default function HomePage() {
       </section>
 
       <section className="space-y-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase text-primary">Tools</p>
-            <h2 className="text-2xl font-bold text-gray-900">Featured Calculators</h2>
-          </div>
-          <Link href="/calculators/compound-interest" className="hidden items-center gap-2 text-sm font-semibold text-primary md:inline-flex">
-            View all calculators
-            <ArrowRightIcon className="h-5 w-5" />
-          </Link>
+        <div>
+          <p className="text-xs font-semibold uppercase text-primary">Tools</p>
+          <h2 className="text-2xl font-bold text-gray-900">Popular</h2>
+          <p className="mt-1 text-sm text-gray-600">Three free tools. Your numbers stay in your browser.</p>
         </div>
         <div className="grid gap-6 md:grid-cols-3">
           <CalculatorCard

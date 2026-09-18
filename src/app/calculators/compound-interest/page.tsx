@@ -58,6 +58,7 @@ export default function CompoundInterestPage() {
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card">
         <h1 className="text-2xl font-bold text-gray-900">Compound Interest Calculator</h1>
+        <p className="mt-1 text-sm text-gray-700">These are example numbers — change them. Not advice.</p>
         <p className="text-sm text-gray-600">See how your investments grow with monthly contributions and annual compounding.</p>
         <form className="mt-6 space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <InputField
