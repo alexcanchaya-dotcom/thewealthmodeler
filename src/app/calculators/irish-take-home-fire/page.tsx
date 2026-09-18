@@ -180,20 +180,18 @@ export default function IrishTakeHomeFirePage() {
       <div className="space-y-4">
         <div className="card space-y-4">
           <div>
-            <p className="text-sm font-semibold text-gray-600">FIRE number</p>
-            <p className="mt-1 text-3xl font-bold text-primary">{formatCurrency(fireNumber, 0, 'EUR')}</p>
+            <p className="text-sm font-semibold text-gray-600">Years to FIRE</p>
+            <p className="mt-1 text-3xl font-bold text-primary">{yearsLabel}</p>
+            <p className="mt-2 text-sm font-semibold text-gray-600">FIRE number</p>
+            <p className="mt-1 text-2xl font-bold text-gray-900">{formatCurrency(fireNumber, 0, 'EUR')}</p>
           </div>
           <div className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3">
-            <span className="text-sm font-semibold text-gray-600">Take-home used to get there</span>
+            <span className="text-sm font-semibold text-gray-600">Take-home used</span>
             <span className="text-sm font-bold text-gray-900">{formatCurrency(takeHome.takeHome, 0, 'EUR')}</span>
           </div>
           <div className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3">
             <span className="text-sm font-semibold text-gray-600">Estimated annual surplus</span>
             <span className="text-sm font-bold text-gray-900">{formatCurrency(annualSurplus, 0, 'EUR')}</span>
-          </div>
-          <div className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3">
-            <span className="text-sm font-semibold text-gray-600">Years to FIRE</span>
-            <span className="text-sm font-bold text-gray-900">{yearsLabel}</span>
           </div>
           <p className="text-sm text-gray-700">
             <a

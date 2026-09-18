@@ -92,7 +92,7 @@ export default function HomePage() {
           />
           <CalculatorCard
             title="Irish Take-Home → FIRE"
-            description="Rough Irish take-home from salary, then years to FIRE. Ireland model — simplified PAYE/USC/PRSI."
+            description="Irish take-home from salary, then years to FIRE using Irish numbers."
             icon={<CurrencyEuroIcon className="h-6 w-6" />}
             href="/calculators/irish-take-home-fire"
           />
