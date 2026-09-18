@@ -1,7 +1,7 @@
-export function formatCurrency(value: number, maximumFractionDigits = 0) {
-  return value.toLocaleString('en-US', {
+export function formatCurrency(value: number, maximumFractionDigits = 0, currency: 'USD' | 'EUR' = 'USD') {
+  return value.toLocaleString(currency === 'EUR' ? 'en-IE' : 'en-US', {
     style: 'currency',
-    currency: 'USD',
+    currency,
     maximumFractionDigits,
   });
 }

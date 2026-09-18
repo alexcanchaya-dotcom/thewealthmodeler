@@ -10,12 +10,13 @@ const navItems = [
   { name: 'Home', href: '/', icon: HomeIcon },
   {
     name: 'Calculators',
-    href: '/calculators/compound-interest',    icon: CalculatorIcon,
-        icon: CalculatorIcon,
+    href: '/calculators/compound-interest',
+    icon: CalculatorIcon,
     children: [
       { name: 'Compound Interest', href: '/calculators/compound-interest' },
       { name: 'FIRE', href: '/calculators/fire' },
       { name: 'Retirement', href: '/calculators/retirement' },
+      { name: 'Irish Take-Home → FIRE', href: '/calculators/irish-take-home-fire' },
     ],
   },
   { name: 'About', href: '/about', icon: InformationCircleIcon },
@@ -25,6 +26,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const pathname = usePathname();
+  const isIrelandPage = pathname === '/calculators/irish-take-home-fire';
 
   return (
     <header className="sticky top-0 z-50 w-full bg-gradient-primary text-white shadow-lg">
@@ -34,7 +36,7 @@ export default function Navbar() {
             The Wealth Modeler
           </Link>
           <span className="w-fit rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-medium leading-snug text-white/90">
-            US model — rules differ in Ireland &amp; EU
+            {isIrelandPage ? 'Ireland model — simplified PAYE/USC/PRSI' : 'US model — rules differ in Ireland & EU'}
           </span>
         </div>
 
@@ -68,7 +70,7 @@ export default function Navbar() {
                 <div
                   onMouseEnter={() => setIsDropdownOpen(true)}
                   onMouseLeave={() => setIsDropdownOpen(false)}
-                  className="absolute right-0 mt-3 w-56 rounded-xl bg-white p-3 text-gray-900 shadow-xl"
+                  className="absolute right-0 mt-3 w-64 rounded-xl bg-white p-3 text-gray-900 shadow-xl"
                 >
                   <div className="flex flex-col space-y-2">
                     {item.children.map((child) => (

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
 
@@ -71,7 +71,7 @@ export default function HomePage() {
             <ArrowRightIcon className="h-5 w-5" />
           </Link>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           <CalculatorCard
             title="Compound Interest Calculator"
             description="Project your investment growth with monthly contributions and see yearly breakdowns."
@@ -89,6 +89,12 @@ export default function HomePage() {
             description="Calculate your FIRE number, years until financial independence, and track your progress."
             icon={<DevicePhoneMobileIcon className="h-6 w-6" />}
             href="/calculators/fire"
+          />
+          <CalculatorCard
+            title="Irish Take-Home → FIRE"
+            description="Rough Irish take-home from salary, then years to FIRE. Ireland model — simplified PAYE/USC/PRSI."
+            icon={<CurrencyEuroIcon className="h-6 w-6" />}
+            href="/calculators/irish-take-home-fire"
           />
         </div>
       </section>
