@@ -6,6 +6,7 @@ const footerLinks = [
   { name: 'FIRE', href: '/calculators/fire' },
   { name: 'Ireland FIRE', href: '/calculators/irish-take-home-fire' },
   { name: 'State Savings vs bank', href: '/calculators/state-savings-vs-bank' },
+  { name: 'Mortgage vs rent', href: '/calculators/mortgage-vs-rent' },
   { name: 'Retirement', href: '/calculators/retirement' },
   { name: 'About', href: '/about' },
   { name: 'Privacy', href: '/privacy' },
