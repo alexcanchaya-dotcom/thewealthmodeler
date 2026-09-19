@@ -19,5 +19,8 @@ export const CAR_FINANCE_VS_CASH_FOOTNOTE =
 export const RENT_RISE_VS_MOVE_BADGE = 'Ireland — rent rise vs cost of moving';
 export const RENT_RISE_VS_MOVE_FOOTNOTE =
   'Ignores notice periods, rent pressure zones, and deposit interest. Not advice.';
+export const MORTGAGE_OVERPAY_VS_CASH_BADGE = 'Ireland — mortgage overpay vs keeping cash';
+export const MORTGAGE_OVERPAY_VS_CASH_FOOTNOTE =
+  'Simple amortisation — ignores fees, tax relief, and offset accounts. Not advice.';
 export const LONGEVITY_LINK_TEXT = 'Also see lifespan on longevitymodeler.com';
 export const LONGEVITY_LINK_HREF = 'https://longevitymodeler.com';
