@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { Bars3Icon, XMarkIcon, CalculatorIcon, HomeIcon, InformationCircleIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import {
+  CAR_FINANCE_VS_CASH_BADGE,
   EMERGENCY_FUND_BADGE,
   IRELAND_BADGE,
   MORTGAGE_VS_RENT_BADGE,
@@ -28,6 +29,7 @@ const navItems = [
       { name: 'Mortgage vs rent', href: '/calculators/mortgage-vs-rent' },
       { name: 'Emergency fund months', href: '/calculators/emergency-fund-months' },
       { name: 'Pension vs take-home', href: '/calculators/pension-vs-take-home' },
+      { name: 'Car finance vs cash', href: '/calculators/car-finance-vs-cash' },
     ],
   },
   { name: 'About', href: '/about', icon: InformationCircleIcon },
@@ -48,7 +50,9 @@ export default function Navbar() {
             ? EMERGENCY_FUND_BADGE
             : pathname === '/calculators/pension-vs-take-home'
               ? PENSION_VS_TAKE_HOME_BADGE
-              : null;
+              : pathname === '/calculators/car-finance-vs-cash'
+                ? CAR_FINANCE_VS_CASH_BADGE
+                : null;
 
   return (
     <header className="sticky top-0 z-50 w-full bg-gradient-primary text-white shadow-lg">
