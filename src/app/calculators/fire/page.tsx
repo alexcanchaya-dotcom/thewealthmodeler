@@ -5,6 +5,8 @@ import { Switch } from '@headlessui/react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
 import ResultsDisplay from '@/components/ResultsDisplay';
+import UsModelBadge from '@/components/UsModelBadge';
+import CurrencyPicker, { type DisplayCurrency } from '@/components/CurrencyPicker';
 import { calculateFIRENumber, calculateYearsToFIRE } from '@/lib/calculations';
 import { calculateSavingsRate, formatCurrency, formatNumber } from '@/lib/utils';
 
@@ -30,6 +32,7 @@ export default function FIREPage() {
   const { register, watch, formState } = useForm<FireFormValues>({ defaultValues });
   const [coastFire, setCoastFire] = useState(false);
   const [baristaFire, setBaristaFire] = useState(false);
+  const [currency, setCurrency] = useState<DisplayCurrency>('USD');
   const values = watch();
 
   const savingsRate = calculateSavingsRate(values.income, values.expenses);
@@ -57,10 +60,12 @@ export default function FIREPage() {
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card space-y-4">
-        <div>
+        <div className="space-y-3">
+          <UsModelBadge />
           <h1 className="text-2xl font-bold text-gray-900">FIRE Calculator</h1>
           <p className="mt-1 text-sm text-gray-700">These are example numbers — change them. Not advice.</p>
           <p className="text-sm text-gray-600">Find your FIRE number, timeline, and how much to save each month.</p>
+          <CurrencyPicker value={currency} onChange={setCurrency} />
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
           <InputField
@@ -113,6 +118,7 @@ export default function FIREPage() {
       <div className="space-y-4">
         <ResultsDisplay
           title="FIRE Snapshot"
+          currency={currency}
           rows={[
             { label: 'Your FIRE Number', value: fireNumber, highlight: true },
             { label: 'Years Until FIRE', value: formatNumber(yearsToFire, 1) + ' years' },
@@ -130,14 +136,14 @@ export default function FIREPage() {
         <div className="card space-y-4">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-gray-900">Progress to FIRE</h3>
-            <span className="text-sm font-semibold text-primary">{formatCurrency(values.netWorth)}</span>
+            <span className="text-sm font-semibold text-primary">{formatCurrency(values.netWorth, 0, currency)}</span>
           </div>
           <div className="h-3 w-full overflow-hidden rounded-full bg-gray-100">
             <div className="h-full bg-gradient-primary" style={{ width: `${progress}%` }} />
           </div>
           <div className="flex justify-between text-xs text-gray-500">
             <span>Current</span>
-            <span>Goal: {formatCurrency(fireNumber)}</span>
+            <span>Goal: {formatCurrency(fireNumber, 0, currency)}</span>
           </div>
         </div>
 

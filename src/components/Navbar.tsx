@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Bars3Icon, XMarkIcon, CalculatorIcon, HomeIcon, InformationCircleIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon, CalculatorIcon, EnvelopeIcon, HomeIcon, InformationCircleIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { IRELAND_BADGE } from '@/lib/irish-copy';
 
@@ -21,13 +21,14 @@ const navItems = [
     ],
   },
   { name: 'About', href: '/about', icon: InformationCircleIcon },
+  { name: 'Contact', href: '/contact', icon: EnvelopeIcon },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const pathname = usePathname();
-  const isIrelandPage = pathname === '/calculators/irish-take-home-fire';
+  const isIrelandPage = pathname.replace(/\/$/, '') === '/calculators/irish-take-home-fire';
 
   return (
     <header className="sticky top-0 z-50 w-full bg-gradient-primary text-white shadow-lg">

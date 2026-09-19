@@ -1,5 +1,6 @@
-export function formatCurrency(value: number, maximumFractionDigits = 0, currency: 'USD' | 'EUR' = 'USD') {
-  return value.toLocaleString(currency === 'EUR' ? 'en-IE' : 'en-US', {
+export function formatCurrency(value: number, maximumFractionDigits = 0, currency: 'USD' | 'EUR' | 'GBP' = 'USD') {
+  const locale = currency === 'EUR' ? 'en-IE' : currency === 'GBP' ? 'en-GB' : 'en-US';
+  return value.toLocaleString(locale, {
     style: 'currency',
     currency,
     maximumFractionDigits,

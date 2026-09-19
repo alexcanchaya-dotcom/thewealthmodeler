@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
 import ResultsDisplay from '@/components/ResultsDisplay';
 import Chart from '@/components/Chart';
+import UsModelBadge from '@/components/UsModelBadge';
+import CurrencyPicker, { type DisplayCurrency } from '@/components/CurrencyPicker';
 import { calculateRetirement, calculateCompoundInterest } from '@/lib/calculations';
 import { formatCurrency, formatNumber } from '@/lib/utils';
 
@@ -41,6 +43,7 @@ export default function RetirementPage() {
     )
   );
 
+  const [currency, setCurrency] = useState<DisplayCurrency>('USD');
   const watched = watch();
 
   const onSubmit = (data: RetirementFormValues) => {
@@ -72,9 +75,14 @@ export default function RetirementPage() {
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card space-y-4">
-        <div>
+        <div className="space-y-3">
+          <UsModelBadge />
           <h1 className="text-2xl font-bold text-gray-900">Retirement Calculator</h1>
           <p className="text-sm text-gray-600">Estimate your nest egg, monthly income in retirement, and how long it may last.</p>
+          <p className="rounded-lg border border-amber-100 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-950">
+            These are example numbers — change them. Not advice.
+          </p>
+          <CurrencyPicker value={currency} onChange={setCurrency} />
         </div>
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -127,6 +135,7 @@ export default function RetirementPage() {
       <div className="space-y-4">
         <ResultsDisplay
           title="Retirement Outlook"
+          currency={currency}
           rows={[
             { label: 'Retirement Balance', value: retirementData.retirementBalance, highlight: true },
             { label: 'Monthly Income (4% rule)', value: retirementData.monthlyIncome },
@@ -143,9 +152,10 @@ export default function RetirementPage() {
         <div className="card space-y-3">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold text-gray-900">Balance Projection</h3>
-            <span className="text-sm font-semibold text-primary">{formatCurrency(growthProjection.finalAmount)}</span>
+            <span className="text-sm font-semibold text-primary">{formatCurrency(growthProjection.finalAmount, 0, currency)}</span>
           </div>
           <Chart
+            currency={currency}
             labels={growthProjection.yearlyBreakdown.map((item) => `Year ${item.year}`)}
             totalValue={growthProjection.yearlyBreakdown.map((item) => Math.round(item.balance))}
             contributions={growthProjection.yearlyBreakdown.map((item) =>

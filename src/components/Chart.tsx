@@ -18,9 +18,20 @@ interface ChartProps {
   labels: string[];
   totalValue: number[];
   contributions: number[];
+  currency?: string;
 }
 
-export default function Chart({ labels, totalValue, contributions }: ChartProps) {
+function currencyPrefix(currency = 'USD') {
+  try {
+    const parts = new Intl.NumberFormat('en-US', { style: 'currency', currency, maximumFractionDigits: 0 }).formatToParts(0);
+    return parts.find((part) => part.type === 'currency')?.value ?? '$';
+  } catch {
+    return '$';
+  }
+}
+
+export default function Chart({ labels, totalValue, contributions, currency = 'USD' }: ChartProps) {
+  const symbol = currencyPrefix(currency);
   const data = {
     labels,
     datasets: [
@@ -51,7 +62,7 @@ export default function Chart({ labels, totalValue, contributions }: ChartProps)
       },
       tooltip: {
         callbacks: {
-          label: (context: any) => `$${context.raw?.toLocaleString(undefined, { maximumFractionDigits: 0 })}`,
+          label: (context: any) => `${symbol}${context.raw?.toLocaleString(undefined, { maximumFractionDigits: 0 })}`,
         },
       },
     },
@@ -59,7 +70,7 @@ export default function Chart({ labels, totalValue, contributions }: ChartProps)
       y: {
         beginAtZero: true,
         ticks: {
-          callback: (value: any) => `$${Number(value).toLocaleString()}`,
+          callback: (value: any) => `${symbol}${Number(value).toLocaleString()}`,
         },
       },
     },
