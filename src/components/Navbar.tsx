@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Bars3Icon, XMarkIcon, CalculatorIcon, HomeIcon, InformationCircleIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
-import { IRELAND_BADGE } from '@/lib/irish-copy';
+import { IRELAND_BADGE, STATE_SAVINGS_BADGE } from '@/lib/irish-copy';
 
 const navItems = [
   { name: 'Home', href: '/', icon: HomeIcon },
@@ -18,6 +18,7 @@ const navItems = [
       { name: 'FIRE', href: '/calculators/fire' },
       { name: 'Retirement', href: '/calculators/retirement' },
       { name: 'Irish Take-Home → FIRE', href: '/calculators/irish-take-home-fire' },
+      { name: 'State Savings vs bank', href: '/calculators/state-savings-vs-bank' },
     ],
   },
   { name: 'About', href: '/about', icon: InformationCircleIcon },
@@ -27,7 +28,12 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const pathname = usePathname();
-  const isIrelandPage = pathname === '/calculators/irish-take-home-fire';
+  const irelandBadge =
+    pathname === '/calculators/state-savings-vs-bank'
+      ? STATE_SAVINGS_BADGE
+      : pathname === '/calculators/irish-take-home-fire'
+        ? IRELAND_BADGE
+        : null;
 
   return (
     <header className="sticky top-0 z-50 w-full bg-gradient-primary text-white shadow-lg">
@@ -37,7 +43,7 @@ export default function Navbar() {
             The Wealth Modeler
           </Link>
           <span className="w-fit rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-medium leading-snug text-white/90">
-            {isIrelandPage ? IRELAND_BADGE : 'US model — rules differ in Ireland & EU'}
+            {irelandBadge ?? 'US model — rules differ in Ireland & EU'}
           </span>
         </div>
 
