@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon, ArrowTrendingUpIcon } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
 
@@ -125,6 +125,12 @@ export default function HomePage() {
             description="Same car — monthly finance versus paying cash now. Which path costs less over the term."
             icon={<TruckIcon className="h-6 w-6" />}
             href="/calculators/car-finance-vs-cash"
+          />
+          <CalculatorCard
+            title="Rent rise vs move"
+            description="Landlord raises rent — cheaper to stay or move over a chosen horizon."
+            icon={<ArrowTrendingUpIcon className="h-6 w-6" />}
+            href="/calculators/rent-rise-vs-move"
           />
         </div>
       </section>
