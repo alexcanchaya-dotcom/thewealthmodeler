@@ -16,5 +16,8 @@ export const PENSION_VS_TAKE_HOME_FOOTNOTE =
 export const CAR_FINANCE_VS_CASH_BADGE = 'Ireland — car finance vs cash (simplified)';
 export const CAR_FINANCE_VS_CASH_FOOTNOTE =
   'Simple APR loan model — not a dealer PCP quote. Fees, insurance, and tax ignored. Not advice.';
+export const RENT_RISE_VS_MOVE_BADGE = 'Ireland — rent rise vs cost of moving';
+export const RENT_RISE_VS_MOVE_FOOTNOTE =
+  'Ignores notice periods, rent pressure zones, and deposit interest. Not advice.';
 export const LONGEVITY_LINK_TEXT = 'Also see lifespan on longevitymodeler.com';
 export const LONGEVITY_LINK_HREF = 'https://longevitymodeler.com';
