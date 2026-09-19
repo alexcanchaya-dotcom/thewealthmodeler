@@ -5,7 +5,13 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Bars3Icon, XMarkIcon, CalculatorIcon, HomeIcon, InformationCircleIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
-import { EMERGENCY_FUND_BADGE, IRELAND_BADGE, MORTGAGE_VS_RENT_BADGE, STATE_SAVINGS_BADGE } from '@/lib/irish-copy';
+import {
+  EMERGENCY_FUND_BADGE,
+  IRELAND_BADGE,
+  MORTGAGE_VS_RENT_BADGE,
+  PENSION_VS_TAKE_HOME_BADGE,
+  STATE_SAVINGS_BADGE,
+} from '@/lib/irish-copy';
 
 const navItems = [
   { name: 'Home', href: '/', icon: HomeIcon },
@@ -21,6 +27,7 @@ const navItems = [
       { name: 'State Savings vs bank', href: '/calculators/state-savings-vs-bank' },
       { name: 'Mortgage vs rent', href: '/calculators/mortgage-vs-rent' },
       { name: 'Emergency fund months', href: '/calculators/emergency-fund-months' },
+      { name: 'Pension vs take-home', href: '/calculators/pension-vs-take-home' },
     ],
   },
   { name: 'About', href: '/about', icon: InformationCircleIcon },
@@ -39,7 +46,9 @@ export default function Navbar() {
           ? MORTGAGE_VS_RENT_BADGE
           : pathname === '/calculators/emergency-fund-months'
             ? EMERGENCY_FUND_BADGE
-            : null;
+            : pathname === '/calculators/pension-vs-take-home'
+              ? PENSION_VS_TAKE_HOME_BADGE
+              : null;
 
   return (
     <header className="sticky top-0 z-50 w-full bg-gradient-primary text-white shadow-lg">

@@ -10,5 +10,8 @@ export const MORTGAGE_VS_RENT_FOOTNOTE =
   'Ignores stamp duty, Help to Buy, rent rises, and house price changes. Not advice.';
 export const EMERGENCY_FUND_FOOTNOTE =
   'Essentials only — rent/mortgage, food, utilities, transport, minimum debt. Not advice.';
+export const PENSION_VS_TAKE_HOME_BADGE = 'Ireland — pension bump vs take-home (simplified relief)';
+export const PENSION_VS_TAKE_HOME_FOOTNOTE =
+  'Uses a simple 20% or 40% relief toggle — not a full Irish PAYE/USC/PRSI calc. Age and contribution caps ignored. Not advice.';
 export const LONGEVITY_LINK_TEXT = 'Also see lifespan on longevitymodeler.com';
 export const LONGEVITY_LINK_HREF = 'https://longevitymodeler.com';

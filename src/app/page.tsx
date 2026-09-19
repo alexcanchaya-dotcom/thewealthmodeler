@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
 
@@ -113,6 +113,12 @@ export default function HomePage() {
             description="How many months of essential expenses your rainy-day cash covers."
             icon={<WalletIcon className="h-6 w-6" />}
             href="/calculators/emergency-fund-months"
+          />
+          <CalculatorCard
+            title="Pension vs take-home"
+            description="If you raise your pension, how much take-home drops after relief — and how much more hits the pot."
+            icon={<BriefcaseIcon className="h-6 w-6" />}
+            href="/calculators/pension-vs-take-home"
           />
         </div>
       </section>

@@ -8,6 +8,7 @@ const footerLinks = [
   { name: 'State Savings vs bank', href: '/calculators/state-savings-vs-bank' },
   { name: 'Mortgage vs rent', href: '/calculators/mortgage-vs-rent' },
   { name: 'Emergency fund months', href: '/calculators/emergency-fund-months' },
+  { name: 'Pension vs take-home', href: '/calculators/pension-vs-take-home' },
   { name: 'Retirement', href: '/calculators/retirement' },
   { name: 'About', href: '/about' },
   { name: 'Privacy', href: '/privacy' },
