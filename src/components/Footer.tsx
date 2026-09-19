@@ -7,6 +7,7 @@ const footerLinks = [
   { name: 'Ireland FIRE', href: '/calculators/irish-take-home-fire' },
   { name: 'State Savings vs bank', href: '/calculators/state-savings-vs-bank' },
   { name: 'Mortgage vs rent', href: '/calculators/mortgage-vs-rent' },
+  { name: 'Emergency fund months', href: '/calculators/emergency-fund-months' },
   { name: 'Retirement', href: '/calculators/retirement' },
   { name: 'About', href: '/about' },
   { name: 'Privacy', href: '/privacy' },

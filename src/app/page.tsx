@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
 
@@ -107,6 +107,12 @@ export default function HomePage() {
             description="Same home, same month — is renting or buying cheaper using Irish-style numbers."
             icon={<HomeModernIcon className="h-6 w-6" />}
             href="/calculators/mortgage-vs-rent"
+          />
+          <CalculatorCard
+            title="Emergency fund months"
+            description="How many months of essential expenses your rainy-day cash covers."
+            icon={<WalletIcon className="h-6 w-6" />}
+            href="/calculators/emergency-fund-months"
           />
         </div>
       </section>
