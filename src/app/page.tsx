@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
 
@@ -119,6 +119,12 @@ export default function HomePage() {
             description="If you raise your pension, how much take-home drops after relief — and how much more hits the pot."
             icon={<BriefcaseIcon className="h-6 w-6" />}
             href="/calculators/pension-vs-take-home"
+          />
+          <CalculatorCard
+            title="Car finance vs cash"
+            description="Same car — monthly finance versus paying cash now. Which path costs less over the term."
+            icon={<TruckIcon className="h-6 w-6" />}
+            href="/calculators/car-finance-vs-cash"
           />
         </div>
       </section>
