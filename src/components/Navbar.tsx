@@ -11,6 +11,7 @@ import {
   IRELAND_BADGE,
   MORTGAGE_VS_RENT_BADGE,
   PENSION_VS_TAKE_HOME_BADGE,
+  RENT_RISE_VS_MOVE_BADGE,
   STATE_SAVINGS_BADGE,
 } from '@/lib/irish-copy';
 
@@ -30,6 +31,7 @@ const navItems = [
       { name: 'Emergency fund months', href: '/calculators/emergency-fund-months' },
       { name: 'Pension vs take-home', href: '/calculators/pension-vs-take-home' },
       { name: 'Car finance vs cash', href: '/calculators/car-finance-vs-cash' },
+      { name: 'Rent rise vs move', href: '/calculators/rent-rise-vs-move' },
     ],
   },
   { name: 'About', href: '/about', icon: InformationCircleIcon },
@@ -52,7 +54,9 @@ export default function Navbar() {
               ? PENSION_VS_TAKE_HOME_BADGE
               : pathname === '/calculators/car-finance-vs-cash'
                 ? CAR_FINANCE_VS_CASH_BADGE
-                : null;
+                : pathname === '/calculators/rent-rise-vs-move'
+                  ? RENT_RISE_VS_MOVE_BADGE
+                  : null;
 
   return (
     <header className="sticky top-0 z-50 w-full bg-gradient-primary text-white shadow-lg">
