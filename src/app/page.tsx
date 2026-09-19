@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
 
@@ -71,7 +71,7 @@ export default function HomePage() {
             <ArrowRightIcon className="h-5 w-5" />
           </Link>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           <CalculatorCard
             title="Compound Interest Calculator"
             description="Project your investment growth with monthly contributions and see yearly breakdowns."
@@ -95,6 +95,12 @@ export default function HomePage() {
             description="Irish take-home from salary, then years to FIRE using Irish numbers."
             icon={<CurrencyEuroIcon className="h-6 w-6" />}
             href="/calculators/irish-take-home-fire"
+          />
+          <CalculatorCard
+            title="State Savings vs bank"
+            description="Compare Irish State Savings (tax-free) with a bank deposit after 33% DIRT."
+            icon={<BanknotesIcon className="h-6 w-6" />}
+            href="/calculators/state-savings-vs-bank"
           />
         </div>
       </section>
