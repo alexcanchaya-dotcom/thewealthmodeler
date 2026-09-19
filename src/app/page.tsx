@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
 
@@ -101,6 +101,12 @@ export default function HomePage() {
             description="Compare Irish State Savings (tax-free) with a bank deposit after 33% DIRT."
             icon={<BanknotesIcon className="h-6 w-6" />}
             href="/calculators/state-savings-vs-bank"
+          />
+          <CalculatorCard
+            title="Mortgage vs rent"
+            description="Same home, same month — is renting or buying cheaper using Irish-style numbers."
+            icon={<HomeModernIcon className="h-6 w-6" />}
+            href="/calculators/mortgage-vs-rent"
           />
         </div>
       </section>
