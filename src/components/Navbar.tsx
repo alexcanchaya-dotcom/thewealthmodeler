@@ -8,6 +8,7 @@ import clsx from 'clsx';
 import {
   CAR_FINANCE_VS_CASH_BADGE,
   EMERGENCY_FUND_BADGE,
+  HELP_TO_BUY_DEPOSIT_BADGE,
   IRELAND_BADGE,
   MORTGAGE_OVERPAY_VS_CASH_BADGE,
   MORTGAGE_VS_RENT_BADGE,
@@ -34,6 +35,7 @@ const navItems = [
       { name: 'Car finance vs cash', href: '/calculators/car-finance-vs-cash' },
       { name: 'Rent rise vs move', href: '/calculators/rent-rise-vs-move' },
       { name: 'Mortgage overpay vs cash', href: '/calculators/mortgage-overpay-vs-cash' },
+      { name: 'Help to Buy deposit runway', href: '/calculators/help-to-buy-deposit-runway' },
     ],
   },
   { name: 'About', href: '/about', icon: InformationCircleIcon },
@@ -60,7 +62,9 @@ export default function Navbar() {
                   ? RENT_RISE_VS_MOVE_BADGE
                   : pathname === '/calculators/mortgage-overpay-vs-cash'
                     ? MORTGAGE_OVERPAY_VS_CASH_BADGE
-                    : null;
+                    : pathname === '/calculators/help-to-buy-deposit-runway'
+                      ? HELP_TO_BUY_DEPOSIT_BADGE
+                      : null;
 
   return (
     <header className="sticky top-0 z-50 w-full bg-gradient-primary text-white shadow-lg">

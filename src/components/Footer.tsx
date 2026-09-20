@@ -12,6 +12,7 @@ const footerLinks = [
   { name: 'Car finance vs cash', href: '/calculators/car-finance-vs-cash' },
   { name: 'Rent rise vs move', href: '/calculators/rent-rise-vs-move' },
   { name: 'Mortgage overpay vs cash', href: '/calculators/mortgage-overpay-vs-cash' },
+  { name: 'Help to Buy deposit runway', href: '/calculators/help-to-buy-deposit-runway' },
   { name: 'Retirement', href: '/calculators/retirement' },
   { name: 'About', href: '/about' },
   { name: 'Privacy', href: '/privacy' },

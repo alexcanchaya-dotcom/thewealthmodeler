@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon, ArrowTrendingUpIcon, ScaleIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon, ArrowTrendingUpIcon, ScaleIcon, KeyIcon } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
 
@@ -137,6 +137,12 @@ export default function HomePage() {
             description="Overpay the mortgage by €X/month — interest saved and months cut versus keeping that cash liquid."
             icon={<ScaleIcon className="h-6 w-6" />}
             href="/calculators/mortgage-overpay-vs-cash"
+          />
+          <CalculatorCard
+            title="Help to Buy deposit runway"
+            description="How many months until you have the house deposit — optional Help to Buy boost shortens the runway."
+            icon={<KeyIcon className="h-6 w-6" />}
+            href="/calculators/help-to-buy-deposit-runway"
           />
         </div>
       </section>
