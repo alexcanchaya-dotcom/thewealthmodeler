@@ -22,5 +22,10 @@ export const RENT_RISE_VS_MOVE_FOOTNOTE =
 export const MORTGAGE_OVERPAY_VS_CASH_BADGE = 'Ireland — mortgage overpay vs keeping cash';
 export const MORTGAGE_OVERPAY_VS_CASH_FOOTNOTE =
   'Simple amortisation — ignores fees, tax relief, and offset accounts. Not advice.';
+export const HELP_TO_BUY_DEPOSIT_BADGE = 'Ireland — deposit runway (Help to Buy optional)';
+export const HELP_TO_BUY_DEPOSIT_FOOTNOTE =
+  'Simplified — not a full Help to Buy eligibility check. Caps and scheme rules change. Not advice.';
+export const HELP_TO_BUY_BOOST_HINT =
+  'e.g. HTB equity/tax relief you’d count toward deposit — simplified';
 export const LONGEVITY_LINK_TEXT = 'Also see lifespan on longevitymodeler.com';
 export const LONGEVITY_LINK_HREF = 'https://longevitymodeler.com';
