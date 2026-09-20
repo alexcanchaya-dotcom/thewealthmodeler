@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon, ArrowTrendingUpIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon, ArrowTrendingUpIcon, ScaleIcon } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
 
@@ -131,6 +131,12 @@ export default function HomePage() {
             description="Landlord raises rent — cheaper to stay or move over a chosen horizon."
             icon={<ArrowTrendingUpIcon className="h-6 w-6" />}
             href="/calculators/rent-rise-vs-move"
+          />
+          <CalculatorCard
+            title="Mortgage overpay vs cash"
+            description="Overpay the mortgage by €X/month — interest saved and months cut versus keeping that cash liquid."
+            icon={<ScaleIcon className="h-6 w-6" />}
+            href="/calculators/mortgage-overpay-vs-cash"
           />
         </div>
       </section>

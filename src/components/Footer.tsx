@@ -11,6 +11,7 @@ const footerLinks = [
   { name: 'Pension vs take-home', href: '/calculators/pension-vs-take-home' },
   { name: 'Car finance vs cash', href: '/calculators/car-finance-vs-cash' },
   { name: 'Rent rise vs move', href: '/calculators/rent-rise-vs-move' },
+  { name: 'Mortgage overpay vs cash', href: '/calculators/mortgage-overpay-vs-cash' },
   { name: 'Retirement', href: '/calculators/retirement' },
   { name: 'About', href: '/about' },
   { name: 'Privacy', href: '/privacy' },
