@@ -42,5 +42,11 @@ export const MORTGAGE_REPAYMENT_FOOTNOTE =
   'Simple amortising loan — ignores fees, insurance, and lender stress tests. Not advice.';
 export const MORTGAGE_REPAYMENT_RATE_HINT = 'example rate — change to your quote';
 export const MORTGAGE_REPAYMENT_STRESS_HINT = 'banks often test a higher rate';
+export const LOCAL_PROPERTY_TAX_BADGE = 'Ireland — Local Property Tax estimate (simplified)';
+export const LOCAL_PROPERTY_TAX_FOOTNOTE =
+  'Uses 2026–2030 basic bands. Ignores exemptions, deferrals, and your council’s exact local factor if you leave it at 0. Check Revenue for your return. Not advice.';
+export const LOCAL_PROPERTY_TAX_VALUE_HINT = 'your estimate of market value';
+export const LOCAL_PROPERTY_TAX_LOCAL_HINT =
+  'your council can shift basic rate by about ±15% — leave 0 if unsure';
 export const LONGEVITY_LINK_TEXT = 'Also see lifespan on longevitymodeler.com';
 export const LONGEVITY_LINK_HREF = 'https://longevitymodeler.com';

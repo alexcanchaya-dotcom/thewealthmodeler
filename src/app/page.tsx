@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon, ArrowTrendingUpIcon, ScaleIcon, KeyIcon, BuildingLibraryIcon, ReceiptPercentIcon, CreditCardIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon, ArrowTrendingUpIcon, ScaleIcon, KeyIcon, BuildingLibraryIcon, ReceiptPercentIcon, CreditCardIcon, HomeIcon } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
 
@@ -161,6 +161,12 @@ export default function HomePage() {
             description="What would this mortgage cost per month at your quoted rate — plus a higher stress-rate check."
             icon={<CreditCardIcon className="h-6 w-6" />}
             href="/calculators/mortgage-repayment"
+          />
+          <CalculatorCard
+            title="Local Property Tax"
+            description="About how much Local Property Tax you might pay from property market value and an optional local adjustment."
+            icon={<HomeIcon className="h-6 w-6" />}
+            href="/calculators/local-property-tax"
           />
         </div>
       </section>
