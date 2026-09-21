@@ -32,5 +32,10 @@ export const STATE_PENSION_PRSI_GAP_FOOTNOTE =
   'Simplified — not a full PRSI record check. Rates and rules change. Not advice.';
 export const STATE_PENSION_WEEKLY_HINT = 'full Contributory State Pension approx — check current rate';
 export const STATE_PENSION_COMPLETENESS_HINT = '% of full pension you expect';
+export const HOW_MUCH_CAN_I_BORROW_BADGE = 'Ireland — how much you could borrow (simplified)';
+export const HOW_MUCH_CAN_I_BORROW_FOOTNOTE =
+  'Simplified LTI/LTV — not a lender decision. Banks use their own stress tests and rules. Not advice.';
+export const HOW_MUCH_CAN_I_BORROW_LTI_HINT = 'typical Central Bank–style LTI — banks vary';
+export const HOW_MUCH_CAN_I_BORROW_LTV_HINT = 'first-time buyers often up to ~90%';
 export const LONGEVITY_LINK_TEXT = 'Also see lifespan on longevitymodeler.com';
 export const LONGEVITY_LINK_HREF = 'https://longevitymodeler.com';

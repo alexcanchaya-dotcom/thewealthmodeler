@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon, ArrowTrendingUpIcon, ScaleIcon, KeyIcon, BuildingLibraryIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon, ArrowTrendingUpIcon, ScaleIcon, KeyIcon, BuildingLibraryIcon, ReceiptPercentIcon } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
 
@@ -149,6 +149,12 @@ export default function HomePage() {
             description="How much of your retirement spend the State Pension covers, and the monthly gap to fill from savings."
             icon={<BuildingLibraryIcon className="h-6 w-6" />}
             href="/calculators/state-pension-prsi-gap"
+          />
+          <CalculatorCard
+            title="How much can I borrow"
+            description="Roughly how much mortgage you could borrow from income and deposit — the lower of a simple LTI and LTV cap."
+            icon={<ReceiptPercentIcon className="h-6 w-6" />}
+            href="/calculators/how-much-can-i-borrow"
           />
         </div>
       </section>
