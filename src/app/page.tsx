@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon, ArrowTrendingUpIcon, ScaleIcon, KeyIcon, BuildingLibraryIcon, ReceiptPercentIcon, CreditCardIcon, HomeIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon, ArrowTrendingUpIcon, ScaleIcon, KeyIcon, BuildingLibraryIcon, ReceiptPercentIcon, CreditCardIcon, HomeIcon, PercentBadgeIcon } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
 
@@ -167,6 +167,12 @@ export default function HomePage() {
             description="About how much Local Property Tax you might pay from property market value and an optional local adjustment."
             icon={<HomeIcon className="h-6 w-6" />}
             href="/calculators/local-property-tax"
+          />
+          <CalculatorCard
+            title="DIRT on savings interest"
+            description="If your deposit earns this interest, how much DIRT is taken and what you keep after tax."
+            icon={<PercentBadgeIcon className="h-6 w-6" />}
+            href="/calculators/dirt-savings-interest"
           />
         </div>
       </section>
