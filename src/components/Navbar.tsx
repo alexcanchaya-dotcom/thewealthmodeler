@@ -11,6 +11,7 @@ import {
   HELP_TO_BUY_DEPOSIT_BADGE,
   IRELAND_BADGE,
   MORTGAGE_OVERPAY_VS_CASH_BADGE,
+  STATE_PENSION_PRSI_GAP_BADGE,
   MORTGAGE_VS_RENT_BADGE,
   PENSION_VS_TAKE_HOME_BADGE,
   RENT_RISE_VS_MOVE_BADGE,
@@ -36,6 +37,7 @@ const navItems = [
       { name: 'Rent rise vs move', href: '/calculators/rent-rise-vs-move' },
       { name: 'Mortgage overpay vs cash', href: '/calculators/mortgage-overpay-vs-cash' },
       { name: 'Help to Buy deposit runway', href: '/calculators/help-to-buy-deposit-runway' },
+      { name: 'State Pension / PRSI gap', href: '/calculators/state-pension-prsi-gap' },
     ],
   },
   { name: 'About', href: '/about', icon: InformationCircleIcon },
@@ -64,7 +66,9 @@ export default function Navbar() {
                     ? MORTGAGE_OVERPAY_VS_CASH_BADGE
                     : pathname === '/calculators/help-to-buy-deposit-runway'
                       ? HELP_TO_BUY_DEPOSIT_BADGE
-                      : null;
+                      : pathname === '/calculators/state-pension-prsi-gap'
+                        ? STATE_PENSION_PRSI_GAP_BADGE
+                        : null;
 
   return (
     <header className="sticky top-0 z-50 w-full bg-gradient-primary text-white shadow-lg">

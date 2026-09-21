@@ -27,5 +27,10 @@ export const HELP_TO_BUY_DEPOSIT_FOOTNOTE =
   'Simplified — not a full Help to Buy eligibility check. Caps and scheme rules change. Not advice.';
 export const HELP_TO_BUY_BOOST_HINT =
   'e.g. HTB equity/tax relief you’d count toward deposit — simplified';
+export const STATE_PENSION_PRSI_GAP_BADGE = 'Ireland — State Pension vs your retirement spend';
+export const STATE_PENSION_PRSI_GAP_FOOTNOTE =
+  'Simplified — not a full PRSI record check. Rates and rules change. Not advice.';
+export const STATE_PENSION_WEEKLY_HINT = 'full Contributory State Pension approx — check current rate';
+export const STATE_PENSION_COMPLETENESS_HINT = '% of full pension you expect';
 export const LONGEVITY_LINK_TEXT = 'Also see lifespan on longevitymodeler.com';
 export const LONGEVITY_LINK_HREF = 'https://longevitymodeler.com';
