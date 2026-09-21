@@ -13,6 +13,7 @@ const footerLinks = [
   { name: 'Rent rise vs move', href: '/calculators/rent-rise-vs-move' },
   { name: 'Mortgage overpay vs cash', href: '/calculators/mortgage-overpay-vs-cash' },
   { name: 'Help to Buy deposit runway', href: '/calculators/help-to-buy-deposit-runway' },
+  { name: 'State Pension / PRSI gap', href: '/calculators/state-pension-prsi-gap' },
   { name: 'Retirement', href: '/calculators/retirement' },
   { name: 'About', href: '/about' },
   { name: 'Privacy', href: '/privacy' },
