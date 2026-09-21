@@ -37,5 +37,10 @@ export const HOW_MUCH_CAN_I_BORROW_FOOTNOTE =
   'Simplified LTI/LTV — not a lender decision. Banks use their own stress tests and rules. Not advice.';
 export const HOW_MUCH_CAN_I_BORROW_LTI_HINT = 'typical Central Bank–style LTI — banks vary';
 export const HOW_MUCH_CAN_I_BORROW_LTV_HINT = 'first-time buyers often up to ~90%';
+export const MORTGAGE_REPAYMENT_BADGE = 'Ireland — mortgage repayment (simplified)';
+export const MORTGAGE_REPAYMENT_FOOTNOTE =
+  'Simple amortising loan — ignores fees, insurance, and lender stress tests. Not advice.';
+export const MORTGAGE_REPAYMENT_RATE_HINT = 'example rate — change to your quote';
+export const MORTGAGE_REPAYMENT_STRESS_HINT = 'banks often test a higher rate';
 export const LONGEVITY_LINK_TEXT = 'Also see lifespan on longevitymodeler.com';
 export const LONGEVITY_LINK_HREF = 'https://longevitymodeler.com';

@@ -12,6 +12,7 @@ import {
   HOW_MUCH_CAN_I_BORROW_BADGE,
   IRELAND_BADGE,
   MORTGAGE_OVERPAY_VS_CASH_BADGE,
+  MORTGAGE_REPAYMENT_BADGE,
   STATE_PENSION_PRSI_GAP_BADGE,
   MORTGAGE_VS_RENT_BADGE,
   PENSION_VS_TAKE_HOME_BADGE,
@@ -40,6 +41,7 @@ const navItems = [
       { name: 'Help to Buy deposit runway', href: '/calculators/help-to-buy-deposit-runway' },
       { name: 'State Pension / PRSI gap', href: '/calculators/state-pension-prsi-gap' },
       { name: 'How much can I borrow', href: '/calculators/how-much-can-i-borrow' },
+      { name: 'Mortgage repayment', href: '/calculators/mortgage-repayment' },
     ],
   },
   { name: 'About', href: '/about', icon: InformationCircleIcon },
@@ -72,7 +74,9 @@ export default function Navbar() {
                         ? STATE_PENSION_PRSI_GAP_BADGE
                         : pathname === '/calculators/how-much-can-i-borrow'
                           ? HOW_MUCH_CAN_I_BORROW_BADGE
-                          : null;
+                          : pathname === '/calculators/mortgage-repayment'
+                            ? MORTGAGE_REPAYMENT_BADGE
+                            : null;
 
   return (
     <header className="sticky top-0 z-50 w-full bg-gradient-primary text-white shadow-lg">

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon, ArrowTrendingUpIcon, ScaleIcon, KeyIcon, BuildingLibraryIcon, ReceiptPercentIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon, ArrowTrendingUpIcon, ScaleIcon, KeyIcon, BuildingLibraryIcon, ReceiptPercentIcon, CreditCardIcon } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
 
@@ -155,6 +155,12 @@ export default function HomePage() {
             description="Roughly how much mortgage you could borrow from income and deposit — the lower of a simple LTI and LTV cap."
             icon={<ReceiptPercentIcon className="h-6 w-6" />}
             href="/calculators/how-much-can-i-borrow"
+          />
+          <CalculatorCard
+            title="Mortgage repayment"
+            description="What would this mortgage cost per month at your quoted rate — plus a higher stress-rate check."
+            icon={<CreditCardIcon className="h-6 w-6" />}
+            href="/calculators/mortgage-repayment"
           />
         </div>
       </section>

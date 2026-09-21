@@ -15,6 +15,7 @@ const footerLinks = [
   { name: 'Help to Buy deposit runway', href: '/calculators/help-to-buy-deposit-runway' },
   { name: 'State Pension / PRSI gap', href: '/calculators/state-pension-prsi-gap' },
   { name: 'How much can I borrow', href: '/calculators/how-much-can-i-borrow' },
+  { name: 'Mortgage repayment', href: '/calculators/mortgage-repayment' },
   { name: 'Retirement', href: '/calculators/retirement' },
   { name: 'About', href: '/about' },
   { name: 'Privacy', href: '/privacy' },
