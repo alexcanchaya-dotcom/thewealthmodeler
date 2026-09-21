@@ -42,5 +42,11 @@ export const MORTGAGE_REPAYMENT_FOOTNOTE =
   'Simple amortising loan — ignores fees, insurance, and lender stress tests. Not advice.';
 export const MORTGAGE_REPAYMENT_RATE_HINT = 'example rate — change to your quote';
 export const MORTGAGE_REPAYMENT_STRESS_HINT = 'banks often test a higher rate';
+export const MORTGAGE_SWITCH_BREAK_EVEN_BADGE = 'Ireland — mortgage switch break-even (simplified)';
+export const MORTGAGE_SWITCH_BREAK_EVEN_FOOTNOTE =
+  'Ignores cashback, early repayment charges that change mid-deal, and tax. Not advice.';
+export const MORTGAGE_SWITCH_BREAK_EVEN_CURRENT_RATE_HINT = 'your rate today';
+export const MORTGAGE_SWITCH_BREAK_EVEN_NEW_RATE_HINT = 'example switch quote — change it';
+export const MORTGAGE_SWITCH_BREAK_EVEN_FEES_HINT = 'legal, valuation, exit fee — total once';
 export const LONGEVITY_LINK_TEXT = 'Also see lifespan on longevitymodeler.com';
 export const LONGEVITY_LINK_HREF = 'https://longevitymodeler.com';

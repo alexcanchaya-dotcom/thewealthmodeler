@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon, ArrowTrendingUpIcon, ScaleIcon, KeyIcon, BuildingLibraryIcon, ReceiptPercentIcon, CreditCardIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon, ArrowTrendingUpIcon, ScaleIcon, KeyIcon, BuildingLibraryIcon, ReceiptPercentIcon, CreditCardIcon, ArrowsRightLeftIcon } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
 
@@ -161,6 +161,12 @@ export default function HomePage() {
             description="What would this mortgage cost per month at your quoted rate — plus a higher stress-rate check."
             icon={<CreditCardIcon className="h-6 w-6" />}
             href="/calculators/mortgage-repayment"
+          />
+          <CalculatorCard
+            title="Mortgage switch break-even"
+            description="If you switch to a cheaper rate, how long until legal, valuation, and exit fees are paid back."
+            icon={<ArrowsRightLeftIcon className="h-6 w-6" />}
+            href="/calculators/mortgage-switch-break-even"
           />
         </div>
       </section>
