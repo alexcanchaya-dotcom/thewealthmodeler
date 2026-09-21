@@ -16,6 +16,7 @@ const footerLinks = [
   { name: 'State Pension / PRSI gap', href: '/calculators/state-pension-prsi-gap' },
   { name: 'How much can I borrow', href: '/calculators/how-much-can-i-borrow' },
   { name: 'Mortgage repayment', href: '/calculators/mortgage-repayment' },
+  { name: 'Mortgage switch break-even', href: '/calculators/mortgage-switch-break-even' },
   { name: 'Retirement', href: '/calculators/retirement' },
   { name: 'About', href: '/about' },
   { name: 'Privacy', href: '/privacy' },

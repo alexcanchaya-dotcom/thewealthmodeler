@@ -13,6 +13,7 @@ import {
   IRELAND_BADGE,
   MORTGAGE_OVERPAY_VS_CASH_BADGE,
   MORTGAGE_REPAYMENT_BADGE,
+  MORTGAGE_SWITCH_BREAK_EVEN_BADGE,
   STATE_PENSION_PRSI_GAP_BADGE,
   MORTGAGE_VS_RENT_BADGE,
   PENSION_VS_TAKE_HOME_BADGE,
@@ -42,6 +43,7 @@ const navItems = [
       { name: 'State Pension / PRSI gap', href: '/calculators/state-pension-prsi-gap' },
       { name: 'How much can I borrow', href: '/calculators/how-much-can-i-borrow' },
       { name: 'Mortgage repayment', href: '/calculators/mortgage-repayment' },
+      { name: 'Mortgage switch break-even', href: '/calculators/mortgage-switch-break-even' },
     ],
   },
   { name: 'About', href: '/about', icon: InformationCircleIcon },
@@ -76,7 +78,9 @@ export default function Navbar() {
                           ? HOW_MUCH_CAN_I_BORROW_BADGE
                           : pathname === '/calculators/mortgage-repayment'
                             ? MORTGAGE_REPAYMENT_BADGE
-                            : null;
+                            : pathname === '/calculators/mortgage-switch-break-even'
+                              ? MORTGAGE_SWITCH_BREAK_EVEN_BADGE
+                              : null;
 
   return (
     <header className="sticky top-0 z-50 w-full bg-gradient-primary text-white shadow-lg">
