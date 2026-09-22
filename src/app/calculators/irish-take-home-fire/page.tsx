@@ -75,9 +75,9 @@ export default function IrishTakeHomeFirePage() {
           <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
             {IRELAND_BADGE}
           </span>
-          <h1 className="text-2xl font-bold text-gray-900">Irish Take-Home → FIRE</h1>
-          <p className="mt-1 text-sm text-gray-700">{EXAMPLE_NUMBERS_LINE}</p>
-          <p className="text-sm text-gray-600">
+          <h1 className="text-2xl font-bold text-white">Irish Take-Home → FIRE</h1>
+          <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
+          <p className="text-sm text-ink-body">
             Start from a rough Irish take-home, subtract spending, then estimate a FIRE number and years to get there.
           </p>
         </div>
@@ -102,13 +102,13 @@ export default function IrishTakeHomeFirePage() {
           />
           <div className="sm:col-span-2 space-y-3">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <p className="text-sm font-semibold text-gray-800">Spending</p>
-              <div className="inline-flex rounded-lg border border-gray-200 bg-gray-50 p-1">
+              <p className="text-sm font-semibold text-white">Spending</p>
+              <div className="inline-flex rounded-lg border border-glass-line bg-glass-subtle p-1">
                 <button
                   type="button"
                   onClick={() => setExpensePeriod('monthly')}
                   className={`rounded-md px-3 py-1 text-xs font-semibold ${
-                    expensePeriod === 'monthly' ? 'bg-white text-primary shadow-sm' : 'text-gray-600'
+                    expensePeriod === 'monthly' ? 'bg-glass text-primary shadow-sm' : 'text-ink-body'
                   }`}
                 >
                   Monthly
@@ -117,7 +117,7 @@ export default function IrishTakeHomeFirePage() {
                   type="button"
                   onClick={() => setExpensePeriod('annual')}
                   className={`rounded-md px-3 py-1 text-xs font-semibold ${
-                    expensePeriod === 'annual' ? 'bg-white text-primary shadow-sm' : 'text-gray-600'
+                    expensePeriod === 'annual' ? 'bg-glass text-primary shadow-sm' : 'text-ink-body'
                   }`}
                 >
                   Annual
@@ -158,8 +158,8 @@ export default function IrishTakeHomeFirePage() {
           />
         </div>
 
-        <div className="space-y-2 rounded-xl border border-gray-100 bg-gray-50 p-4 text-xs text-gray-600">
-          <p className="font-semibold text-gray-800">What this sketch assumes ({IRELAND_TAX_YEAR_LABEL})</p>
+        <div className="space-y-2 rounded-xl border border-glass-line bg-glass-subtle p-4 text-xs text-ink-body">
+          <p className="font-semibold text-white">What this sketch assumes ({IRELAND_TAX_YEAR_LABEL})</p>
           <ul className="list-disc space-y-1 pl-4">
             <li>Single person, PAYE job, PRSI Class A. No spouse, children, rent credit, or medical card.</li>
             <li>
@@ -180,20 +180,20 @@ export default function IrishTakeHomeFirePage() {
       <div className="space-y-4">
         <div className="card space-y-4">
           <div>
-            <p className="text-sm font-semibold text-gray-600">Years to FIRE</p>
+            <p className="text-sm font-semibold text-ink-body">Years to FIRE</p>
             <p className="mt-1 text-3xl font-bold text-primary">{yearsLabel}</p>
-            <p className="mt-2 text-sm font-semibold text-gray-600">FIRE number</p>
-            <p className="mt-1 text-2xl font-bold text-gray-900">{formatCurrency(fireNumber, 0, 'EUR')}</p>
+            <p className="mt-2 text-sm font-semibold text-ink-body">FIRE number</p>
+            <p className="mt-1 text-2xl font-bold text-white">{formatCurrency(fireNumber, 0, 'EUR')}</p>
           </div>
-          <div className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3">
-            <span className="text-sm font-semibold text-gray-600">Take-home used</span>
-            <span className="text-sm font-bold text-gray-900">{formatCurrency(takeHome.takeHome, 0, 'EUR')}</span>
+          <div className="flex items-center justify-between rounded-lg bg-glass-subtle px-4 py-3">
+            <span className="text-sm font-semibold text-ink-body">Take-home used</span>
+            <span className="text-sm font-bold text-white">{formatCurrency(takeHome.takeHome, 0, 'EUR')}</span>
           </div>
-          <div className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3">
-            <span className="text-sm font-semibold text-gray-600">Estimated annual surplus</span>
-            <span className="text-sm font-bold text-gray-900">{formatCurrency(annualSurplus, 0, 'EUR')}</span>
+          <div className="flex items-center justify-between rounded-lg bg-glass-subtle px-4 py-3">
+            <span className="text-sm font-semibold text-ink-body">Estimated annual surplus</span>
+            <span className="text-sm font-bold text-white">{formatCurrency(annualSurplus, 0, 'EUR')}</span>
           </div>
-          <p className="text-sm text-gray-700">
+          <p className="text-sm text-ink-body">
             <a
               href={LONGEVITY_LINK_HREF}
               target="_blank"
@@ -211,7 +211,7 @@ export default function IrishTakeHomeFirePage() {
         </div>
 
         <div className="card space-y-3">
-          <h3 className="text-lg font-semibold text-gray-900">Tax sketch</h3>
+          <h3 className="text-lg font-semibold text-white">Tax sketch</h3>
           <div className="space-y-2 text-sm">
             {[
               { label: 'Employee pension', value: takeHome.pensionContribution },
@@ -219,13 +219,13 @@ export default function IrishTakeHomeFirePage() {
               { label: 'USC', value: takeHome.usc },
               { label: 'PRSI', value: takeHome.prsi },
             ].map((row) => (
-              <div key={row.label} className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3">
-                <span className="font-semibold text-gray-600">{row.label}</span>
-                <span className="font-bold text-gray-900">{formatCurrency(row.value, 0, 'EUR')}</span>
+              <div key={row.label} className="flex items-center justify-between rounded-lg bg-glass-subtle px-4 py-3">
+                <span className="font-semibold text-ink-body">{row.label}</span>
+                <span className="font-bold text-white">{formatCurrency(row.value, 0, 'EUR')}</span>
               </div>
             ))}
           </div>
-          <p className="text-xs text-gray-500">
+          <p className="text-xs text-ink-muted">
             Savings rate on take-home: {formatNumber(savingsRate * 100, 1)}%. Annual spending used:{' '}
             {formatCurrency(annualExpenses, 0, 'EUR')}.
           </p>
@@ -233,20 +233,20 @@ export default function IrishTakeHomeFirePage() {
 
         <div className="card space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-gray-900">Progress to FIRE</h3>
+            <h3 className="text-lg font-semibold text-white">Progress to FIRE</h3>
             <span className="text-sm font-semibold text-primary">{formatCurrency(currentSavings, 0, 'EUR')}</span>
           </div>
-          <div className="h-3 w-full overflow-hidden rounded-full bg-gray-100">
+          <div className="h-3 w-full overflow-hidden rounded-full bg-glass-subtle">
             <div className="h-full bg-gradient-primary" style={{ width: `${progress}%` }} />
           </div>
-          <div className="flex justify-between text-xs text-gray-500">
+          <div className="flex justify-between text-xs text-ink-muted">
             <span>Current</span>
             <span>Goal: {formatCurrency(fireNumber, 0, 'EUR')}</span>
           </div>
         </div>
 
         {/* Amazon affiliate slot — Product can drop in a live tag later. Empty on purpose: this repo has no affiliate IDs. */}
-        <div className="rounded-xl border border-dashed border-gray-200 bg-white px-4 py-3 text-xs text-gray-400">
+        <div className="rounded-xl border border-dashed border-glass-line bg-glass px-4 py-3 text-xs text-ink-muted">
           Optional reading list goes here later. Nothing for sale on this page.
         </div>
       </div>

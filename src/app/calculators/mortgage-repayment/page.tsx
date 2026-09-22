@@ -73,9 +73,9 @@ export default function MortgageRepaymentPage() {
           <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
             {MORTGAGE_REPAYMENT_BADGE}
           </span>
-          <h1 className="text-2xl font-bold text-gray-900">Mortgage repayment</h1>
-          <p className="mt-1 text-sm text-gray-700">{EXAMPLE_NUMBERS_LINE}</p>
-          <p className="text-sm text-gray-600">
+          <h1 className="text-2xl font-bold text-white">Mortgage repayment</h1>
+          <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
+          <p className="text-sm text-ink-body">
             What would this mortgage cost per month? Headline is the repay at the quoted rate. Numbers update as you
             type.
           </p>
@@ -105,7 +105,7 @@ export default function MortgageRepaymentPage() {
               error={formState.errors.annualRatePercent}
               suffix="%"
             />
-            <p className="text-xs text-gray-500">{MORTGAGE_REPAYMENT_RATE_HINT}</p>
+            <p className="text-xs text-ink-muted">{MORTGAGE_REPAYMENT_RATE_HINT}</p>
           </div>
           <InputField
             label="Term years"
@@ -130,36 +130,36 @@ export default function MortgageRepaymentPage() {
               error={formState.errors.stressRatePercent}
               suffix="%"
             />
-            <p className="text-xs text-gray-500">{MORTGAGE_REPAYMENT_STRESS_HINT}</p>
+            <p className="text-xs text-ink-muted">{MORTGAGE_REPAYMENT_STRESS_HINT}</p>
           </div>
         </div>
 
-        <p className="text-xs text-gray-500">{MORTGAGE_REPAYMENT_FOOTNOTE}</p>
+        <p className="text-xs text-ink-muted">{MORTGAGE_REPAYMENT_FOOTNOTE}</p>
       </div>
 
       <div className="space-y-4">
         <div className="card space-y-4">
           <div>
-            <p className="text-sm font-semibold text-gray-600">Result</p>
+            <p className="text-sm font-semibold text-ink-body">Result</p>
             <p className="mt-1 text-3xl font-bold text-primary">{headline}</p>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Stress monthly</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.stressMonthlyPayment)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Stress monthly</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.stressMonthlyPayment)}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Total interest</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.totalInterest)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Total interest</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.totalInterest)}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Total paid</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.totalPaid)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Total paid</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.totalPaid)}</p>
             </div>
           </div>
 
-          <p className="text-sm text-gray-700">
+          <p className="text-sm text-ink-body">
             <a
               href={LONGEVITY_LINK_HREF}
               target="_blank"
@@ -172,9 +172,9 @@ export default function MortgageRepaymentPage() {
         </div>
 
         <div className="card space-y-2">
-          <p className="text-sm font-semibold text-gray-600">Stress-rate repay</p>
+          <p className="text-sm font-semibold text-ink-body">Stress-rate repay</p>
           <p className="text-3xl font-bold text-primary">{formatEuro(result.stressMonthlyPayment)}</p>
-          <p className="text-sm font-semibold text-gray-800">
+          <p className="text-sm font-semibold text-white">
             At {Number.isFinite(stressRatePercent) ? String(stressRatePercent) : '0'}% —{' '}
             {formatEuro(result.stressTotalPaid)} paid over the term
           </p>

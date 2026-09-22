@@ -76,9 +76,9 @@ export default function EmergencyFundMonthsPage() {
           <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
             {EMERGENCY_FUND_BADGE}
           </span>
-          <h1 className="text-2xl font-bold text-gray-900">Emergency fund months</h1>
-          <p className="mt-1 text-sm text-gray-700">{EXAMPLE_NUMBERS_LINE}</p>
-          <p className="text-sm text-gray-600">
+          <h1 className="text-2xl font-bold text-white">Emergency fund months</h1>
+          <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
+          <p className="text-sm text-ink-body">
             How many months of essential expenses your rainy-day cash covers. Numbers update as you type.
           </p>
         </div>
@@ -117,45 +117,45 @@ export default function EmergencyFundMonthsPage() {
             suffix="€"
           />
           <div className="flex flex-col justify-end gap-2">
-            <p className="text-sm font-semibold text-gray-800">Target band</p>
-            <div className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 text-sm text-gray-700">
+            <p className="text-sm font-semibold text-white">Target band</p>
+            <div className="rounded-lg border border-glass-line bg-glass-subtle px-4 py-3 text-sm text-ink-body">
               {BAND_MIN_MONTHS}–{BAND_MAX_MONTHS} months — fixed in this version
             </div>
           </div>
         </div>
 
-        <p className="text-xs text-gray-500">{EMERGENCY_FUND_FOOTNOTE}</p>
+        <p className="text-xs text-ink-muted">{EMERGENCY_FUND_FOOTNOTE}</p>
       </div>
 
       <div className="space-y-4">
         <div className="card space-y-4">
           <div>
-            <p className="text-sm font-semibold text-gray-600">Result</p>
+            <p className="text-sm font-semibold text-ink-body">Result</p>
             <p className="mt-1 text-3xl font-bold text-primary">{headline}</p>
-            {subline ? <p className="mt-2 text-sm font-semibold text-gray-700">{subline}</p> : null}
+            {subline ? <p className="mt-2 text-sm font-semibold text-ink-body">{subline}</p> : null}
           </div>
 
           {'error' in result ? null : (
             <div className="grid gap-3 sm:grid-cols-2">
-              <div className="rounded-lg bg-gray-50 px-4 py-3">
-                <p className="text-sm font-semibold text-gray-600">Rainy-day cash</p>
-                <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(cash)}</p>
+              <div className="rounded-lg bg-glass-subtle px-4 py-3">
+                <p className="text-sm font-semibold text-ink-body">Rainy-day cash</p>
+                <p className="mt-1 text-xl font-bold text-white">{formatEuro(cash)}</p>
               </div>
-              <div className="rounded-lg bg-gray-50 px-4 py-3">
-                <p className="text-sm font-semibold text-gray-600">Monthly essentials</p>
-                <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(monthlyExpenses)}</p>
+              <div className="rounded-lg bg-glass-subtle px-4 py-3">
+                <p className="text-sm font-semibold text-ink-body">Monthly essentials</p>
+                <p className="mt-1 text-xl font-bold text-white">{formatEuro(monthlyExpenses)}</p>
               </div>
             </div>
           )}
 
           {rebuildLine ? (
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Months to rebuild to 6 months</p>
-              <p className="mt-1 text-sm font-bold text-gray-900">{rebuildLine}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Months to rebuild to 6 months</p>
+              <p className="mt-1 text-sm font-bold text-white">{rebuildLine}</p>
             </div>
           ) : null}
 
-          <p className="text-sm text-gray-700">
+          <p className="text-sm text-ink-body">
             <a
               href={LONGEVITY_LINK_HREF}
               target="_blank"

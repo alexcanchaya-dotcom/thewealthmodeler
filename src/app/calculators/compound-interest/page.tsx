@@ -57,8 +57,8 @@ export default function CompoundInterestPage() {
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card">
-        <h1 className="text-2xl font-bold text-gray-900">Compound Interest Calculator</h1>
-        <p className="text-sm text-gray-600">See how your investments grow with monthly contributions and annual compounding.</p>
+        <h1 className="text-2xl font-bold text-white">Compound Interest Calculator</h1>
+        <p className="text-sm text-ink-body">See how your investments grow with monthly contributions and annual compounding.</p>
         <form className="mt-6 space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <InputField
             label="Initial Investment ($)"
@@ -104,14 +104,14 @@ export default function CompoundInterestPage() {
             { label: 'Total Interest Earned', value: result.totalInterest },
           ]}
           extra={
-            <div className="text-xs text-gray-500">
+            <div className="text-xs text-ink-muted">
               Final amount shown with annual compounding. Total contributions include your initial investment plus monthly deposits.
             </div>
           }
         />
         <div className="card space-y-3">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-gray-900">Growth Over Time</h3>
+            <h3 className="text-lg font-semibold text-white">Growth Over Time</h3>
             <span className="text-sm font-semibold text-primary">{formatCurrency(result.finalAmount)}</span>
           </div>
           <Chart labels={chartLabels} totalValue={totalValues} contributions={contributions} />

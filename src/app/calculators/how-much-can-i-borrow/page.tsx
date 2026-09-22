@@ -86,9 +86,9 @@ export default function HowMuchCanIBorrowPage() {
           <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
             {HOW_MUCH_CAN_I_BORROW_BADGE}
           </span>
-          <h1 className="text-2xl font-bold text-gray-900">How much can I borrow</h1>
-          <p className="mt-1 text-sm text-gray-700">{EXAMPLE_NUMBERS_LINE}</p>
-          <p className="text-sm text-gray-600">
+          <h1 className="text-2xl font-bold text-white">How much can I borrow</h1>
+          <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
+          <p className="text-sm text-ink-body">
             Roughly how much mortgage you could borrow from income and deposit. The headline is the lower of a simple
             income (LTI) cap and an LTV cap. Numbers update as you type.
           </p>
@@ -127,7 +127,7 @@ export default function HowMuchCanIBorrowPage() {
               })}
               error={formState.errors.ltiMultiple}
             />
-            <p className="text-xs text-gray-500">{HOW_MUCH_CAN_I_BORROW_LTI_HINT}</p>
+            <p className="text-xs text-ink-muted">{HOW_MUCH_CAN_I_BORROW_LTI_HINT}</p>
           </div>
           <InputField
             label="Deposit / equity (€)"
@@ -152,44 +152,44 @@ export default function HowMuchCanIBorrowPage() {
               error={formState.errors.maxLtvPercent}
               suffix="%"
             />
-            <p className="text-xs text-gray-500">{HOW_MUCH_CAN_I_BORROW_LTV_HINT}</p>
+            <p className="text-xs text-ink-muted">{HOW_MUCH_CAN_I_BORROW_LTV_HINT}</p>
           </div>
         </div>
 
-        <p className="text-xs text-gray-500">{HOW_MUCH_CAN_I_BORROW_FOOTNOTE}</p>
+        <p className="text-xs text-ink-muted">{HOW_MUCH_CAN_I_BORROW_FOOTNOTE}</p>
       </div>
 
       <div className="space-y-4">
         <div className="card space-y-4">
           <div>
-            <p className="text-sm font-semibold text-gray-600">Result</p>
+            <p className="text-sm font-semibold text-ink-body">Result</p>
             <p className="mt-1 text-3xl font-bold text-primary">{headline}</p>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Income cap</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.incomeCap)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Income cap</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.incomeCap)}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">LTV cap</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">LTV cap</p>
+              <p className="mt-1 text-xl font-bold text-white">
                 {result.ltvCap === null ? 'Unlimited' : formatEuro(result.ltvCap)}
               </p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Binding limit</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{bindingLabel(result.binding)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Binding limit</p>
+              <p className="mt-1 text-xl font-bold text-white">{bindingLabel(result.binding)}</p>
             </div>
           </div>
 
-          <div className="rounded-lg bg-gray-50 px-4 py-3">
-            <p className="text-sm font-semibold text-gray-600">Implied max property</p>
-            <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.impliedProperty)}</p>
-            <p className="mt-1 text-xs text-gray-500">Borrowable + deposit</p>
+          <div className="rounded-lg bg-glass-subtle px-4 py-3">
+            <p className="text-sm font-semibold text-ink-body">Implied max property</p>
+            <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.impliedProperty)}</p>
+            <p className="mt-1 text-xs text-ink-muted">Borrowable + deposit</p>
           </div>
 
-          <p className="text-sm text-gray-700">
+          <p className="text-sm text-ink-body">
             <a
               href={LONGEVITY_LINK_HREF}
               target="_blank"

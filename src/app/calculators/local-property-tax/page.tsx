@@ -67,9 +67,9 @@ export default function LocalPropertyTaxPage() {
           <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
             {LOCAL_PROPERTY_TAX_BADGE}
           </span>
-          <h1 className="text-2xl font-bold text-gray-900">Local Property Tax</h1>
-          <p className="mt-1 text-sm text-gray-700">{EXAMPLE_NUMBERS_LINE}</p>
-          <p className="text-sm text-gray-600">
+          <h1 className="text-2xl font-bold text-white">Local Property Tax</h1>
+          <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
+          <p className="text-sm text-ink-body">
             About how much Local Property Tax you might pay from property market value. Numbers update as you type.
           </p>
         </div>
@@ -87,7 +87,7 @@ export default function LocalPropertyTaxPage() {
               error={formState.errors.propertyValue}
               suffix="€"
             />
-            <p className="text-xs text-gray-500">{LOCAL_PROPERTY_TAX_VALUE_HINT}</p>
+            <p className="text-xs text-ink-muted">{LOCAL_PROPERTY_TAX_VALUE_HINT}</p>
           </div>
           <div className="space-y-2">
             <InputField
@@ -102,39 +102,39 @@ export default function LocalPropertyTaxPage() {
               error={formState.errors.localAdjustmentPercent}
               suffix="%"
             />
-            <p className="text-xs text-gray-500">{LOCAL_PROPERTY_TAX_LOCAL_HINT}</p>
+            <p className="text-xs text-ink-muted">{LOCAL_PROPERTY_TAX_LOCAL_HINT}</p>
           </div>
         </div>
 
-        <p className="text-xs text-gray-500">{LOCAL_PROPERTY_TAX_FOOTNOTE}</p>
+        <p className="text-xs text-ink-muted">{LOCAL_PROPERTY_TAX_FOOTNOTE}</p>
       </div>
 
       <div className="space-y-4">
         <div className="card space-y-4">
           <div>
-            <p className="text-sm font-semibold text-gray-600">Result</p>
+            <p className="text-sm font-semibold text-ink-body">Result</p>
             <p className="mt-1 text-3xl font-bold text-primary">{headline}</p>
-            {result.bandLabel ? <p className="mt-2 text-sm text-gray-700">{result.bandLabel}</p> : null}
-            {monthlyLine ? <p className="mt-1 text-sm text-gray-700">{monthlyLine}</p> : null}
+            {result.bandLabel ? <p className="mt-2 text-sm text-ink-body">{result.bandLabel}</p> : null}
+            {monthlyLine ? <p className="mt-1 text-sm text-ink-body">{monthlyLine}</p> : null}
             {showBasicBeforeLocal ? (
-              <p className="mt-1 text-sm text-gray-700">
+              <p className="mt-1 text-sm text-ink-body">
                 Basic {formatEuro(result.basic)} / year before local adjustment
               </p>
             ) : null}
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Yearly</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.yearly)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Yearly</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.yearly)}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Monthly</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.monthly, 2)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Monthly</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.monthly, 2)}</p>
             </div>
           </div>
 
-          <p className="text-sm text-gray-700">
+          <p className="text-sm text-ink-body">
             <a
               href={LONGEVITY_LINK_HREF}
               target="_blank"

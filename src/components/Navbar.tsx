@@ -83,7 +83,7 @@ export default function Navbar() {
                               : null;
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-gradient-primary text-white shadow-lg">
+    <header className="sticky top-0 z-50 w-full border-b border-glass-line bg-night/85 text-white shadow-lg backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
         <div className="flex min-w-0 flex-1 flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
           <Link href="/" className="text-xl font-bold tracking-tight">
@@ -102,7 +102,7 @@ export default function Navbar() {
                   onMouseEnter={() => setIsDropdownOpen(true)}
                   onMouseLeave={() => setIsDropdownOpen(false)}
                   onClick={() => setIsDropdownOpen((prev) => !prev)}
-                  className="flex items-center gap-2 text-sm font-semibold transition hover:text-blue-100"
+                  className="flex items-center gap-2 text-sm font-semibold transition hover:text-white/80"
                 >
                   <item.icon className="h-5 w-5" />
                   {item.name}
@@ -111,8 +111,8 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   className={clsx(
-                    'flex items-center gap-2 text-sm font-semibold transition hover:text-blue-100',
-                    pathname === item.href && 'text-blue-100'
+                    'flex items-center gap-2 text-sm font-semibold transition hover:text-white/80',
+                    pathname === item.href && 'text-white/80'
                   )}
                 >
                   {item.icon && <item.icon className="h-5 w-5" />}
@@ -124,14 +124,14 @@ export default function Navbar() {
                 <div
                   onMouseEnter={() => setIsDropdownOpen(true)}
                   onMouseLeave={() => setIsDropdownOpen(false)}
-                  className="absolute right-0 mt-3 w-64 rounded-xl bg-white p-3 text-gray-900 shadow-xl"
+                  className="absolute right-0 mt-3 w-64 rounded-xl border border-glass-line bg-night/95 p-3 text-white shadow-xl backdrop-blur-xl"
                 >
                   <div className="flex flex-col space-y-2">
                     {item.children.map((child) => (
                       <Link
                         key={child.name}
                         href={child.href}
-                        className="rounded-lg px-3 py-2 text-sm font-semibold transition hover:bg-gray-100"
+                        className="rounded-lg px-3 py-2 text-sm font-semibold transition hover:bg-glass-subtle"
                       >
                         {child.name}
                       </Link>
@@ -154,9 +154,9 @@ export default function Navbar() {
 
       {isOpen && (
         <div className="md:hidden">
-          <div className="space-y-1 bg-white px-4 pb-4 pt-2 text-gray-800 shadow-lg">
+          <div className="space-y-1 border-b border-glass-line bg-night/95 px-4 pb-4 pt-2 text-white shadow-lg backdrop-blur-xl">
             {navItems.map((item) => (
-              <div key={item.name} className="border-b border-gray-100 pb-2">
+              <div key={item.name} className="border-b border-glass-line pb-2">
                 {item.children ? (
                   <details className="group">
                     <summary className="flex cursor-pointer items-center justify-between py-2 text-sm font-semibold">
@@ -164,14 +164,14 @@ export default function Navbar() {
                         <item.icon className="h-5 w-5 text-primary" />
                         {item.name}
                       </span>
-                      <span className="text-xs text-gray-500">Tap to expand</span>
+                      <span className="text-xs text-ink-muted">Tap to expand</span>
                     </summary>
                     <div className="mt-2 space-y-1 pl-7">
                       {item.children.map((child) => (
                         <Link
                           key={child.name}
                           href={child.href}
-                          className="block rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100"
+                          className="block rounded-lg px-3 py-2 text-sm font-medium text-ink-body transition hover:bg-glass-subtle"
                           onClick={() => setIsOpen(false)}
                         >
                           {child.name}
@@ -182,7 +182,7 @@ export default function Navbar() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="flex items-center gap-2 py-2 text-sm font-semibold text-gray-800 transition hover:text-primary"
+                    className="flex items-center gap-2 py-2 text-sm font-semibold text-white transition hover:text-primary"
                     onClick={() => setIsOpen(false)}
                   >
                     <item.icon className="h-5 w-5 text-primary" />
