@@ -10,15 +10,15 @@ interface ResultsDisplayProps {
 
 export default function ResultsDisplay({ title, rows, extra, currency = 'USD' }: ResultsDisplayProps) {
   return (
-    <div className="card space-y-4">
+    <div className="card space-y-5">
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-gray-900">{title}</h3>
+        <h3 className="text-xl font-semibold tracking-tight text-text">{title}</h3>
       </div>
       <div className="space-y-3">
         {rows.map((row) => (
-          <div key={row.label} className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3">
-            <span className="text-sm font-semibold text-gray-600">{row.label}</span>
-            <span className={`text-sm font-bold ${row.highlight ? 'text-primary' : 'text-gray-900'}`}>
+          <div key={row.label} className="flex items-center justify-between rounded-xl border border-mist/70 bg-background/80 px-4 py-3.5">
+            <span className="text-sm font-medium text-muted">{row.label}</span>
+            <span className={`text-sm font-semibold ${row.highlight ? 'text-primary' : 'text-text'}`}>
               {typeof row.value === 'number' ? formatCurrency(row.value, 0, currency) : row.value}
             </span>
           </div>

@@ -83,18 +83,18 @@ export default function Navbar() {
                               : null;
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-gradient-primary text-white shadow-lg">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+    <header className="sticky top-0 z-50 w-full border-b border-mist/80 bg-white/90 text-text shadow-soft backdrop-blur-md">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3.5">
         <div className="flex min-w-0 flex-1 flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
-          <Link href="/" className="text-xl font-bold tracking-tight">
+          <Link href="/" className="text-lg font-semibold tracking-tight text-primary">
             The Wealth Modeler
           </Link>
-          <span className="w-fit rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-medium leading-snug text-white/90">
+          <span className="w-fit rounded-full border border-mist bg-background px-2.5 py-0.5 text-[11px] font-medium leading-snug text-muted">
             {irelandBadge ?? 'US model — rules differ in Ireland & EU'}
           </span>
         </div>
 
-        <nav className="hidden items-center space-x-6 md:flex">
+        <nav className="hidden items-center space-x-5 md:flex">
           {navItems.map((item) => (
             <div key={item.name} className="relative">
               {item.children ? (
@@ -102,20 +102,20 @@ export default function Navbar() {
                   onMouseEnter={() => setIsDropdownOpen(true)}
                   onMouseLeave={() => setIsDropdownOpen(false)}
                   onClick={() => setIsDropdownOpen((prev) => !prev)}
-                  className="flex items-center gap-2 text-sm font-semibold transition hover:text-blue-100"
+                  className="flex items-center gap-2 text-sm font-medium text-text transition hover:text-primary"
                 >
-                  <item.icon className="h-5 w-5" />
+                  <item.icon className="h-4 w-4 text-muted" />
                   {item.name}
                 </button>
               ) : (
                 <Link
                   href={item.href}
                   className={clsx(
-                    'flex items-center gap-2 text-sm font-semibold transition hover:text-blue-100',
-                    pathname === item.href && 'text-blue-100'
+                    'flex items-center gap-2 text-sm font-medium transition hover:text-primary',
+                    pathname === item.href ? 'text-primary' : 'text-text'
                   )}
                 >
-                  {item.icon && <item.icon className="h-5 w-5" />}
+                  {item.icon && <item.icon className="h-4 w-4 text-muted" />}
                   {item.name}
                 </Link>
               )}
@@ -124,14 +124,14 @@ export default function Navbar() {
                 <div
                   onMouseEnter={() => setIsDropdownOpen(true)}
                   onMouseLeave={() => setIsDropdownOpen(false)}
-                  className="absolute right-0 mt-3 w-64 rounded-xl bg-white p-3 text-gray-900 shadow-xl"
+                  className="absolute right-0 mt-3 max-h-[70vh] w-72 overflow-y-auto rounded-card border border-mist bg-white p-3 text-text shadow-card"
                 >
-                  <div className="flex flex-col space-y-2">
+                  <div className="flex flex-col space-y-1">
                     {item.children.map((child) => (
                       <Link
                         key={child.name}
                         href={child.href}
-                        className="rounded-lg px-3 py-2 text-sm font-semibold transition hover:bg-gray-100"
+                        className="rounded-xl px-3 py-2 text-sm font-medium text-text transition hover:bg-background"
                       >
                         {child.name}
                       </Link>
@@ -144,7 +144,7 @@ export default function Navbar() {
         </nav>
 
         <button
-          className="rounded-lg p-2 hover:bg-white/10 md:hidden"
+          className="rounded-xl p-2 text-text hover:bg-background md:hidden"
           onClick={() => setIsOpen((prev) => !prev)}
           aria-label="Toggle navigation"
         >
@@ -154,24 +154,24 @@ export default function Navbar() {
 
       {isOpen && (
         <div className="md:hidden">
-          <div className="space-y-1 bg-white px-4 pb-4 pt-2 text-gray-800 shadow-lg">
+          <div className="space-y-1 border-t border-mist bg-white px-4 pb-4 pt-2 text-text shadow-soft">
             {navItems.map((item) => (
-              <div key={item.name} className="border-b border-gray-100 pb-2">
+              <div key={item.name} className="border-b border-mist/70 pb-2">
                 {item.children ? (
                   <details className="group">
-                    <summary className="flex cursor-pointer items-center justify-between py-2 text-sm font-semibold">
+                    <summary className="flex cursor-pointer items-center justify-between py-2 text-sm font-medium">
                       <span className="flex items-center gap-2">
                         <item.icon className="h-5 w-5 text-primary" />
                         {item.name}
                       </span>
-                      <span className="text-xs text-gray-500">Tap to expand</span>
+                      <span className="text-xs text-muted">Tap to expand</span>
                     </summary>
                     <div className="mt-2 space-y-1 pl-7">
                       {item.children.map((child) => (
                         <Link
                           key={child.name}
                           href={child.href}
-                          className="block rounded-lg px-3 py-2 text-sm font-medium text-gray-700 transition hover:bg-gray-100"
+                          className="block rounded-xl px-3 py-2 text-sm font-medium text-muted transition hover:bg-background hover:text-text"
                           onClick={() => setIsOpen(false)}
                         >
                           {child.name}
@@ -182,7 +182,7 @@ export default function Navbar() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="flex items-center gap-2 py-2 text-sm font-semibold text-gray-800 transition hover:text-primary"
+                    className="flex items-center gap-2 py-2 text-sm font-medium text-text transition hover:text-primary"
                     onClick={() => setIsOpen(false)}
                   >
                     <item.icon className="h-5 w-5 text-primary" />
