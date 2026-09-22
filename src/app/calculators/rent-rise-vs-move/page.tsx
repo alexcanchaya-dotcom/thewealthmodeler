@@ -77,9 +77,9 @@ export default function RentRiseVsMovePage() {
           <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
             {RENT_RISE_VS_MOVE_BADGE}
           </span>
-          <h1 className="text-2xl font-bold text-gray-900">Rent rise vs cost of moving</h1>
-          <p className="mt-1 text-sm text-gray-700">{EXAMPLE_NUMBERS_LINE}</p>
-          <p className="text-sm text-gray-600">
+          <h1 className="text-2xl font-bold text-white">Rent rise vs cost of moving</h1>
+          <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
+          <p className="text-sm text-ink-body">
             Landlord raises rent — cheaper to stay or move? Compare the extra rent if you stay with the one-time cost of
             moving over a chosen horizon. Numbers update as you type.
           </p>
@@ -141,45 +141,45 @@ export default function RentRiseVsMovePage() {
               error={formState.errors.newPlaceRent}
               suffix="€"
             />
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-ink-muted">
               Defaults to current rent — move to a similar rent. Change only if the new place costs more or less.
             </p>
           </div>
         </div>
 
-        <p className="text-xs text-gray-500">{RENT_RISE_VS_MOVE_FOOTNOTE}</p>
+        <p className="text-xs text-ink-muted">{RENT_RISE_VS_MOVE_FOOTNOTE}</p>
       </div>
 
       <div className="space-y-4">
         <div className="card space-y-4">
           <div>
-            <p className="text-sm font-semibold text-gray-600">Result</p>
+            <p className="text-sm font-semibold text-ink-body">Result</p>
             <p className="mt-1 text-3xl font-bold text-primary">{headline}</p>
-            <p className="mt-2 text-sm text-gray-700">{paybackLine}</p>
+            <p className="mt-2 text-sm text-ink-body">{paybackLine}</p>
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Stay extra total</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.stayCost)}</p>
-              <p className="mt-1 text-xs text-gray-500">
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Stay extra total</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.stayCost)}</p>
+              <p className="mt-1 text-xs text-ink-muted">
                 {formatEuro(result.extraPerMonth)} / month × {result.horizonMonths || 0}
               </p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Move one-time</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.moveCostOneTime)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Move one-time</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.moveCostOneTime)}</p>
               {result.newPlaceExtraOverHorizon > 0 ? (
-                <p className="mt-1 text-xs text-gray-500">
+                <p className="mt-1 text-xs text-ink-muted">
                   Plus {formatEuro(result.newPlaceExtraOverHorizon)} extra rent at the new place
                 </p>
               ) : null}
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Break-even months</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{breakEvenLabel}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Break-even months</p>
+              <p className="mt-1 text-xl font-bold text-white">{breakEvenLabel}</p>
             </div>
           </div>
-          <p className="text-sm text-gray-700">
+          <p className="text-sm text-ink-body">
             <a
               href={LONGEVITY_LINK_HREF}
               target="_blank"

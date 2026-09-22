@@ -97,9 +97,9 @@ export default function MortgageVsRentPage() {
           <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
             {MORTGAGE_VS_RENT_BADGE}
           </span>
-          <h1 className="text-2xl font-bold text-gray-900">Mortgage vs rent</h1>
-          <p className="mt-1 text-sm text-gray-700">{EXAMPLE_NUMBERS_LINE}</p>
-          <p className="text-sm text-gray-600">
+          <h1 className="text-2xl font-bold text-white">Mortgage vs rent</h1>
+          <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
+          <p className="text-sm text-ink-body">
             Same home, same month — is renting or buying cheaper this month, and roughly over the term? Numbers update as
             you type.
           </p>
@@ -131,13 +131,13 @@ export default function MortgageVsRentPage() {
 
           <div className="sm:col-span-2 space-y-3">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <p className="text-sm font-semibold text-gray-800">Deposit</p>
-              <div className="inline-flex rounded-lg border border-gray-200 bg-gray-50 p-1">
+              <p className="text-sm font-semibold text-white">Deposit</p>
+              <div className="inline-flex rounded-lg border border-glass-line bg-glass-subtle p-1">
                 <button
                   type="button"
                   onClick={() => switchDepositMode('percent')}
                   className={`rounded-md px-3 py-1 text-xs font-semibold ${
-                    depositMode === 'percent' ? 'bg-white text-primary shadow-sm' : 'text-gray-600'
+                    depositMode === 'percent' ? 'bg-glass text-primary shadow-sm' : 'text-ink-body'
                   }`}
                 >
                   %
@@ -146,7 +146,7 @@ export default function MortgageVsRentPage() {
                   type="button"
                   onClick={() => switchDepositMode('euro')}
                   className={`rounded-md px-3 py-1 text-xs font-semibold ${
-                    depositMode === 'euro' ? 'bg-white text-primary shadow-sm' : 'text-gray-600'
+                    depositMode === 'euro' ? 'bg-glass text-primary shadow-sm' : 'text-ink-body'
                   }`}
                 >
                   €
@@ -203,41 +203,41 @@ export default function MortgageVsRentPage() {
               error={formState.errors.otherMonthlyCosts}
               suffix="€"
             />
-            <p className="text-xs text-gray-500">insurance / service / rates lump</p>
+            <p className="text-xs text-ink-muted">insurance / service / rates lump</p>
           </div>
         </div>
 
-        <p className="text-xs text-gray-500">{MORTGAGE_VS_RENT_FOOTNOTE}</p>
+        <p className="text-xs text-ink-muted">{MORTGAGE_VS_RENT_FOOTNOTE}</p>
       </div>
 
       <div className="space-y-4">
         <div className="card space-y-4">
           <div>
-            <p className="text-sm font-semibold text-gray-600">Result</p>
+            <p className="text-sm font-semibold text-ink-body">Result</p>
             <p className="mt-1 text-3xl font-bold text-primary">{result.headline}</p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Rent this month</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(monthlyRent)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Rent this month</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(monthlyRent)}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Buy this month</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.buyTotal)}</p>
-              <p className="mt-1 text-xs text-gray-500">
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Buy this month</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.buyTotal)}</p>
+              <p className="mt-1 text-xs text-ink-muted">
                 Mortgage {formatEuro(result.mortgagePayment)} + other {formatEuro(otherMonthlyCosts)}
               </p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Loan size</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.loan)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Loan size</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.loan)}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Deposit needed</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.deposit)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Deposit needed</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.deposit)}</p>
             </div>
           </div>
-          <p className="text-sm text-gray-700">
+          <p className="text-sm text-ink-body">
             <a
               href={LONGEVITY_LINK_HREF}
               target="_blank"
@@ -250,9 +250,9 @@ export default function MortgageVsRentPage() {
         </div>
 
         <div className="card space-y-2">
-          <p className="text-sm font-semibold text-gray-600">If you hold the mortgage to term</p>
-          <p className="text-lg font-bold text-gray-900">Total interest {formatEuro(result.totalInterest)}</p>
-          <p className="text-xs text-gray-500">
+          <p className="text-sm font-semibold text-ink-body">If you hold the mortgage to term</p>
+          <p className="text-lg font-bold text-white">Total interest {formatEuro(result.totalInterest)}</p>
+          <p className="text-xs text-ink-muted">
             Secondary sketch only — not the headline. Assumes the loan is held for {termYears || 0} years at the entered
             AER.
           </p>

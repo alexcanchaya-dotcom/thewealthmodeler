@@ -73,9 +73,9 @@ export default function StatePensionPrsiGapPage() {
           <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
             {STATE_PENSION_PRSI_GAP_BADGE}
           </span>
-          <h1 className="text-2xl font-bold text-gray-900">State Pension / PRSI gap</h1>
-          <p className="mt-1 text-sm text-gray-700">{EXAMPLE_NUMBERS_LINE}</p>
-          <p className="text-sm text-gray-600">
+          <h1 className="text-2xl font-bold text-white">State Pension / PRSI gap</h1>
+          <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
+          <p className="text-sm text-ink-body">
             How much of your retirement spend the State Pension covers, and the monthly gap to fill from savings.
             Numbers update as you type.
           </p>
@@ -105,7 +105,7 @@ export default function StatePensionPrsiGapPage() {
               error={formState.errors.weeklyStatePension}
               suffix="€"
             />
-            <p className="text-xs text-gray-500">{STATE_PENSION_WEEKLY_HINT}</p>
+            <p className="text-xs text-ink-muted">{STATE_PENSION_WEEKLY_HINT}</p>
           </div>
           <div className="space-y-2">
             <InputField
@@ -120,7 +120,7 @@ export default function StatePensionPrsiGapPage() {
               error={formState.errors.completenessPercent}
               suffix="%"
             />
-            <p className="text-xs text-gray-500">{STATE_PENSION_COMPLETENESS_HINT}</p>
+            <p className="text-xs text-ink-muted">{STATE_PENSION_COMPLETENESS_HINT}</p>
           </div>
           <InputField
             label="Optional private pension / other income (€ / month)"
@@ -134,41 +134,41 @@ export default function StatePensionPrsiGapPage() {
           />
         </div>
 
-        <p className="text-xs text-gray-500">{STATE_PENSION_PRSI_GAP_FOOTNOTE}</p>
+        <p className="text-xs text-ink-muted">{STATE_PENSION_PRSI_GAP_FOOTNOTE}</p>
       </div>
 
       <div className="space-y-4">
         <div className="card space-y-4">
           <div>
-            <p className="text-sm font-semibold text-gray-600">Result</p>
+            <p className="text-sm font-semibold text-ink-body">Result</p>
             <p className="mt-1 text-3xl font-bold text-primary">{headline}</p>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Target</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(targetMonthly)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Target</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(targetMonthly)}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">State Pension/mo</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.statePensionMonthly)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">State Pension/mo</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.statePensionMonthly)}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Other</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(otherIncomeMonthly)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Other</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(otherIncomeMonthly)}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Gap</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.gapMonthly)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Gap</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.gapMonthly)}</p>
             </div>
           </div>
 
-          <div className="rounded-lg bg-gray-50 px-4 py-3">
-            <p className="text-sm font-semibold text-gray-600">Annual gap</p>
-            <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.gapAnnual)}</p>
+          <div className="rounded-lg bg-glass-subtle px-4 py-3">
+            <p className="text-sm font-semibold text-ink-body">Annual gap</p>
+            <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.gapAnnual)}</p>
           </div>
 
-          <p className="text-sm text-gray-700">
+          <p className="text-sm text-ink-body">
             <a
               href={LONGEVITY_LINK_HREF}
               target="_blank"

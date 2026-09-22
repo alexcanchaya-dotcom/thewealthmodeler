@@ -58,9 +58,9 @@ export default function FIREPage() {
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card space-y-4">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">FIRE Calculator</h1>
-          <p className="mt-1 text-sm text-gray-700">These are example numbers — change them. Not advice.</p>
-          <p className="text-sm text-gray-600">Find your FIRE number, timeline, and how much to save each month.</p>
+          <h1 className="text-2xl font-bold text-white">FIRE Calculator</h1>
+          <p className="mt-1 text-sm text-ink-body">These are example numbers — change them. Not advice.</p>
+          <p className="text-sm text-ink-body">Find your FIRE number, timeline, and how much to save each month.</p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
           <InputField
@@ -104,7 +104,7 @@ export default function FIREPage() {
           />
         </div>
 
-        <div className="flex flex-wrap gap-4 rounded-xl border border-gray-100 bg-gray-50 p-4">
+        <div className="flex flex-wrap gap-4 rounded-xl border border-glass-line bg-glass-subtle p-4">
           <Toggle label="Coast FIRE" enabled={coastFire} onChange={setCoastFire} description="Pause contributions once your current investments can grow to target." />
           <Toggle label="Barista FIRE" enabled={baristaFire} onChange={setBaristaFire} description="Supplement savings with part-time work." />
         </div>
@@ -121,7 +121,7 @@ export default function FIREPage() {
             { label: 'Monthly Savings Needed', value: monthlySavingsNeeded },
           ]}
           extra={
-            <div className="rounded-lg bg-blue-50 px-4 py-3 text-xs text-blue-800">
+            <div className="rounded-lg bg-primary/15 px-4 py-3 text-xs text-white/80">
               Savings rate is calculated as (Income - Expenses) / Income. Adjust Coast or Barista modes to see how different strategies impact your timeline.
             </div>
           }
@@ -129,26 +129,26 @@ export default function FIREPage() {
 
         <div className="card space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-gray-900">Progress to FIRE</h3>
+            <h3 className="text-lg font-semibold text-white">Progress to FIRE</h3>
             <span className="text-sm font-semibold text-primary">{formatCurrency(values.netWorth)}</span>
           </div>
-          <div className="h-3 w-full overflow-hidden rounded-full bg-gray-100">
+          <div className="h-3 w-full overflow-hidden rounded-full bg-glass-subtle">
             <div className="h-full bg-gradient-primary" style={{ width: `${progress}%` }} />
           </div>
-          <div className="flex justify-between text-xs text-gray-500">
+          <div className="flex justify-between text-xs text-ink-muted">
             <span>Current</span>
             <span>Goal: {formatCurrency(fireNumber)}</span>
           </div>
         </div>
 
         <div className="card space-y-3">
-          <h3 className="text-lg font-semibold text-gray-900">Scenario Comparison</h3>
+          <h3 className="text-lg font-semibold text-white">Scenario Comparison</h3>
           <div className="space-y-2">
             {comparisonRows.map((row) => (
-              <div key={row.label} className="flex items-center justify-between rounded-lg bg-gray-50 px-4 py-3">
+              <div key={row.label} className="flex items-center justify-between rounded-lg bg-glass-subtle px-4 py-3">
                 <div>
-                  <p className="text-sm font-semibold text-gray-800">{row.label}</p>
-                  <p className="text-xs text-gray-600">{row.note}</p>
+                  <p className="text-sm font-semibold text-white">{row.label}</p>
+                  <p className="text-xs text-ink-body">{row.note}</p>
                 </div>
                 <p className="text-sm font-bold text-primary">{formatNumber(row.years, 1)} yrs</p>
               </div>
@@ -169,19 +169,19 @@ interface ToggleProps {
 
 function Toggle({ label, enabled, onChange, description }: ToggleProps) {
   return (
-    <div className="flex flex-1 items-center justify-between rounded-lg bg-white px-4 py-3 shadow-sm">
+    <div className="flex flex-1 items-center justify-between rounded-lg bg-glass px-4 py-3 shadow-sm">
       <div>
-        <p className="text-sm font-semibold text-gray-800">{label}</p>
-        <p className="text-xs text-gray-500">{description}</p>
+        <p className="text-sm font-semibold text-white">{label}</p>
+        <p className="text-xs text-ink-muted">{description}</p>
       </div>
       <Switch
         checked={enabled}
         onChange={onChange}
-        className={`${enabled ? 'bg-primary' : 'bg-gray-200'} relative inline-flex h-7 w-14 items-center rounded-full transition`}
+        className={`${enabled ? 'bg-primary' : 'bg-glass-strong'} relative inline-flex h-7 w-14 items-center rounded-full transition`}
       >
         <span className="sr-only">Toggle {label}</span>
         <span
-          className={`${enabled ? 'translate-x-7' : 'translate-x-1'} inline-block h-5 w-5 transform rounded-full bg-white shadow-md transition`}
+          className={`${enabled ? 'translate-x-7' : 'translate-x-1'} inline-block h-5 w-5 transform rounded-full bg-glass shadow-md transition`}
         />
       </Switch>
     </div>

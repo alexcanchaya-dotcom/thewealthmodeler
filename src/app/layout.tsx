@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-background text-text`}>
+      <body className={`${inter.className} text-ink-body antialiased`}>
         <Navbar />
         <main className="fade-in mx-auto max-w-6xl px-4 pb-12 pt-10 md:pt-14">{children}</main>
         <Footer />

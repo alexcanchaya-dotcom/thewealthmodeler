@@ -74,9 +74,9 @@ export default function PensionVsTakeHomePage() {
           <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
             {PENSION_VS_TAKE_HOME_BADGE}
           </span>
-          <h1 className="text-2xl font-bold text-gray-900">Pension vs take-home</h1>
-          <p className="mt-1 text-sm text-gray-700">{EXAMPLE_NUMBERS_LINE}</p>
-          <p className="text-sm text-gray-600">
+          <h1 className="text-2xl font-bold text-white">Pension vs take-home</h1>
+          <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
+          <p className="text-sm text-ink-body">
             If you put more into your pension, how much does take-home drop after tax relief, and how much more goes
             into the pot? Numbers update as you type.
           </p>
@@ -129,13 +129,13 @@ export default function PensionVsTakeHomePage() {
 
           <div className="sm:col-span-2 space-y-3">
             <div className="flex flex-wrap items-center justify-between gap-2">
-              <p className="text-sm font-semibold text-gray-800">Your usual income-tax rate for relief</p>
-              <div className="inline-flex rounded-lg border border-gray-200 bg-gray-50 p-1">
+              <p className="text-sm font-semibold text-white">Your usual income-tax rate for relief</p>
+              <div className="inline-flex rounded-lg border border-glass-line bg-glass-subtle p-1">
                 <button
                   type="button"
                   onClick={() => setReliefRate(RELIEF_RATE_STANDARD)}
                   className={`rounded-md px-3 py-1 text-xs font-semibold ${
-                    reliefRate === RELIEF_RATE_STANDARD ? 'bg-white text-primary shadow-sm' : 'text-gray-600'
+                    reliefRate === RELIEF_RATE_STANDARD ? 'bg-glass text-primary shadow-sm' : 'text-ink-body'
                   }`}
                 >
                   20%
@@ -144,7 +144,7 @@ export default function PensionVsTakeHomePage() {
                   type="button"
                   onClick={() => setReliefRate(RELIEF_RATE_HIGHER)}
                   className={`rounded-md px-3 py-1 text-xs font-semibold ${
-                    reliefRate === RELIEF_RATE_HIGHER ? 'bg-white text-primary shadow-sm' : 'text-gray-600'
+                    reliefRate === RELIEF_RATE_HIGHER ? 'bg-glass text-primary shadow-sm' : 'text-ink-body'
                   }`}
                 >
                   40%
@@ -154,40 +154,40 @@ export default function PensionVsTakeHomePage() {
           </div>
         </div>
 
-        <p className="text-xs text-gray-500">{PENSION_VS_TAKE_HOME_FOOTNOTE}</p>
+        <p className="text-xs text-ink-muted">{PENSION_VS_TAKE_HOME_FOOTNOTE}</p>
       </div>
 
       <div className="space-y-4">
         <div className="card space-y-4">
           <div>
-            <p className="text-sm font-semibold text-gray-600">Result</p>
+            <p className="text-sm font-semibold text-ink-body">Result</p>
             <p className="mt-1 text-3xl font-bold text-primary">{headline}</p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">{netCostLabel}</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(Math.abs(result.netTakeHomeHit))}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">{netCostLabel}</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(Math.abs(result.netTakeHomeHit))}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Extra into pot</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.extraIntoPot)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Extra into pot</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.extraIntoPot)}</p>
               {employerMatchPercent > 0 ? (
-                <p className="mt-1 text-xs text-gray-500">
+                <p className="mt-1 text-xs text-ink-muted">
                   Includes employer match of {formatEuro(employerMatchEuro)} / month
                 </p>
               ) : null}
             </div>
           </div>
-          <div className="rounded-lg bg-gray-50 px-4 py-3">
-            <p className="text-sm font-semibold text-gray-600">Annualised</p>
-            <p className="mt-1 text-lg font-bold text-gray-900">
+          <div className="rounded-lg bg-glass-subtle px-4 py-3">
+            <p className="text-sm font-semibold text-ink-body">Annualised</p>
+            <p className="mt-1 text-lg font-bold text-white">
               {formatEuro(Math.abs(result.annualisedNetCost))} / year
             </p>
-            <p className="mt-1 text-xs text-gray-500">
+            <p className="mt-1 text-xs text-ink-muted">
               {formatEuro(Math.abs(result.netTakeHomeHit))} × 12
             </p>
           </div>
-          <p className="text-sm text-gray-700">
+          <p className="text-sm text-ink-body">
             <a
               href={LONGEVITY_LINK_HREF}
               target="_blank"

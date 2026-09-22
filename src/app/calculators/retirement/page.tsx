@@ -73,8 +73,8 @@ export default function RetirementPage() {
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card space-y-4">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">Retirement Calculator</h1>
-          <p className="text-sm text-gray-600">Estimate your nest egg, monthly income in retirement, and how long it may last.</p>
+          <h1 className="text-2xl font-bold text-white">Retirement Calculator</h1>
+          <p className="text-sm text-ink-body">Estimate your nest egg, monthly income in retirement, and how long it may last.</p>
         </div>
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -142,7 +142,7 @@ export default function RetirementPage() {
 
         <div className="card space-y-3">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold text-gray-900">Balance Projection</h3>
+            <h3 className="text-lg font-semibold text-white">Balance Projection</h3>
             <span className="text-sm font-semibold text-primary">{formatCurrency(growthProjection.finalAmount)}</span>
           </div>
           <Chart
@@ -155,7 +155,7 @@ export default function RetirementPage() {
         </div>
 
         <div className="card space-y-2">
-          <label className="text-sm font-semibold text-gray-800">Adjust Retirement Age</label>
+          <label className="text-sm font-semibold text-white">Adjust Retirement Age</label>
           <input
             type="range"
             min={watched.currentAge}
@@ -168,7 +168,7 @@ export default function RetirementPage() {
             }}
             className="w-full accent-primary"
           />
-          <div className="flex justify-between text-xs text-gray-600">
+          <div className="flex justify-between text-xs text-ink-body">
             <span>Current Age: {watched.currentAge}</span>
             <span>Retirement Age: {watched.retirementAge}</span>
             <span>Life Expectancy: {watched.lifeExpectancy}</span>

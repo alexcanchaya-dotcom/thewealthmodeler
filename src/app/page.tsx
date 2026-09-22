@@ -6,13 +6,13 @@ import { HERO_CONTENT } from '@/lib/constants';
 export default function HomePage() {
   return (
     <div className="space-y-16">
-      <section className="grid gap-8 rounded-2xl bg-white/80 p-8 shadow-card backdrop-blur md:grid-cols-2">
+      <section className="grid gap-8 rounded-2xl border border-glass-line bg-glass p-8 shadow-card backdrop-blur-md md:grid-cols-2">
         <div className="space-y-6">
-          <div className="inline-flex rounded-full bg-blue-50 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary">
+          <div className="inline-flex rounded-full bg-primary/20 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white ring-1 ring-inset ring-white/20">
             Finance Toolkit
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 md:text-5xl">{HERO_CONTENT.title}</h1>
-          <p className="text-lg text-gray-600">{HERO_CONTENT.subtitle}</p>
+          <h1 className="text-4xl font-bold text-white md:text-5xl">{HERO_CONTENT.title}</h1>
+          <p className="text-lg text-ink-body">{HERO_CONTENT.subtitle}</p>
           <div className="flex flex-wrap gap-3">
             <Link href="/calculators/compound-interest" className="btn-primary inline-flex items-center gap-2">
               {HERO_CONTENT.cta}
@@ -20,7 +20,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/about"
-              className="inline-flex items-center gap-2 rounded-lg border border-blue-100 px-5 py-3 text-sm font-semibold text-primary hover:bg-blue-50"
+              className="inline-flex items-center gap-2 rounded-lg border border-glass-line bg-white/5 px-5 py-3 text-sm font-semibold text-white/90 transition hover:bg-primary/15 hover:text-white"
             >
               Learn More
             </Link>
@@ -28,18 +28,18 @@ export default function HomePage() {
           <div className="grid gap-4 sm:grid-cols-3">
             {[{ label: 'Total Users', value: '100% Free' }, { label: 'Data Privacy', value: 'No tracking' }, { label: 'Mobile Friendly', value: 'Responsive' }].map(
               (item) => (
-                <div key={item.label} className="rounded-xl border border-gray-100 bg-gray-50 px-4 py-3">
-                  <p className="text-xs font-semibold uppercase text-gray-500">{item.label}</p>
-                  <p className="text-sm font-bold text-gray-900">{item.value}</p>
+                <div key={item.label} className="rounded-xl border border-glass-line bg-glass-subtle px-4 py-3">
+                  <p className="text-xs font-semibold uppercase text-ink-muted">{item.label}</p>
+                  <p className="text-sm font-bold text-white">{item.value}</p>
                 </div>
               )
             )}
           </div>
         </div>
-        <div className="grid gap-4 rounded-xl bg-gradient-primary p-6 text-white shadow-inner">
+        <div className="grid gap-4 rounded-2xl border border-white/20 bg-gradient-primary p-6 text-white shadow-card">
           <div className="rounded-xl border border-white/20 bg-white/10 p-4">
             <h3 className="text-lg font-semibold">Built for FIRE & Retirement</h3>
-            <p className="text-sm text-blue-50">
+            <p className="text-sm text-white/70">
               Explore calculators tailored for compound growth, Financial Independence (FIRE), and retirement planning. Visualize your
               path with charts and year-by-year projections.
             </p>
@@ -53,7 +53,7 @@ export default function HomePage() {
             ].map((item) => (
               <div key={item.title} className="rounded-lg bg-white/10 p-4 shadow-sm">
                 <p className="text-sm font-semibold">{item.title}</p>
-                <p className="text-xs text-blue-50">{item.description}</p>
+                <p className="text-xs text-white/70">{item.description}</p>
               </div>
             ))}
           </div>
@@ -64,7 +64,7 @@ export default function HomePage() {
         <div className="flex items-center justify-between">
           <div>
             <p className="text-xs font-semibold uppercase text-primary">Tools</p>
-            <h2 className="text-2xl font-bold text-gray-900">Featured Calculators</h2>
+            <h2 className="text-2xl font-bold text-white">Featured Calculators</h2>
           </div>
           <Link href="/calculators/compound-interest" className="hidden items-center gap-2 text-sm font-semibold text-primary md:inline-flex">
             View all calculators
@@ -171,12 +171,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="grid gap-6 rounded-2xl bg-white p-8 shadow-card md:grid-cols-3">
+      <section className="grid gap-6 rounded-2xl bg-glass p-8 shadow-card md:grid-cols-3">
         {[{ title: '100% Free', desc: 'No paywalls or subscriptions. Calculate as much as you want.' }, { title: 'Data Privacy', desc: 'Your inputs stay on your device—no account required.' }, { title: 'Mobile Friendly', desc: 'Designed with responsive layouts for phones and tablets.' }].map(
           (benefit) => (
             <div key={benefit.title} className="space-y-2">
-              <h3 className="text-lg font-semibold text-gray-900">{benefit.title}</h3>
-              <p className="text-sm text-gray-600">{benefit.desc}</p>
+              <h3 className="text-lg font-semibold text-white">{benefit.title}</h3>
+              <p className="text-sm text-ink-body">{benefit.desc}</p>
             </div>
           )
         )}

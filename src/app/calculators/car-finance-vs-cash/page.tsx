@@ -68,9 +68,9 @@ export default function CarFinanceVsCashPage() {
           <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
             {CAR_FINANCE_VS_CASH_BADGE}
           </span>
-          <h1 className="text-2xl font-bold text-gray-900">Car finance vs cash</h1>
-          <p className="mt-1 text-sm text-gray-700">{EXAMPLE_NUMBERS_LINE}</p>
-          <p className="text-sm text-gray-600">
+          <h1 className="text-2xl font-bold text-white">Car finance vs cash</h1>
+          <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
+          <p className="text-sm text-ink-body">
             Same car — monthly finance versus paying cash now. Which path costs less over the term? Numbers update as
             you type.
           </p>
@@ -132,41 +132,41 @@ export default function CarFinanceVsCashPage() {
               error={formState.errors.balloon}
               suffix="€"
             />
-            <p className="text-xs text-gray-500">Optional end payment. Leave at 0 for a standard loan.</p>
+            <p className="text-xs text-ink-muted">Optional end payment. Leave at 0 for a standard loan.</p>
           </div>
         </div>
 
-        <p className="text-xs text-gray-500">{CAR_FINANCE_VS_CASH_FOOTNOTE}</p>
+        <p className="text-xs text-ink-muted">{CAR_FINANCE_VS_CASH_FOOTNOTE}</p>
       </div>
 
       <div className="space-y-4">
         <div className="card space-y-4">
           <div>
-            <p className="text-sm font-semibold text-gray-600">Result</p>
+            <p className="text-sm font-semibold text-ink-body">Result</p>
             <p className="mt-1 text-3xl font-bold text-primary">{headline}</p>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Monthly payment</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.monthlyPayment)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Monthly payment</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.monthlyPayment)}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Total out on finance</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.totalPaidFinance)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Total out on finance</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.totalPaidFinance)}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Total out on cash</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.totalPaidCash)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Total out on cash</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.totalPaidCash)}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Interest</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.financeInterest)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Interest</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.financeInterest)}</p>
             </div>
           </div>
-          <p className="text-sm font-semibold text-gray-700">
+          <p className="text-sm font-semibold text-ink-body">
             Cash needs {formatEuro(result.cashUpfrontAfterDeposit)} upfront from savings after deposit
           </p>
-          <p className="text-sm text-gray-700">
+          <p className="text-sm text-ink-body">
             <a
               href={LONGEVITY_LINK_HREF}
               target="_blank"

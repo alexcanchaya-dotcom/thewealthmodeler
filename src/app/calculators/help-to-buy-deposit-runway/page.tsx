@@ -90,9 +90,9 @@ export default function HelpToBuyDepositRunwayPage() {
           <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
             {HELP_TO_BUY_DEPOSIT_BADGE}
           </span>
-          <h1 className="text-2xl font-bold text-gray-900">Help to Buy deposit runway</h1>
-          <p className="mt-1 text-sm text-gray-700">{EXAMPLE_NUMBERS_LINE}</p>
-          <p className="text-sm text-gray-600">
+          <h1 className="text-2xl font-bold text-white">Help to Buy deposit runway</h1>
+          <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
+          <p className="text-sm text-ink-body">
             How many months until you have the deposit. An optional Help to Buy boost shortens the runway. Numbers
             update as you type.
           </p>
@@ -123,7 +123,7 @@ export default function HelpToBuyDepositRunwayPage() {
               error={formState.errors.depositPercent}
               suffix="%"
             />
-            <p className="text-xs text-gray-500">Target {formatEuro(result.targetDeposit)} (price × %)</p>
+            <p className="text-xs text-ink-muted">Target {formatEuro(result.targetDeposit)} (price × %)</p>
           </div>
           <InputField
             label="Already saved (€)"
@@ -158,43 +158,43 @@ export default function HelpToBuyDepositRunwayPage() {
               error={formState.errors.htbBoost}
               suffix="€"
             />
-            <p className="text-xs text-gray-500">{HELP_TO_BUY_BOOST_HINT}</p>
+            <p className="text-xs text-ink-muted">{HELP_TO_BUY_BOOST_HINT}</p>
           </div>
         </div>
 
-        <p className="text-xs text-gray-500">{HELP_TO_BUY_DEPOSIT_FOOTNOTE}</p>
+        <p className="text-xs text-ink-muted">{HELP_TO_BUY_DEPOSIT_FOOTNOTE}</p>
       </div>
 
       <div className="space-y-4">
         <div className="card space-y-4">
           <div>
-            <p className="text-sm font-semibold text-gray-600">Result</p>
+            <p className="text-sm font-semibold text-ink-body">Result</p>
             <p className="mt-1 text-3xl font-bold text-primary">{headline}</p>
-            {dateish ? <p className="mt-2 text-sm font-semibold text-gray-700">{dateish}</p> : null}
+            {dateish ? <p className="mt-2 text-sm font-semibold text-ink-body">{dateish}</p> : null}
           </div>
 
           <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Target</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.targetDeposit)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Target</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.targetDeposit)}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Gap left</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.gap)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Gap left</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.gap)}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Monthly save</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(Math.max(monthlySave, 0))}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Monthly save</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(Math.max(monthlySave, 0))}</p>
             </div>
           </div>
 
           {htbBoost > 0 ? (
-            <p className="text-sm font-semibold text-gray-800">
+            <p className="text-sm font-semibold text-white">
               With HTB boost of {formatEuro(htbBoost)}, gap is {formatEuro(result.gap)}
             </p>
           ) : null}
 
-          <p className="text-sm text-gray-700">
+          <p className="text-sm text-ink-body">
             <a
               href={LONGEVITY_LINK_HREF}
               target="_blank"

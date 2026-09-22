@@ -106,9 +106,9 @@ export default function MortgageOverpayVsCashPage() {
           <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
             {MORTGAGE_OVERPAY_VS_CASH_BADGE}
           </span>
-          <h1 className="text-2xl font-bold text-gray-900">Mortgage overpay vs keep cash</h1>
-          <p className="mt-1 text-sm text-gray-700">{EXAMPLE_NUMBERS_LINE}</p>
-          <p className="text-sm text-gray-600">
+          <h1 className="text-2xl font-bold text-white">Mortgage overpay vs keep cash</h1>
+          <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
+          <p className="text-sm text-ink-body">
             If you overpay the mortgage by a set amount each month, how much interest do you save and how many months
             sooner are you done — versus keeping that cash liquid? Numbers update as you type.
           </p>
@@ -184,7 +184,7 @@ export default function MortgageOverpayVsCashPage() {
                 Use calculated {formatEuro(calculatedPayment)}
               </button>
             ) : (
-              <p className="text-xs text-gray-500">Auto-calculated from balance, rate, and term — edit if yours differs.</p>
+              <p className="text-xs text-ink-muted">Auto-calculated from balance, rate, and term — edit if yours differs.</p>
             )}
           </div>
           <div className="sm:col-span-2 space-y-2">
@@ -201,38 +201,38 @@ export default function MortgageOverpayVsCashPage() {
           </div>
         </div>
 
-        <p className="text-xs text-gray-500">{MORTGAGE_OVERPAY_VS_CASH_FOOTNOTE}</p>
+        <p className="text-xs text-ink-muted">{MORTGAGE_OVERPAY_VS_CASH_FOOTNOTE}</p>
       </div>
 
       <div className="space-y-4">
         <div className="card space-y-4">
           <div>
-            <p className="text-sm font-semibold text-gray-600">Result</p>
+            <p className="text-sm font-semibold text-ink-body">Result</p>
             <p className="mt-1 text-3xl font-bold text-primary">{headline}</p>
           </div>
 
           {canShowResult ? (
             <div className="grid gap-3 sm:grid-cols-2">
-              <div className="rounded-lg bg-gray-50 px-4 py-3">
-                <p className="text-sm font-semibold text-gray-600">Interest without overpay</p>
-                <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.baseline.totalInterest)}</p>
+              <div className="rounded-lg bg-glass-subtle px-4 py-3">
+                <p className="text-sm font-semibold text-ink-body">Interest without overpay</p>
+                <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.baseline.totalInterest)}</p>
               </div>
-              <div className="rounded-lg bg-gray-50 px-4 py-3">
-                <p className="text-sm font-semibold text-gray-600">Interest with overpay</p>
-                <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.overpay.totalInterest)}</p>
+              <div className="rounded-lg bg-glass-subtle px-4 py-3">
+                <p className="text-sm font-semibold text-ink-body">Interest with overpay</p>
+                <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.overpay.totalInterest)}</p>
               </div>
-              <div className="rounded-lg bg-gray-50 px-4 py-3">
-                <p className="text-sm font-semibold text-gray-600">Payoff without overpay</p>
-                <p className="mt-1 text-xl font-bold text-gray-900">{result.baseline.payoffMonths} months left</p>
+              <div className="rounded-lg bg-glass-subtle px-4 py-3">
+                <p className="text-sm font-semibold text-ink-body">Payoff without overpay</p>
+                <p className="mt-1 text-xl font-bold text-white">{result.baseline.payoffMonths} months left</p>
               </div>
-              <div className="rounded-lg bg-gray-50 px-4 py-3">
-                <p className="text-sm font-semibold text-gray-600">Payoff with overpay</p>
-                <p className="mt-1 text-xl font-bold text-gray-900">{result.overpay.payoffMonths} months left</p>
+              <div className="rounded-lg bg-glass-subtle px-4 py-3">
+                <p className="text-sm font-semibold text-ink-body">Payoff with overpay</p>
+                <p className="mt-1 text-xl font-bold text-white">{result.overpay.payoffMonths} months left</p>
               </div>
             </div>
           ) : null}
 
-          <p className="text-sm text-gray-700">
+          <p className="text-sm text-ink-body">
             <a
               href={LONGEVITY_LINK_HREF}
               target="_blank"
@@ -246,8 +246,8 @@ export default function MortgageOverpayVsCashPage() {
 
         {canShowResult ? (
           <div className="card space-y-2">
-            <p className="text-sm font-semibold text-gray-600">If you kept the extras in cash</p>
-            <p className="text-sm font-semibold text-gray-800">{cashLine}</p>
+            <p className="text-sm font-semibold text-ink-body">If you kept the extras in cash</p>
+            <p className="text-sm font-semibold text-white">{cashLine}</p>
           </div>
         ) : null}
       </div>
