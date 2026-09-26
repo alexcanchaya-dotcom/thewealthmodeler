@@ -64,7 +64,7 @@ export default function LocalPropertyTaxPage() {
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card space-y-4">
         <div className="space-y-3">
-          <span className="badge">
+          <span className="badge badge-ie">
             {LOCAL_PROPERTY_TAX_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">Local Property Tax</h1>

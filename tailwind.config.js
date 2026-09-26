@@ -15,8 +15,9 @@ module.exports = {
         secondary: '#34d399',
         background: '#1e1442',
         text: '#f5f7ff',
-        'ink-body': '#d6dbf5',
-        'ink-muted': '#aeb6dd',
+        // Brighter small/muted text for ~AA contrast on the purple glass
+        'ink-body': '#e4e8fc',
+        'ink-muted': '#d2d8f6',
         glass: 'rgba(255, 255, 255, 0.10)',
         'glass-subtle': 'rgba(255, 255, 255, 0.06)',
         'glass-strong': 'rgba(255, 255, 255, 0.16)',
