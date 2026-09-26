@@ -1,11 +1,13 @@
-import type { Metadata } from 'next';
+import { CalculatorJsonLd } from '@/components/JsonLd';
+import { calcMetadata } from '@/lib/calculator-registry';
 
-export const metadata: Metadata = {
-  title: 'Help to Buy Deposit Runway (Ireland) | The Wealth Modeler',
-  description:
-    'How many months until you have the house deposit, with an optional Help to Buy boost. Example figures — change them. Not advice.',
-};
+export const metadata = calcMetadata('help-to-buy-deposit-runway');
 
 export default function HelpToBuyDepositRunwayLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <CalculatorJsonLd slug="help-to-buy-deposit-runway" />
+      {children}
+    </>
+  );
 }

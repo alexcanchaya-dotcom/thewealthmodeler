@@ -1,11 +1,13 @@
-import type { Metadata } from 'next';
+import { CalculatorJsonLd } from '@/components/JsonLd';
+import { calcMetadata } from '@/lib/calculator-registry';
 
-export const metadata: Metadata = {
-  title: 'How Much Can I Borrow (Ireland) | The Wealth Modeler',
-  description:
-    'Roughly how much mortgage you could borrow from income and deposit, using a simple LTI and LTV cap. Example figures — change them. Not advice.',
-};
+export const metadata = calcMetadata('how-much-can-i-borrow');
 
 export default function HowMuchCanIBorrowLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <CalculatorJsonLd slug="how-much-can-i-borrow" />
+      {children}
+    </>
+  );
 }

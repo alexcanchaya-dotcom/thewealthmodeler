@@ -1,11 +1,13 @@
-import type { Metadata } from 'next';
+import { CalculatorJsonLd } from '@/components/JsonLd';
+import { calcMetadata } from '@/lib/calculator-registry';
 
-export const metadata: Metadata = {
-  title: 'DIRT on Savings Interest (Ireland) | The Wealth Modeler',
-  description:
-    'If your deposit earns this interest, how much DIRT is taken and what you keep. Example figures — change them. Not advice.',
-};
+export const metadata = calcMetadata('dirt-savings-interest');
 
 export default function DirtSavingsInterestLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <CalculatorJsonLd slug="dirt-savings-interest" />
+      {children}
+    </>
+  );
 }

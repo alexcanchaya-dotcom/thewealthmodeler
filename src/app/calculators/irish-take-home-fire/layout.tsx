@@ -1,11 +1,13 @@
-import type { Metadata } from 'next';
+import { CalculatorJsonLd } from '@/components/JsonLd';
+import { calcMetadata } from '@/lib/calculator-registry';
 
-export const metadata: Metadata = {
-  title: 'Irish Take-Home → FIRE Calculator | The Wealth Modeler',
-  description:
-    'Ireland take-home and FIRE using Irish numbers. Example figures — change them. Not advice.',
-};
+export const metadata = calcMetadata('irish-take-home-fire');
 
 export default function IrishTakeHomeFireLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <CalculatorJsonLd slug="irish-take-home-fire" />
+      {children}
+    </>
+  );
 }

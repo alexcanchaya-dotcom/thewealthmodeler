@@ -21,6 +21,32 @@ import {
 } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
+import JsonLd from '@/components/JsonLd';
+import { pageMetadata, SITE_NAME, SITE_URL } from '@/lib/site';
+
+export const metadata = pageMetadata({
+  title: 'Free financial calculators for Ireland and the US | The Wealth Modeler',
+  description:
+    'Free money calculators for Ireland and the US: take-home pay and FIRE, mortgage borrowing and repayments, DIRT, pensions, Local Property Tax, compound interest and retirement. Results appear instantly in your browser.',
+  path: '/',
+});
+
+const homeJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    url: SITE_URL,
+    inLanguage: 'en',
+    publisher: { '@type': 'Organization', name: SITE_NAME, url: SITE_URL },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE_NAME,
+    url: SITE_URL,
+  },
+];
 
 type Group = 'ireland' | 'investing';
 
@@ -172,6 +198,8 @@ const trustPoints = ['100% free, no sign-up', 'Inputs stay on your device', 'Iri
 
 export default function HomePage() {
   return (
+    <>
+    <JsonLd data={homeJsonLd} />
     <div className="space-y-24 md:space-y-28">
       <section className="mx-auto max-w-3xl space-y-8 pt-6 text-center md:pt-12">
         <h1 className="text-5xl font-semibold leading-[1.1] tracking-tight text-white md:text-6xl">{HERO_CONTENT.title}</h1>
@@ -234,5 +262,6 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+    </>
   );
 }
