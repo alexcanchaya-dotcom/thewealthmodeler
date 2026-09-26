@@ -29,6 +29,7 @@ const navItems = [
       { name: 'How much can I borrow', href: '/calculators/how-much-can-i-borrow' },
       { name: 'Mortgage repayment', href: '/calculators/mortgage-repayment' },
       { name: 'Local Property Tax', href: '/calculators/local-property-tax' },
+      { name: 'DIRT on savings interest', href: '/calculators/dirt-savings-interest' },
     ],
   },
   { name: 'About', href: '/about', icon: InformationCircleIcon },
