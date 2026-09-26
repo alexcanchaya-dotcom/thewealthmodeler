@@ -45,23 +45,43 @@ body {
 }
 
 .btn-primary {
-  @apply inline-flex items-center rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white shadow-glow transition duration-300 hover:-translate-y-0.5 hover:bg-primary-strong;
+  @apply inline-flex items-center rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-primary-strong;
 }
 
+/* Softer outlined fields: lighter border, more padding, no inset shadow */
 .input-base {
-  @apply w-full rounded-xl border border-white/30 bg-white/10 px-4 py-3 text-sm text-white shadow-inner transition placeholder-white/40 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/40;
+  @apply w-full rounded-xl border border-white/20 bg-white/[0.07] px-4 py-3.5 text-sm text-white transition placeholder-white/40 hover:border-white/30 focus:border-primary/70 focus:outline-none focus:ring-2 focus:ring-primary/30;
 }
 
+/* Static glass surface: larger radius, softer shadow, more padding, no hover jump */
 .card {
-  @apply rounded-2xl border border-glass-line p-6 shadow-card backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:shadow-card-hover;
-  background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.08));
+  @apply rounded-card border border-glass-line p-6 backdrop-blur-md md:p-8;
+  background-image: linear-gradient(160deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.06));
   box-shadow:
-    0 20px 40px rgba(10, 6, 30, 0.35),
+    0 16px 36px rgba(10, 6, 30, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+/* Only clickable cards get the gentle lift */
+.card-interactive {
+  @apply transition duration-300 hover:-translate-y-0.5;
+}
+
+.card-interactive:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow:
+    0 22px 44px rgba(10, 6, 30, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-.card:hover {
-  border-color: rgba(255, 255, 255, 0.35);
+/* Quiet context chip (Ireland / US model) that sits next to page titles */
+.badge {
+  @apply inline-flex w-fit rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/85 ring-1 ring-inset ring-white/15;
+}
+
+/* Soft inline note on glass (replaces light-theme callouts) */
+.note {
+  @apply rounded-xl border border-white/15 bg-white/[0.06] px-4 py-3 text-xs text-ink-body;
 }
 
 /* Number input spinners legible on glass */

@@ -72,7 +72,7 @@ export default function IrishTakeHomeFirePage() {
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card space-y-4">
         <div className="space-y-3">
-          <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
+          <span className="badge">
             {IRELAND_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">Irish Take-Home → FIRE</h1>
@@ -204,7 +204,7 @@ export default function IrishTakeHomeFirePage() {
             </a>
           </p>
           {annualSurplus < 0 ? (
-            <div className="rounded-lg bg-emerald-50 px-4 py-3 text-xs text-emerald-900">
+            <div className="note">
               Spending is above take-home in this example — years assume no new saving.
             </div>
           ) : null}

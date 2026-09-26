@@ -2,6 +2,7 @@ export const IRELAND_BADGE = 'Ireland — take-home and FIRE using Irish numbers
 export const STATE_SAVINGS_BADGE = 'Ireland — State Savings vs bank after 33% DIRT';
 export const MORTGAGE_VS_RENT_BADGE = 'Ireland — mortgage vs rent using Irish-style numbers';
 export const EMERGENCY_FUND_BADGE = 'Ireland — emergency fund in months of expenses';
+export const US_MODEL_BADGE = 'US model — rules differ in Ireland & EU';
 export const EXAMPLE_NUMBERS_LINE = 'These are example numbers — change them. Not advice.';
 export const STATE_SAVINGS_RATE_FOOTNOTE =
   'State Savings rates from NTMA issues on/after 30 Aug 2026. Bank interest taxed at 33% DIRT. Not advice.';

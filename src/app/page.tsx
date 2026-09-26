@@ -1,185 +1,237 @@
 import Link from 'next/link';
-import { ArrowRightIcon, ChartPieIcon, ShieldCheckIcon, DevicePhoneMobileIcon, CurrencyEuroIcon, BanknotesIcon, HomeModernIcon, WalletIcon, BriefcaseIcon, TruckIcon, ArrowTrendingUpIcon, ScaleIcon, KeyIcon, BuildingLibraryIcon, ReceiptPercentIcon, CreditCardIcon, HomeIcon } from '@heroicons/react/24/outline';
+import type { ReactNode } from 'react';
+import {
+  ArrowRightIcon,
+  ChartPieIcon,
+  ShieldCheckIcon,
+  DevicePhoneMobileIcon,
+  CurrencyEuroIcon,
+  BanknotesIcon,
+  HomeModernIcon,
+  WalletIcon,
+  BriefcaseIcon,
+  TruckIcon,
+  ArrowTrendingUpIcon,
+  ScaleIcon,
+  KeyIcon,
+  BuildingLibraryIcon,
+  ReceiptPercentIcon,
+  CreditCardIcon,
+  HomeIcon,
+} from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
 
+type Group = 'ireland' | 'investing';
+
+interface CalculatorEntry {
+  title: string;
+  description: string;
+  href: string;
+  icon: ReactNode;
+  group: Group;
+}
+
+const iconClass = 'h-5 w-5';
+
+const calculators: CalculatorEntry[] = [
+  {
+    title: 'Compound Interest',
+    description: 'Project your investment growth with monthly contributions and see yearly breakdowns.',
+    href: '/calculators/compound-interest',
+    icon: <ChartPieIcon className={iconClass} />,
+    group: 'investing',
+  },
+  {
+    title: 'FIRE',
+    description: 'Calculate your FIRE number, years until financial independence, and track your progress.',
+    href: '/calculators/fire',
+    icon: <DevicePhoneMobileIcon className={iconClass} />,
+    group: 'investing',
+  },
+  {
+    title: 'Retirement',
+    description: 'Estimate your retirement balance, monthly income, and how long your savings can last.',
+    href: '/calculators/retirement',
+    icon: <ShieldCheckIcon className={iconClass} />,
+    group: 'investing',
+  },
+  {
+    title: 'Irish Take-Home → FIRE',
+    description: 'Irish take-home from salary, then years to FIRE using Irish numbers.',
+    href: '/calculators/irish-take-home-fire',
+    icon: <CurrencyEuroIcon className={iconClass} />,
+    group: 'ireland',
+  },
+  {
+    title: 'How much can I borrow',
+    description: 'Roughly how much mortgage you could borrow from income and deposit — the lower of a simple LTI and LTV cap.',
+    href: '/calculators/how-much-can-i-borrow',
+    icon: <ReceiptPercentIcon className={iconClass} />,
+    group: 'ireland',
+  },
+  {
+    title: 'Mortgage repayment',
+    description: 'What would this mortgage cost per month at your quoted rate — plus a higher stress-rate check.',
+    href: '/calculators/mortgage-repayment',
+    icon: <CreditCardIcon className={iconClass} />,
+    group: 'ireland',
+  },
+  {
+    title: 'State Savings vs bank',
+    description: 'Compare Irish State Savings (tax-free) with a bank deposit after 33% DIRT.',
+    href: '/calculators/state-savings-vs-bank',
+    icon: <BanknotesIcon className={iconClass} />,
+    group: 'ireland',
+  },
+  {
+    title: 'Mortgage vs rent',
+    description: 'Same home, same month — is renting or buying cheaper using Irish-style numbers.',
+    href: '/calculators/mortgage-vs-rent',
+    icon: <HomeModernIcon className={iconClass} />,
+    group: 'ireland',
+  },
+  {
+    title: 'Emergency fund months',
+    description: 'How many months of essential expenses your rainy-day cash covers.',
+    href: '/calculators/emergency-fund-months',
+    icon: <WalletIcon className={iconClass} />,
+    group: 'ireland',
+  },
+  {
+    title: 'Pension vs take-home',
+    description: 'If you raise your pension, how much take-home drops after relief — and how much more hits the pot.',
+    href: '/calculators/pension-vs-take-home',
+    icon: <BriefcaseIcon className={iconClass} />,
+    group: 'ireland',
+  },
+  {
+    title: 'Car finance vs cash',
+    description: 'Same car — monthly finance versus paying cash now. Which path costs less over the term.',
+    href: '/calculators/car-finance-vs-cash',
+    icon: <TruckIcon className={iconClass} />,
+    group: 'ireland',
+  },
+  {
+    title: 'Rent rise vs move',
+    description: 'Landlord raises rent — cheaper to stay or move over a chosen horizon.',
+    href: '/calculators/rent-rise-vs-move',
+    icon: <ArrowTrendingUpIcon className={iconClass} />,
+    group: 'ireland',
+  },
+  {
+    title: 'Mortgage overpay vs cash',
+    description: 'Overpay the mortgage by €X/month — interest saved and months cut versus keeping that cash liquid.',
+    href: '/calculators/mortgage-overpay-vs-cash',
+    icon: <ScaleIcon className={iconClass} />,
+    group: 'ireland',
+  },
+  {
+    title: 'Help to Buy deposit runway',
+    description: 'How many months until you have the house deposit — optional Help to Buy boost shortens the runway.',
+    href: '/calculators/help-to-buy-deposit-runway',
+    icon: <KeyIcon className={iconClass} />,
+    group: 'ireland',
+  },
+  {
+    title: 'State Pension / PRSI gap',
+    description: 'How much of your retirement spend the State Pension covers, and the monthly gap to fill from savings.',
+    href: '/calculators/state-pension-prsi-gap',
+    icon: <BuildingLibraryIcon className={iconClass} />,
+    group: 'ireland',
+  },
+  {
+    title: 'Local Property Tax',
+    description: 'About how much Local Property Tax you might pay from property market value and an optional local adjustment.',
+    href: '/calculators/local-property-tax',
+    icon: <HomeIcon className={iconClass} />,
+    group: 'ireland',
+  },
+];
+
+const byHref = (href: string) => calculators.find((c) => c.href === href)!;
+
+// Short curated strips (UX brief §4) instead of a wall of identical CTA tiles.
+const curated: Array<{ label: string; items: CalculatorEntry[] }> = [
+  {
+    label: 'Popular',
+    items: ['/calculators/compound-interest', '/calculators/fire', '/calculators/retirement'].map(byHref),
+  },
+  {
+    label: 'Ireland',
+    items: ['/calculators/irish-take-home-fire', '/calculators/how-much-can-i-borrow', '/calculators/mortgage-repayment'].map(byHref),
+  },
+];
+
+const allGroups: Array<{ label: string; group: Group }> = [
+  { label: 'Ireland', group: 'ireland' },
+  { label: 'Investing & retirement', group: 'investing' },
+];
+
+const trustPoints = ['100% free, no sign-up', 'Inputs stay on your device', 'Irish & US models', 'Example numbers, not advice'];
+
 export default function HomePage() {
   return (
-    <div className="space-y-16">
-      <section className="grid gap-8 rounded-2xl border border-glass-line bg-glass p-8 shadow-card backdrop-blur-md md:grid-cols-2">
-        <div className="space-y-6">
-          <div className="inline-flex rounded-full bg-primary/20 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white ring-1 ring-inset ring-white/20">
-            Finance Toolkit
-          </div>
-          <h1 className="text-4xl font-bold text-white md:text-5xl">{HERO_CONTENT.title}</h1>
-          <p className="text-lg text-ink-body">{HERO_CONTENT.subtitle}</p>
-          <div className="flex flex-wrap gap-3">
-            <Link href="/calculators/compound-interest" className="btn-primary inline-flex items-center gap-2">
-              {HERO_CONTENT.cta}
-              <ArrowRightIcon className="h-5 w-5" />
-            </Link>
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-2 rounded-lg border border-glass-line bg-white/5 px-5 py-3 text-sm font-semibold text-white/90 transition hover:bg-primary/15 hover:text-white"
-            >
-              Learn More
-            </Link>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {[{ label: 'Total Users', value: '100% Free' }, { label: 'Data Privacy', value: 'No tracking' }, { label: 'Mobile Friendly', value: 'Responsive' }].map(
-              (item) => (
-                <div key={item.label} className="rounded-xl border border-glass-line bg-glass-subtle px-4 py-3">
-                  <p className="text-xs font-semibold uppercase text-ink-muted">{item.label}</p>
-                  <p className="text-sm font-bold text-white">{item.value}</p>
-                </div>
-              )
-            )}
-          </div>
-        </div>
-        <div className="grid gap-4 rounded-2xl border border-white/20 bg-gradient-primary p-6 text-white shadow-card">
-          <div className="rounded-xl border border-white/20 bg-white/10 p-4">
-            <h3 className="text-lg font-semibold">Built for FIRE & Retirement</h3>
-            <p className="text-sm text-white/70">
-              Explore calculators tailored for compound growth, Financial Independence (FIRE), and retirement planning. Visualize your
-              path with charts and year-by-year projections.
-            </p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {[
-              { title: 'Compound Interest', description: 'See how your investments grow with recurring contributions.' },
-              { title: 'FIRE Number', description: 'Identify your target number to reach financial independence.' },
-              { title: 'Retirement', description: 'Plan your nest egg and spending horizon confidently.' },
-              { title: 'Mobile Friendly', description: 'Access your plan anywhere with responsive layouts.' },
-            ].map((item) => (
-              <div key={item.title} className="rounded-lg bg-white/10 p-4 shadow-sm">
-                <p className="text-sm font-semibold">{item.title}</p>
-                <p className="text-xs text-white/70">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="space-y-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase text-primary">Tools</p>
-            <h2 className="text-2xl font-bold text-white">Featured Calculators</h2>
-          </div>
-          <Link href="/calculators/compound-interest" className="hidden items-center gap-2 text-sm font-semibold text-primary md:inline-flex">
-            View all calculators
+    <div className="space-y-24 md:space-y-28">
+      <section className="mx-auto max-w-3xl space-y-8 pt-6 text-center md:pt-12">
+        <h1 className="text-5xl font-semibold leading-[1.1] tracking-tight text-white md:text-6xl">{HERO_CONTENT.title}</h1>
+        <p className="mx-auto max-w-2xl text-lg text-ink-body md:text-xl md:leading-relaxed">{HERO_CONTENT.subtitle}</p>
+        <div className="flex flex-wrap items-center justify-center gap-6">
+          <Link href="#calculators" className="btn-primary gap-2">
+            {HERO_CONTENT.cta}
             <ArrowRightIcon className="h-5 w-5" />
           </Link>
+          <Link href="/about" className="text-sm font-medium text-white/80 transition hover:text-white">
+            Learn more
+          </Link>
         </div>
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          <CalculatorCard
-            title="Compound Interest Calculator"
-            description="Project your investment growth with monthly contributions and see yearly breakdowns."
-            icon={<ChartPieIcon className="h-6 w-6" />}
-            href="/calculators/compound-interest"
-          />
-          <CalculatorCard
-            title="Retirement Calculator"
-            description="Estimate your retirement balance, monthly income, and how long your savings can last."
-            icon={<ShieldCheckIcon className="h-6 w-6" />}
-            href="/calculators/retirement"
-          />
-          <CalculatorCard
-            title="FIRE Calculator"
-            description="Calculate your FIRE number, years until financial independence, and track your progress."
-            icon={<DevicePhoneMobileIcon className="h-6 w-6" />}
-            href="/calculators/fire"
-          />
-          <CalculatorCard
-            title="Irish Take-Home → FIRE"
-            description="Irish take-home from salary, then years to FIRE using Irish numbers."
-            icon={<CurrencyEuroIcon className="h-6 w-6" />}
-            href="/calculators/irish-take-home-fire"
-          />
-          <CalculatorCard
-            title="State Savings vs bank"
-            description="Compare Irish State Savings (tax-free) with a bank deposit after 33% DIRT."
-            icon={<BanknotesIcon className="h-6 w-6" />}
-            href="/calculators/state-savings-vs-bank"
-          />
-          <CalculatorCard
-            title="Mortgage vs rent"
-            description="Same home, same month — is renting or buying cheaper using Irish-style numbers."
-            icon={<HomeModernIcon className="h-6 w-6" />}
-            href="/calculators/mortgage-vs-rent"
-          />
-          <CalculatorCard
-            title="Emergency fund months"
-            description="How many months of essential expenses your rainy-day cash covers."
-            icon={<WalletIcon className="h-6 w-6" />}
-            href="/calculators/emergency-fund-months"
-          />
-          <CalculatorCard
-            title="Pension vs take-home"
-            description="If you raise your pension, how much take-home drops after relief — and how much more hits the pot."
-            icon={<BriefcaseIcon className="h-6 w-6" />}
-            href="/calculators/pension-vs-take-home"
-          />
-          <CalculatorCard
-            title="Car finance vs cash"
-            description="Same car — monthly finance versus paying cash now. Which path costs less over the term."
-            icon={<TruckIcon className="h-6 w-6" />}
-            href="/calculators/car-finance-vs-cash"
-          />
-          <CalculatorCard
-            title="Rent rise vs move"
-            description="Landlord raises rent — cheaper to stay or move over a chosen horizon."
-            icon={<ArrowTrendingUpIcon className="h-6 w-6" />}
-            href="/calculators/rent-rise-vs-move"
-          />
-          <CalculatorCard
-            title="Mortgage overpay vs cash"
-            description="Overpay the mortgage by €X/month — interest saved and months cut versus keeping that cash liquid."
-            icon={<ScaleIcon className="h-6 w-6" />}
-            href="/calculators/mortgage-overpay-vs-cash"
-          />
-          <CalculatorCard
-            title="Help to Buy deposit runway"
-            description="How many months until you have the house deposit — optional Help to Buy boost shortens the runway."
-            icon={<KeyIcon className="h-6 w-6" />}
-            href="/calculators/help-to-buy-deposit-runway"
-          />
-          <CalculatorCard
-            title="State Pension / PRSI gap"
-            description="How much of your retirement spend the State Pension covers, and the monthly gap to fill from savings."
-            icon={<BuildingLibraryIcon className="h-6 w-6" />}
-            href="/calculators/state-pension-prsi-gap"
-          />
-          <CalculatorCard
-            title="How much can I borrow"
-            description="Roughly how much mortgage you could borrow from income and deposit — the lower of a simple LTI and LTV cap."
-            icon={<ReceiptPercentIcon className="h-6 w-6" />}
-            href="/calculators/how-much-can-i-borrow"
-          />
-          <CalculatorCard
-            title="Mortgage repayment"
-            description="What would this mortgage cost per month at your quoted rate — plus a higher stress-rate check."
-            icon={<CreditCardIcon className="h-6 w-6" />}
-            href="/calculators/mortgage-repayment"
-          />
-          <CalculatorCard
-            title="Local Property Tax"
-            description="About how much Local Property Tax you might pay from property market value and an optional local adjustment."
-            icon={<HomeIcon className="h-6 w-6" />}
-            href="/calculators/local-property-tax"
-          />
-        </div>
+        <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-2 text-sm text-ink-muted">
+          {trustPoints.map((point) => (
+            <li key={point} className="flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-secondary/80" aria-hidden />
+              {point}
+            </li>
+          ))}
+        </ul>
       </section>
 
-      <section className="grid gap-6 rounded-2xl bg-glass p-8 shadow-card md:grid-cols-3">
-        {[{ title: '100% Free', desc: 'No paywalls or subscriptions. Calculate as much as you want.' }, { title: 'Data Privacy', desc: 'Your inputs stay on your device—no account required.' }, { title: 'Mobile Friendly', desc: 'Designed with responsive layouts for phones and tablets.' }].map(
-          (benefit) => (
-            <div key={benefit.title} className="space-y-2">
-              <h3 className="text-lg font-semibold text-white">{benefit.title}</h3>
-              <p className="text-sm text-ink-body">{benefit.desc}</p>
+      <section id="calculators" className="scroll-mt-24 space-y-14">
+        {curated.map((strip) => (
+          <div key={strip.label} className="space-y-6">
+            <h2 className="text-sm font-medium uppercase tracking-[0.16em] text-ink-muted">{strip.label}</h2>
+            <div className="grid gap-6 md:grid-cols-3">
+              {strip.items.map((calc) => (
+                <CalculatorCard key={calc.href} title={calc.title} description={calc.description} icon={calc.icon} href={calc.href} />
+              ))}
             </div>
-          )
-        )}
+          </div>
+        ))}
+      </section>
+
+      <section id="all-calculators" className="scroll-mt-24 space-y-8">
+        <div className="space-y-2">
+          <h2 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">All calculators</h2>
+          <p className="text-ink-body">Free result first. Change the example numbers to match your situation.</p>
+        </div>
+        <div className="grid gap-12 md:grid-cols-2">
+          {allGroups.map(({ label, group }) => (
+            <div key={group} className="space-y-3">
+              <h3 className="text-sm font-medium uppercase tracking-[0.16em] text-ink-muted">{label}</h3>
+              <ul className="divide-y divide-white/10 border-y border-white/10">
+                {calculators
+                  .filter((c) => c.group === group)
+                  .map((calc) => (
+                    <li key={calc.href}>
+                      <Link href={calc.href} className="group flex items-center justify-between gap-4 py-3.5">
+                        <span className="text-sm font-medium text-white/90 transition group-hover:text-white">{calc.title}</span>
+                        <ArrowRightIcon className="h-4 w-4 shrink-0 text-white/40 transition group-hover:translate-x-0.5 group-hover:text-white/80" />
+                      </Link>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   );
