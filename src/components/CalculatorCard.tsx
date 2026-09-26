@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ReactNode } from 'react';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
 
 interface CalculatorCardProps {
   title: string;
@@ -8,20 +9,21 @@ interface CalculatorCardProps {
   href: string;
 }
 
+// Whole card is the link: one quiet affordance instead of a "Calculate Now" button per tile.
 export default function CalculatorCard({ title, description, icon, href }: CalculatorCardProps) {
   return (
-    <div className="card flex flex-col gap-4">
-      <div className="flex items-center gap-3 text-primary">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/20 text-primary ring-1 ring-inset ring-white/15">{icon}</div>
-        <h3 className="text-lg font-semibold text-white">{title}</h3>
+    <Link href={href} className="card card-interactive group flex flex-col gap-4">
+      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white/90 ring-1 ring-inset ring-white/15">
+        {icon}
       </div>
-      <p className="flex-1 text-sm text-ink-body">{description}</p>
-      <Link
-        href={href}
-        className="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-primary-strong"
-      >
-        Calculate Now
-      </Link>
-    </div>
+      <div className="flex-1 space-y-2">
+        <h3 className="text-lg font-semibold text-white">{title}</h3>
+        <p className="text-sm text-ink-body">{description}</p>
+      </div>
+      <span className="inline-flex items-center gap-1.5 text-sm font-medium text-[#9db8ff] transition group-hover:gap-2.5">
+        Open calculator
+        <ArrowRightIcon className="h-4 w-4" />
+      </span>
+    </Link>
   );
 }

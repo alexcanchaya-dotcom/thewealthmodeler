@@ -5,22 +5,6 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Bars3Icon, XMarkIcon, CalculatorIcon, HomeIcon, InformationCircleIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
-import {
-  CAR_FINANCE_VS_CASH_BADGE,
-  DIRT_SAVINGS_INTEREST_BADGE,
-  EMERGENCY_FUND_BADGE,
-  HELP_TO_BUY_DEPOSIT_BADGE,
-  HOW_MUCH_CAN_I_BORROW_BADGE,
-  IRELAND_BADGE,
-  LOCAL_PROPERTY_TAX_BADGE,
-  MORTGAGE_OVERPAY_VS_CASH_BADGE,
-  MORTGAGE_REPAYMENT_BADGE,
-  STATE_PENSION_PRSI_GAP_BADGE,
-  MORTGAGE_VS_RENT_BADGE,
-  PENSION_VS_TAKE_HOME_BADGE,
-  RENT_RISE_VS_MOVE_BADGE,
-  STATE_SAVINGS_BADGE,
-} from '@/lib/irish-copy';
 
 const navItems = [
   { name: 'Home', href: '/', icon: HomeIcon },
@@ -55,48 +39,13 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const pathname = usePathname();
-  const irelandBadge =
-    pathname === '/calculators/state-savings-vs-bank'
-      ? STATE_SAVINGS_BADGE
-      : pathname === '/calculators/irish-take-home-fire'
-        ? IRELAND_BADGE
-        : pathname === '/calculators/mortgage-vs-rent'
-          ? MORTGAGE_VS_RENT_BADGE
-          : pathname === '/calculators/emergency-fund-months'
-            ? EMERGENCY_FUND_BADGE
-            : pathname === '/calculators/pension-vs-take-home'
-              ? PENSION_VS_TAKE_HOME_BADGE
-              : pathname === '/calculators/car-finance-vs-cash'
-                ? CAR_FINANCE_VS_CASH_BADGE
-                : pathname === '/calculators/rent-rise-vs-move'
-                  ? RENT_RISE_VS_MOVE_BADGE
-                  : pathname === '/calculators/mortgage-overpay-vs-cash'
-                    ? MORTGAGE_OVERPAY_VS_CASH_BADGE
-                    : pathname === '/calculators/help-to-buy-deposit-runway'
-                      ? HELP_TO_BUY_DEPOSIT_BADGE
-                      : pathname === '/calculators/state-pension-prsi-gap'
-                        ? STATE_PENSION_PRSI_GAP_BADGE
-                        : pathname === '/calculators/how-much-can-i-borrow'
-                          ? HOW_MUCH_CAN_I_BORROW_BADGE
-                          : pathname === '/calculators/mortgage-repayment'
-                            ? MORTGAGE_REPAYMENT_BADGE
-                            : pathname === '/calculators/local-property-tax'
-                              ? LOCAL_PROPERTY_TAX_BADGE
-                              : pathname === '/calculators/dirt-savings-interest'
-                                ? DIRT_SAVINGS_INTEREST_BADGE
-                                : null;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-glass-line bg-night/85 text-white shadow-lg backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-night/70 text-white backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
-        <div className="flex min-w-0 flex-1 flex-col gap-1 sm:flex-row sm:items-center sm:gap-3">
-          <Link href="/" className="text-xl font-bold tracking-tight">
-            The Wealth Modeler
-          </Link>
-          <span className="w-fit rounded-full bg-white/15 px-2.5 py-0.5 text-[11px] font-medium leading-snug text-white/90">
-            {irelandBadge ?? 'US model — rules differ in Ireland & EU'}
-          </span>
-        </div>
+        <Link href="/" className="text-lg font-semibold tracking-tight">
+          The Wealth Modeler
+        </Link>
 
         <nav className="hidden items-center space-x-6 md:flex">
           {navItems.map((item) => (
@@ -106,7 +55,7 @@ export default function Navbar() {
                   onMouseEnter={() => setIsDropdownOpen(true)}
                   onMouseLeave={() => setIsDropdownOpen(false)}
                   onClick={() => setIsDropdownOpen((prev) => !prev)}
-                  className="flex items-center gap-2 text-sm font-semibold transition hover:text-white/80"
+                  className="flex items-center gap-2 text-sm font-medium text-white/85 transition hover:text-white"
                 >
                   <item.icon className="h-5 w-5" />
                   {item.name}
@@ -115,8 +64,8 @@ export default function Navbar() {
                 <Link
                   href={item.href}
                   className={clsx(
-                    'flex items-center gap-2 text-sm font-semibold transition hover:text-white/80',
-                    pathname === item.href && 'text-white/80'
+                    'flex items-center gap-2 text-sm font-medium text-white/85 transition hover:text-white',
+                    pathname === item.href && 'text-white'
                   )}
                 >
                   {item.icon && <item.icon className="h-5 w-5" />}

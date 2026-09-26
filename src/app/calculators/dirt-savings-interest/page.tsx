@@ -66,12 +66,12 @@ export default function DirtSavingsInterestPage() {
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card space-y-4">
         <div className="space-y-3">
-          <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
+          <span className="badge">
             {DIRT_SAVINGS_INTEREST_BADGE}
           </span>
-          <h1 className="text-2xl font-bold text-gray-900">DIRT on savings interest</h1>
-          <p className="mt-1 text-sm text-gray-700">{EXAMPLE_NUMBERS_LINE}</p>
-          <p className="text-sm text-gray-600">
+          <h1 className="text-2xl font-bold text-white">DIRT on savings interest</h1>
+          <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
+          <p className="text-sm text-ink-body">
             If your deposit earns this interest, how much DIRT is taken and what do you keep? Numbers update as you
             type.
           </p>
@@ -90,7 +90,7 @@ export default function DirtSavingsInterestPage() {
               error={formState.errors.deposit}
               suffix="€"
             />
-            <p className="text-xs text-gray-500">{DIRT_SAVINGS_INTEREST_DEPOSIT_HINT}</p>
+            <p className="text-xs text-ink-muted">{DIRT_SAVINGS_INTEREST_DEPOSIT_HINT}</p>
           </div>
           <div className="space-y-2">
             <InputField
@@ -104,7 +104,7 @@ export default function DirtSavingsInterestPage() {
               error={formState.errors.grossRatePercent}
               suffix="%"
             />
-            <p className="text-xs text-gray-500">{DIRT_SAVINGS_INTEREST_RATE_HINT}</p>
+            <p className="text-xs text-ink-muted">{DIRT_SAVINGS_INTEREST_RATE_HINT}</p>
           </div>
           <div className="space-y-2">
             <InputField
@@ -118,36 +118,36 @@ export default function DirtSavingsInterestPage() {
               error={formState.errors.dirtRatePercent}
               suffix="%"
             />
-            <p className="text-xs text-gray-500">{DIRT_SAVINGS_INTEREST_DIRT_HINT}</p>
+            <p className="text-xs text-ink-muted">{DIRT_SAVINGS_INTEREST_DIRT_HINT}</p>
           </div>
         </div>
 
-        <p className="text-xs text-gray-500">{DIRT_SAVINGS_INTEREST_FOOTNOTE}</p>
+        <p className="text-xs text-ink-muted">{DIRT_SAVINGS_INTEREST_FOOTNOTE}</p>
       </div>
 
       <div className="space-y-4">
         <div className="card space-y-4">
           <div>
-            <p className="text-sm font-semibold text-gray-600">Result</p>
+            <p className="text-sm font-semibold text-ink-body">Result</p>
             <p className="mt-1 text-3xl font-bold text-primary">{headline}</p>
           </div>
 
           <div className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Gross interest</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.grossInterest)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Gross interest</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.grossInterest)}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">DIRT tax</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{formatEuro(result.dirtTax)}</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">DIRT tax</p>
+              <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.dirtTax)}</p>
             </div>
-            <div className="rounded-lg bg-gray-50 px-4 py-3">
-              <p className="text-sm font-semibold text-gray-600">Effective rate after DIRT</p>
-              <p className="mt-1 text-xl font-bold text-gray-900">{result.effectiveRatePercent.toFixed(1)}%</p>
+            <div className="rounded-lg bg-glass-subtle px-4 py-3">
+              <p className="text-sm font-semibold text-ink-body">Effective rate after DIRT</p>
+              <p className="mt-1 text-xl font-bold text-white">{result.effectiveRatePercent.toFixed(1)}%</p>
             </div>
           </div>
 
-          <p className="text-sm text-gray-700">
+          <p className="text-sm text-ink-body">
             <a
               href={LONGEVITY_LINK_HREF}
               target="_blank"

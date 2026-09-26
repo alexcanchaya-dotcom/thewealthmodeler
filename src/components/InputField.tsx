@@ -14,7 +14,7 @@ interface InputFieldProps {
 export default function InputField({ label, type = 'number', step, placeholder, register, error, suffix }: InputFieldProps) {
   return (
     <div className="flex flex-col gap-2">
-      <label className="text-sm font-semibold text-white">{label}</label>
+      <label className="text-sm font-medium text-white/90">{label}</label>
       <div className="relative">
         <input
           type={type}

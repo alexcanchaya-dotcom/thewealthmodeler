@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import { Switch } from '@headlessui/react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
+import { US_MODEL_BADGE } from '@/lib/irish-copy';
 import ResultsDisplay from '@/components/ResultsDisplay';
 import { calculateFIRENumber, calculateYearsToFIRE } from '@/lib/calculations';
 import { calculateSavingsRate, formatCurrency, formatNumber } from '@/lib/utils';
@@ -58,6 +59,7 @@ export default function FIREPage() {
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card space-y-4">
         <div>
+          <span className="badge mb-3">{US_MODEL_BADGE}</span>
           <h1 className="text-2xl font-bold text-white">FIRE Calculator</h1>
           <p className="mt-1 text-sm text-ink-body">These are example numbers — change them. Not advice.</p>
           <p className="text-sm text-ink-body">Find your FIRE number, timeline, and how much to save each month.</p>

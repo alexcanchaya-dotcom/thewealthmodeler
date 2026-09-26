@@ -65,7 +65,7 @@ export default function CarFinanceVsCashPage() {
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card space-y-4">
         <div className="space-y-3">
-          <span className="inline-flex w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
+          <span className="badge">
             {CAR_FINANCE_VS_CASH_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">Car finance vs cash</h1>

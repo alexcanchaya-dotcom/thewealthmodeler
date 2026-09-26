@@ -26,9 +26,18 @@ module.exports = {
           deep: '#150d31',
         },
       },
+      fontSize: {
+        // Calmer reading rhythm (UX brief: raise line-height)
+        sm: ['0.875rem', { lineHeight: '1.4rem' }],
+        base: ['1rem', { lineHeight: '1.7rem' }],
+        lg: ['1.125rem', { lineHeight: '1.85rem' }],
+      },
+      borderRadius: {
+        card: '1.25rem',
+      },
       boxShadow: {
-        card: '0 20px 40px rgba(10, 6, 30, 0.35)',
-        'card-hover': '0 28px 56px rgba(10, 6, 30, 0.45)',
+        card: '0 16px 36px rgba(10, 6, 30, 0.22)',
+        'card-hover': '0 22px 44px rgba(10, 6, 30, 0.30)',
         glow: '0 8px 32px rgba(94, 139, 253, 0.35)',
       },
       backgroundImage: {
