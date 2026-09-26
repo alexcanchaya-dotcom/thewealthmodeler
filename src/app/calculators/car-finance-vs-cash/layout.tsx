@@ -1,11 +1,13 @@
-import type { Metadata } from 'next';
+import { CalculatorJsonLd } from '@/components/JsonLd';
+import { calcMetadata } from '@/lib/calculator-registry';
 
-export const metadata: Metadata = {
-  title: 'Car Finance vs Cash (Ireland) | The Wealth Modeler',
-  description:
-    'Same car — does monthly finance or paying cash cost less over the term using a simple Irish-style APR model. Example figures — change them. Not advice.',
-};
+export const metadata = calcMetadata('car-finance-vs-cash');
 
 export default function CarFinanceVsCashLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <CalculatorJsonLd slug="car-finance-vs-cash" />
+      {children}
+    </>
+  );
 }

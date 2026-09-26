@@ -1,3 +1,12 @@
+import { pageMetadata } from '@/lib/site';
+
+export const metadata = pageMetadata({
+  title: 'About | The Wealth Modeler',
+  description:
+    'About The Wealth Modeler: free, simple calculators for retirement, financial independence and everyday Irish money decisions. Everything runs in your browser, so your numbers stay on your device.',
+  path: '/about',
+});
+
 export default function AboutPage() {
   return (
     <div className="space-y-6">

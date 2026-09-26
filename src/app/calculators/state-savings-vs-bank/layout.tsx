@@ -1,11 +1,13 @@
-import type { Metadata } from 'next';
+import { CalculatorJsonLd } from '@/components/JsonLd';
+import { calcMetadata } from '@/lib/calculator-registry';
 
-export const metadata: Metadata = {
-  title: 'State Savings vs Bank (DIRT) | The Wealth Modeler',
-  description:
-    'Compare Irish State Savings (tax-free) with a bank deposit after 33% DIRT. Example figures — change them. Not advice.',
-};
+export const metadata = calcMetadata('state-savings-vs-bank');
 
 export default function StateSavingsVsBankLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <CalculatorJsonLd slug="state-savings-vs-bank" />
+      {children}
+    </>
+  );
 }
