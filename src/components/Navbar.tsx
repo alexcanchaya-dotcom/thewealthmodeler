@@ -7,6 +7,7 @@ import { Bars3Icon, XMarkIcon, CalculatorIcon, HomeIcon, InformationCircleIcon }
 import clsx from 'clsx';
 import {
   CAR_FINANCE_VS_CASH_BADGE,
+  DIRT_SAVINGS_INTEREST_BADGE,
   EMERGENCY_FUND_BADGE,
   HELP_TO_BUY_DEPOSIT_BADGE,
   HOW_MUCH_CAN_I_BORROW_BADGE,
@@ -44,6 +45,7 @@ const navItems = [
       { name: 'How much can I borrow', href: '/calculators/how-much-can-i-borrow' },
       { name: 'Mortgage repayment', href: '/calculators/mortgage-repayment' },
       { name: 'Local Property Tax', href: '/calculators/local-property-tax' },
+      { name: 'DIRT on savings interest', href: '/calculators/dirt-savings-interest' },
     ],
   },
   { name: 'About', href: '/about', icon: InformationCircleIcon },
@@ -80,7 +82,9 @@ export default function Navbar() {
                             ? MORTGAGE_REPAYMENT_BADGE
                             : pathname === '/calculators/local-property-tax'
                               ? LOCAL_PROPERTY_TAX_BADGE
-                              : null;
+                              : pathname === '/calculators/dirt-savings-interest'
+                                ? DIRT_SAVINGS_INTEREST_BADGE
+                                : null;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-glass-line bg-night/85 text-white shadow-lg backdrop-blur-xl">

@@ -48,5 +48,11 @@ export const LOCAL_PROPERTY_TAX_FOOTNOTE =
 export const LOCAL_PROPERTY_TAX_VALUE_HINT = 'your estimate of market value';
 export const LOCAL_PROPERTY_TAX_LOCAL_HINT =
   'your council can shift basic rate by about ±15% — leave 0 if unsure';
+export const DIRT_SAVINGS_INTEREST_BADGE = 'Ireland — DIRT on savings interest (simplified)';
+export const DIRT_SAVINGS_INTEREST_FOOTNOTE =
+  'Simple one-year interest — ignores compounding, PRSI on interest, and DIRT exemptions (e.g. some State Savings). Not advice.';
+export const DIRT_SAVINGS_INTEREST_DEPOSIT_HINT = 'amount in the account';
+export const DIRT_SAVINGS_INTEREST_RATE_HINT = 'example AER — change to your rate';
+export const DIRT_SAVINGS_INTEREST_DIRT_HINT = 'standard DIRT is 33% — change if rates move';
 export const LONGEVITY_LINK_TEXT = 'Also see lifespan on longevitymodeler.com';
 export const LONGEVITY_LINK_HREF = 'https://longevitymodeler.com';
