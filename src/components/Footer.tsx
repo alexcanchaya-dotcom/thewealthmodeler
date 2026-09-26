@@ -22,22 +22,23 @@ const footerLinks = [
   { name: 'Privacy', href: '/privacy' },
 ];
 
+// Single shared footer (rendered once in the root layout) = single source for the copyright year.
 export default function Footer() {
   return (
     <footer className="mt-16 border-t border-glass-line bg-glass backdrop-blur">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-8 md:flex-row md:items-center md:justify-between">
-        <div>
+      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-10 md:grid-cols-[16rem_minmax(0,1fr)_auto] md:items-start md:gap-12">
+        <div className="space-y-2">
           <h3 className="text-lg font-semibold text-white">The Wealth Modeler</h3>
           <p className="text-sm text-ink-body">Free tools for financial independence and retirement planning.</p>
         </div>
-        <div className="flex flex-wrap gap-4 text-sm font-semibold text-ink-body">
+        <div className="flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium text-ink-body">
           {footerLinks.map((link) => (
             <Link key={link.name} href={link.href} className="hover:text-primary">
               {link.name}
             </Link>
           ))}
         </div>
-        <div className="text-sm text-ink-muted">© {new Date().getFullYear()} The Wealth Modeler</div>
+        <div className="whitespace-nowrap text-sm text-ink-muted">© {new Date().getFullYear()} The Wealth Modeler</div>
       </div>
     </footer>
   );

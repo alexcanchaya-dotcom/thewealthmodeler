@@ -83,7 +83,7 @@ export default function HowMuchCanIBorrowPage() {
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card space-y-4">
         <div className="space-y-3">
-          <span className="badge">
+          <span className="badge badge-ie">
             {HOW_MUCH_CAN_I_BORROW_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">How much can I borrow</h1>

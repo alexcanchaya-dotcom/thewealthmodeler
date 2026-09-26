@@ -58,7 +58,7 @@ export default function CompoundInterestPage() {
   return (
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card">
-        <span className="badge mb-3">{US_MODEL_BADGE}</span>
+        <span className="badge badge-us mb-3">{US_MODEL_BADGE}</span>
         <h1 className="text-2xl font-bold text-white">Compound Interest Calculator</h1>
         <p className="text-sm text-ink-body">See how your investments grow with monthly contributions and annual compounding.</p>
         <form className="mt-6 space-y-4" onSubmit={handleSubmit(onSubmit)}>

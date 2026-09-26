@@ -72,7 +72,7 @@ export default function IrishTakeHomeFirePage() {
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card space-y-4">
         <div className="space-y-3">
-          <span className="badge">
+          <span className="badge badge-ie">
             {IRELAND_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">Irish Take-Home → FIRE</h1>
