@@ -1,11 +1,13 @@
-import type { Metadata } from 'next';
+import { CalculatorJsonLd } from '@/components/JsonLd';
+import { calcMetadata } from '@/lib/calculator-registry';
 
-export const metadata: Metadata = {
-  title: 'Emergency Fund Months (Ireland) | The Wealth Modeler',
-  description:
-    'How many months of essential expenses your rainy-day cash covers. Example figures — change them. Not advice.',
-};
+export const metadata = calcMetadata('emergency-fund-months');
 
 export default function EmergencyFundMonthsLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <CalculatorJsonLd slug="emergency-fund-months" />
+      {children}
+    </>
+  );
 }

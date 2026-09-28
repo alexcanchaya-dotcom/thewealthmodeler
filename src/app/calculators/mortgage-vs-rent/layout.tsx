@@ -1,11 +1,13 @@
-import type { Metadata } from 'next';
+import { CalculatorJsonLd } from '@/components/JsonLd';
+import { calcMetadata } from '@/lib/calculator-registry';
 
-export const metadata: Metadata = {
-  title: 'Mortgage vs Rent (Ireland) | The Wealth Modeler',
-  description:
-    'Same home, same month — is renting or buying cheaper this month using Irish-style numbers. Example figures — change them. Not advice.',
-};
+export const metadata = calcMetadata('mortgage-vs-rent');
 
 export default function MortgageVsRentLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <CalculatorJsonLd slug="mortgage-vs-rent" />
+      {children}
+    </>
+  );
 }

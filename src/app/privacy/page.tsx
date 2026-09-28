@@ -1,5 +1,12 @@
 // src/app/privacy/page.tsx
 import React from 'react';
+import { pageMetadata } from '@/lib/site';
+
+export const metadata = pageMetadata({
+  title: 'Privacy policy | The Wealth Modeler',
+  description: 'How The Wealth Modeler handles information, cookies and third-party services when you use thewealthmodeler.com.',
+  path: '/privacy',
+});
 
 export default function PrivacyPage() {
   return (

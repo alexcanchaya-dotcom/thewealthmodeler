@@ -1,11 +1,13 @@
-import type { Metadata } from 'next';
+import { CalculatorJsonLd } from '@/components/JsonLd';
+import { calcMetadata } from '@/lib/calculator-registry';
 
-export const metadata: Metadata = {
-  title: 'Local Property Tax (Ireland) | The Wealth Modeler',
-  description:
-    'About how much Local Property Tax you might pay from property market value and an optional local adjustment. Example figures — change them. Not advice.',
-};
+export const metadata = calcMetadata('local-property-tax');
 
 export default function LocalPropertyTaxLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <CalculatorJsonLd slug="local-property-tax" />
+      {children}
+    </>
+  );
 }

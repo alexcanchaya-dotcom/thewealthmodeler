@@ -3,18 +3,21 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { SITE_NAME, SITE_URL } from '@/lib/site';
 
 const inter = Inter({ subsets: ['latin'] });
 
+// Defaults only. Every page sets its own title, description and canonical.
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: 'The Wealth Modeler - Investment & FIRE Calculator',
   description:
     'Free investment calculators for retirement planning and FIRE strategies. Calculate compound interest, FIRE numbers, and retirement savings.',
   keywords: ['retirement calculator', 'FIRE calculator', 'investment calculator', 'compound interest', 'financial independence'],
   openGraph: {
-    title: 'The Wealth Modeler',
+    title: SITE_NAME,
     description: 'Model your financial future with free calculators',
-    url: 'https://thewealthmodeler.com',
+    siteName: SITE_NAME,
     type: 'website',
   },
 };

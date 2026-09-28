@@ -1,11 +1,13 @@
-import type { Metadata } from 'next';
+import { CalculatorJsonLd } from '@/components/JsonLd';
+import { calcMetadata } from '@/lib/calculator-registry';
 
-export const metadata: Metadata = {
-  title: 'Mortgage Overpay vs Cash (Ireland) | The Wealth Modeler',
-  description:
-    'If you overpay the mortgage, how much interest you save and how many months sooner you finish versus keeping that cash liquid. Example figures — change them. Not advice.',
-};
+export const metadata = calcMetadata('mortgage-overpay-vs-cash');
 
 export default function MortgageOverpayVsCashLayout({ children }: { children: React.ReactNode }) {
-  return children;
+  return (
+    <>
+      <CalculatorJsonLd slug="mortgage-overpay-vs-cash" />
+      {children}
+    </>
+  );
 }
