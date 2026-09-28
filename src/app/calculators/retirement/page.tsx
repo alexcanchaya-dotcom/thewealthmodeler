@@ -74,7 +74,7 @@ export default function RetirementPage() {
     <div className="grid gap-8 lg:grid-cols-2">
       <div className="card space-y-4">
         <div>
-          <span className="badge mb-3">{US_MODEL_BADGE}</span>
+          <span className="badge badge-us mb-3">{US_MODEL_BADGE}</span>
           <h1 className="text-2xl font-bold text-white">Retirement Calculator</h1>
           <p className="text-sm text-ink-body">Estimate your nest egg, monthly income in retirement, and how long it may last.</p>
         </div>

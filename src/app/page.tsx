@@ -18,6 +18,7 @@ import {
   ReceiptPercentIcon,
   CreditCardIcon,
   HomeIcon,
+  PercentBadgeIcon,
 } from '@heroicons/react/24/outline';
 import CalculatorCard from '@/components/CalculatorCard';
 import { HERO_CONTENT } from '@/lib/constants';
@@ -145,6 +146,13 @@ const calculators: CalculatorEntry[] = [
     description: 'About how much Local Property Tax you might pay from property market value and an optional local adjustment.',
     href: '/calculators/local-property-tax',
     icon: <HomeIcon className={iconClass} />,
+    group: 'ireland',
+  },
+  {
+    title: 'DIRT on savings interest',
+    description: 'If your deposit earns this interest, how much DIRT is taken and what you keep after tax.',
+    href: '/calculators/dirt-savings-interest',
+    icon: <PercentBadgeIcon className={iconClass} />,
     group: 'ireland',
   },
 ];

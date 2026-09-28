@@ -74,9 +74,18 @@ body {
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-/* Quiet context chip (Ireland / US model) that sits next to page titles */
+/* Quiet context chip that sits next to page titles.
+   .badge-ie = Ireland (faint green glass), .badge-us = US model (faint amber glass). */
 .badge {
-  @apply inline-flex w-fit rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/85 ring-1 ring-inset ring-white/15;
+  @apply inline-flex w-fit rounded-full border px-3 py-1 text-xs font-medium;
+}
+
+.badge-ie {
+  @apply border-emerald-300/30 bg-emerald-400/[0.12] text-emerald-100;
+}
+
+.badge-us {
+  @apply border-amber-300/30 bg-amber-400/[0.12] text-amber-100;
 }
 
 /* Soft inline note on glass (replaces light-theme callouts) */
