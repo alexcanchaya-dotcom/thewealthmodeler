@@ -22,6 +22,9 @@ export default function PrivacyPage() {
       <p className="mb-4 text-ink-body">
         Our Site provides free financial calculators that run entirely client-side. We do not collect, store, or process any personal data from users through our calculators or any other features on the Site. No user inputs are sent to our servers.
       </p>
+      <p className="mb-4 text-ink-body">
+        Vercel Web Analytics: we count page visits anonymously. No cookies, no personal data.
+      </p>
       <h2 className="text-2xl font-semibold mb-4">Cookies and Third-Party Services</h2>
       <p className="mb-4 text-ink-body">
         We use Google AdSense to serve advertisements on our Site. Google AdSense and its third-party vendors use cookies to serve ads based on a user&apos;s prior visits to our Site or other websites. Google&apos;s use of advertising cookies enables it and its partners to serve ads to users based on their visit to our Site and/or other sites on the Internet.
