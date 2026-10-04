@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { SITE_NAME, SITE_URL } from '@/lib/site';
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Navbar />
         <main className="fade-in mx-auto max-w-6xl px-4 pb-12 pt-10 md:pt-14">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );
