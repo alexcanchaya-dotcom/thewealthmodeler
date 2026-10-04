@@ -157,8 +157,11 @@ export default function RetirementPage() {
         </div>
 
         <div className="card space-y-2">
-          <label className="text-sm font-semibold text-white">Adjust Retirement Age</label>
+          <label className="text-sm font-semibold text-white" htmlFor="retirement-age-slider">
+            Adjust Retirement Age
+          </label>
           <input
+            id="retirement-age-slider"
             type="range"
             min={watched.currentAge}
             max={watched.lifeExpectancy}
