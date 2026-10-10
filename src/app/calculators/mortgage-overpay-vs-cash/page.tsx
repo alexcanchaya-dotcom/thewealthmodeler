@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
+import MobileResultLine from '@/components/MobileResultLine';
 import {
   EXAMPLE_NUMBERS_LINE,
   LONGEVITY_LINK_HREF,
@@ -107,6 +108,7 @@ export default function MortgageOverpayVsCashPage() {
             {MORTGAGE_OVERPAY_VS_CASH_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">Mortgage overpay vs keep cash</h1>
+          <MobileResultLine>{headline}</MobileResultLine>
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
           <p className="text-sm text-ink-body">
             If you overpay the mortgage by a set amount each month, how much interest do you save and how many months
@@ -237,7 +239,7 @@ export default function MortgageOverpayVsCashPage() {
               href={LONGEVITY_LINK_HREF}
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-primary hover:underline"
+              className="tap-target font-semibold text-primary hover:underline"
             >
               {LONGEVITY_LINK_TEXT}
             </a>

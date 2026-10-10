@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
+import MobileResultLine from '@/components/MobileResultLine';
 import {
   EXAMPLE_NUMBERS_LINE,
   LONGEVITY_LINK_HREF,
@@ -75,6 +76,7 @@ export default function PensionVsTakeHomePage() {
             {PENSION_VS_TAKE_HOME_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">Pension vs take-home</h1>
+          <MobileResultLine>{headline}</MobileResultLine>
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
           <p className="text-sm text-ink-body">
             If you put more into your pension, how much does take-home drop after tax relief, and how much more goes
@@ -192,7 +194,7 @@ export default function PensionVsTakeHomePage() {
               href={LONGEVITY_LINK_HREF}
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-primary hover:underline"
+              className="tap-target font-semibold text-primary hover:underline"
             >
               {LONGEVITY_LINK_TEXT}
             </a>

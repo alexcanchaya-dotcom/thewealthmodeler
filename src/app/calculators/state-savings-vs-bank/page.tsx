@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
+import MobileResultLine from '@/components/MobileResultLine';
 import {
   EXAMPLE_NUMBERS_LINE,
   LONGEVITY_LINK_HREF,
@@ -80,6 +81,7 @@ export default function StateSavingsVsBankPage() {
             {STATE_SAVINGS_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">State Savings vs bank</h1>
+          <MobileResultLine>{result ? result.headline : `Bank after DIRT: ${formatEuro(bankNet)}`}</MobileResultLine>
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
           <p className="text-sm text-ink-body">
             Compare a tax-free State Savings product with a bank deposit after 33% DIRT. Numbers update as you type.
@@ -222,7 +224,7 @@ export default function StateSavingsVsBankPage() {
               href={LONGEVITY_LINK_HREF}
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-primary hover:underline"
+              className="tap-target font-semibold text-primary hover:underline"
             >
               {LONGEVITY_LINK_TEXT}
             </a>

@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
+import MobileResultLine from '@/components/MobileResultLine';
 import {
   EXAMPLE_NUMBERS_LINE,
   HELP_TO_BUY_BOOST_HINT,
@@ -91,6 +92,7 @@ export default function HelpToBuyDepositRunwayPage() {
             {HELP_TO_BUY_DEPOSIT_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">Help to Buy deposit runway</h1>
+          <MobileResultLine>{headline}</MobileResultLine>
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
           <p className="text-sm text-ink-body">
             How many months until you have the deposit. An optional Help to Buy boost shortens the runway. Numbers
@@ -199,7 +201,7 @@ export default function HelpToBuyDepositRunwayPage() {
               href={LONGEVITY_LINK_HREF}
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-primary hover:underline"
+              className="tap-target font-semibold text-primary hover:underline"
             >
               {LONGEVITY_LINK_TEXT}
             </a>

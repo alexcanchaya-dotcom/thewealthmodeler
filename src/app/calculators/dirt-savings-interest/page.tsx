@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
+import MobileResultLine from '@/components/MobileResultLine';
 import {
   DIRT_SAVINGS_INTEREST_BADGE,
   DIRT_SAVINGS_INTEREST_DEPOSIT_HINT,
@@ -70,6 +71,7 @@ export default function DirtSavingsInterestPage() {
             {DIRT_SAVINGS_INTEREST_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">DIRT on savings interest</h1>
+          <MobileResultLine>{headline}</MobileResultLine>
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
           <p className="text-sm text-ink-body">
             If your deposit earns this interest, how much DIRT is taken and what do you keep? Numbers update as you
@@ -152,7 +154,7 @@ export default function DirtSavingsInterestPage() {
               href={LONGEVITY_LINK_HREF}
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-primary hover:underline"
+              className="tap-target font-semibold text-primary hover:underline"
             >
               {LONGEVITY_LINK_TEXT}
             </a>

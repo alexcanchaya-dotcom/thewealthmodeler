@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
+import MobileResultLine from '@/components/MobileResultLine';
 import {
   EXAMPLE_NUMBERS_LINE,
   HOW_MUCH_CAN_I_BORROW_BADGE,
@@ -87,6 +88,7 @@ export default function HowMuchCanIBorrowPage() {
             {HOW_MUCH_CAN_I_BORROW_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">How much can I borrow</h1>
+          <MobileResultLine>{headline}</MobileResultLine>
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
           <p className="text-sm text-ink-body">
             Roughly how much mortgage you could borrow from income and deposit. The headline is the lower of a simple
@@ -194,7 +196,7 @@ export default function HowMuchCanIBorrowPage() {
               href={LONGEVITY_LINK_HREF}
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-primary hover:underline"
+              className="tap-target font-semibold text-primary hover:underline"
             >
               {LONGEVITY_LINK_TEXT}
             </a>
