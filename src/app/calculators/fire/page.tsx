@@ -66,7 +66,7 @@ export default function FIREPage() {
             FIRE number {formatCurrency(fireNumber)} · about {formatNumber(yearsToFire, 1)} years away
           </MobileResultLine>
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
-          <p className="text-sm text-ink-body">Find your FIRE number, timeline, and how much to save each month.</p>
+          <p className="mt-3 text-sm text-ink-body">Find your FIRE number, timeline, and how much to save each month.</p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
           <InputField

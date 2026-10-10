@@ -86,7 +86,7 @@ export default function RetirementPage() {
             {`About ${formatCurrency(retirementData.retirementBalance)} saved by age ${calculatedRetirementAge}`}
           </MobileResultLine>
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
-          <p className="text-sm text-ink-body">Estimate your nest egg, monthly income in retirement, and how long it may last.</p>
+          <p className="mt-3 text-sm text-ink-body">Estimate your nest egg, monthly income in retirement, and how long it may last.</p>
         </div>
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <div className="grid gap-4 sm:grid-cols-2">
