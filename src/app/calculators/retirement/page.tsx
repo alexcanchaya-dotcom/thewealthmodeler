@@ -43,6 +43,9 @@ export default function RetirementPage() {
     )
   );
 
+  // Retirement age used in the last calculation, so the phone result line matches the cards.
+  const [calculatedRetirementAge, setCalculatedRetirementAge] = useState(defaultValues.retirementAge);
+
   const watched = watch();
 
   const onSubmit = (data: RetirementFormValues) => {
@@ -55,6 +58,7 @@ export default function RetirementPage() {
       data.annualSpending
     );
     setRetirementData(calculation);
+    setCalculatedRetirementAge(data.retirementAge);
   };
 
   const horizonYears = Math.max(watched.retirementAge - watched.currentAge, 0);
@@ -69,22 +73,6 @@ export default function RetirementPage() {
     [watched.currentSavings, watched.monthlyContribution, watched.expectedReturn, horizonYears]
   );
 
-  // Phone-only live line: the same calculateRetirement the Calculate button uses,
-  // fed with what is currently typed so it updates without pressing Calculate.
-  const liveRetirement = useMemo(() => {
-    const { currentAge, retirementAge, currentSavings, monthlyContribution, expectedReturn, annualSpending } = watched;
-    const fields = [currentAge, retirementAge, currentSavings, monthlyContribution, expectedReturn, annualSpending];
-    if (!fields.every((v) => Number.isFinite(v)) || retirementAge < currentAge) return null;
-    return calculateRetirement(currentAge, retirementAge, currentSavings, monthlyContribution, expectedReturn, annualSpending);
-  }, [
-    watched.currentAge,
-    watched.retirementAge,
-    watched.currentSavings,
-    watched.monthlyContribution,
-    watched.expectedReturn,
-    watched.annualSpending,
-  ]);
-
   const willMoneyLast = retirementData.yearsOfRetirement >= watched.lifeExpectancy - watched.retirementAge;
 
   return (
@@ -94,9 +82,8 @@ export default function RetirementPage() {
           <span className="badge badge-us mb-3">{US_MODEL_BADGE}</span>
           <h1 className="text-2xl font-bold text-white">Retirement Calculator</h1>
           <MobileResultLine>
-            {liveRetirement
-              ? `About ${formatCurrency(liveRetirement.retirementBalance)} saved by age ${watched.retirementAge}`
-              : 'Fill in every box to see your result'}
+            {/* Last calculated result (same values as the cards); changes only when Calculate is pressed. */}
+            {`About ${formatCurrency(retirementData.retirementBalance)} saved by age ${calculatedRetirementAge}`}
           </MobileResultLine>
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
           <p className="text-sm text-ink-body">Estimate your nest egg, monthly income in retirement, and how long it may last.</p>

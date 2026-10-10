@@ -26,7 +26,7 @@ const defaultValues: CompoundFormValues = {
 };
 
 export default function CompoundInterestPage() {
-  const { register, handleSubmit, watch, formState } = useForm<CompoundFormValues>({ defaultValues });
+  const { register, handleSubmit, formState } = useForm<CompoundFormValues>({ defaultValues });
   const [inputs, setInputs] = useState<CompoundFormValues>(defaultValues);
   const [result, setResult] = useState<CompoundInterestResult>(calculateCompoundInterest(
     defaultValues.principal,
@@ -46,16 +46,6 @@ export default function CompoundInterestPage() {
     setResult(calculation);
   };
 
-  // Phone-only live line: the same calculateCompoundInterest the Calculate button uses,
-  // fed with what is currently typed so it updates without pressing Calculate.
-  const watched = watch();
-  const liveResult = useMemo(() => {
-    const { principal, monthlyContribution, annualRate, years } = watched;
-    const ok = [principal, monthlyContribution, annualRate, years].every((v) => Number.isFinite(v));
-    if (!ok || principal < 0 || monthlyContribution < 0 || annualRate < 0 || annualRate > 30 || years < 1) return null;
-    return calculateCompoundInterest(Number(principal), Number(monthlyContribution), Number(annualRate), Number(years));
-  }, [watched.principal, watched.monthlyContribution, watched.annualRate, watched.years]);
-
   const chartLabels = useMemo(() => result.yearlyBreakdown.map((year) => `Year ${year.year}`), [result]);
   const totalValues = useMemo(() => result.yearlyBreakdown.map((year) => Math.round(year.balance)), [result]);
   const contributions = useMemo(
@@ -72,12 +62,11 @@ export default function CompoundInterestPage() {
         <span className="badge badge-us mb-3">{US_MODEL_BADGE}</span>
         <h1 className="text-2xl font-bold text-white">Compound Interest Calculator</h1>
         <MobileResultLine>
-          {liveResult
-            ? `About ${formatCurrency(liveResult.finalAmount)} after ${watched.years} ${watched.years === 1 ? 'year' : 'years'}`
-            : 'Fill in every box to see your result'}
+          {/* Last calculated result (same values as the cards); changes only when Calculate is pressed. */}
+          {`About ${formatCurrency(result.finalAmount)} after ${inputs.years} ${Number(inputs.years) === 1 ? 'year' : 'years'}`}
         </MobileResultLine>
         <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
-        <p className="text-sm text-ink-body">See how your investments grow with monthly contributions and annual compounding.</p>
+        <p className="mt-3 text-sm text-ink-body">See how your investments grow with monthly contributions and annual compounding.</p>
         <form className="mt-6 space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <InputField
             label="Initial Investment ($)"
