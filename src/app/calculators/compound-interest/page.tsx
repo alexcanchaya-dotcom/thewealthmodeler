@@ -3,7 +3,8 @@
 import { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
-import { US_MODEL_BADGE } from '@/lib/irish-copy';
+import MobileResultLine from '@/components/MobileResultLine';
+import { EXAMPLE_NUMBERS_LINE, LONGEVITY_LINK_HREF, LONGEVITY_LINK_TEXT, US_MODEL_BADGE } from '@/lib/irish-copy';
 import ResultsDisplay from '@/components/ResultsDisplay';
 import Chart from '@/components/Chart';
 import { calculateCompoundInterest } from '@/lib/calculations';
@@ -60,7 +61,12 @@ export default function CompoundInterestPage() {
       <div className="card">
         <span className="badge badge-us mb-3">{US_MODEL_BADGE}</span>
         <h1 className="text-2xl font-bold text-white">Compound Interest Calculator</h1>
-        <p className="text-sm text-ink-body">See how your investments grow with monthly contributions and annual compounding.</p>
+        <MobileResultLine>
+          {/* Last calculated result (same values as the cards); changes only when Calculate is pressed. */}
+          {`About ${formatCurrency(result.finalAmount)} after ${inputs.years} ${Number(inputs.years) === 1 ? 'year' : 'years'}`}
+        </MobileResultLine>
+        <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
+        <p className="mt-3 text-sm text-ink-body">See how your investments grow with monthly contributions and annual compounding.</p>
         <form className="mt-6 space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <InputField
             label="Initial Investment ($)"
@@ -97,7 +103,7 @@ export default function CompoundInterestPage() {
         </form>
       </div>
 
-      <div className="space-y-4">
+      <div className="min-w-0 space-y-4">
         <ResultsDisplay
           title="Results"
           rows={[
@@ -106,9 +112,21 @@ export default function CompoundInterestPage() {
             { label: 'Total Interest Earned', value: result.totalInterest },
           ]}
           extra={
-            <div className="text-xs text-ink-muted">
-              Final amount shown with annual compounding. Total contributions include your initial investment plus monthly deposits.
-            </div>
+            <>
+              <div className="text-xs text-ink-muted">
+                Final amount shown with annual compounding. Total contributions include your initial investment plus monthly deposits.
+              </div>
+              <p className="text-sm text-ink-body">
+                <a
+                  href={LONGEVITY_LINK_HREF}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="tap-target font-semibold text-primary hover:underline"
+                >
+                  {LONGEVITY_LINK_TEXT}
+                </a>
+              </p>
+            </>
           }
         />
         <div className="card space-y-3">

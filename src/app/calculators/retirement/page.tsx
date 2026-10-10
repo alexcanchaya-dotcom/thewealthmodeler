@@ -3,7 +3,8 @@
 import { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
-import { US_MODEL_BADGE } from '@/lib/irish-copy';
+import MobileResultLine from '@/components/MobileResultLine';
+import { EXAMPLE_NUMBERS_LINE, LONGEVITY_LINK_HREF, LONGEVITY_LINK_TEXT, US_MODEL_BADGE } from '@/lib/irish-copy';
 import ResultsDisplay from '@/components/ResultsDisplay';
 import Chart from '@/components/Chart';
 import { calculateRetirement, calculateCompoundInterest } from '@/lib/calculations';
@@ -42,6 +43,9 @@ export default function RetirementPage() {
     )
   );
 
+  // Retirement age used in the last calculation, so the phone result line matches the cards.
+  const [calculatedRetirementAge, setCalculatedRetirementAge] = useState(defaultValues.retirementAge);
+
   const watched = watch();
 
   const onSubmit = (data: RetirementFormValues) => {
@@ -54,6 +58,7 @@ export default function RetirementPage() {
       data.annualSpending
     );
     setRetirementData(calculation);
+    setCalculatedRetirementAge(data.retirementAge);
   };
 
   const horizonYears = Math.max(watched.retirementAge - watched.currentAge, 0);
@@ -76,7 +81,12 @@ export default function RetirementPage() {
         <div>
           <span className="badge badge-us mb-3">{US_MODEL_BADGE}</span>
           <h1 className="text-2xl font-bold text-white">Retirement Calculator</h1>
-          <p className="text-sm text-ink-body">Estimate your nest egg, monthly income in retirement, and how long it may last.</p>
+          <MobileResultLine>
+            {/* Last calculated result (same values as the cards); changes only when Calculate is pressed. */}
+            {`About ${formatCurrency(retirementData.retirementBalance)} saved by age ${calculatedRetirementAge}`}
+          </MobileResultLine>
+          <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
+          <p className="mt-3 text-sm text-ink-body">Estimate your nest egg, monthly income in retirement, and how long it may last.</p>
         </div>
         <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -126,7 +136,7 @@ export default function RetirementPage() {
         </form>
       </div>
 
-      <div className="space-y-4">
+      <div className="min-w-0 space-y-4">
         <ResultsDisplay
           title="Retirement Outlook"
           rows={[
@@ -136,9 +146,21 @@ export default function RetirementPage() {
             { label: 'Will Your Money Last?', value: willMoneyLast ? 'Yes' : 'No', highlight: willMoneyLast },
           ]}
           extra={
-            <div className="rounded-lg bg-green-50 px-4 py-3 text-xs text-green-800">
-              Assumes annual spending remains constant and a 4% withdrawal rate for monthly income. Adjust life expectancy to test different scenarios.
-            </div>
+            <>
+              <div className="rounded-lg bg-green-50 px-4 py-3 text-xs text-green-800">
+                Assumes annual spending remains constant and a 4% withdrawal rate for monthly income. Adjust life expectancy to test different scenarios.
+              </div>
+              <p className="text-sm text-ink-body">
+                <a
+                  href={LONGEVITY_LINK_HREF}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="tap-target font-semibold text-primary hover:underline"
+                >
+                  {LONGEVITY_LINK_TEXT}
+                </a>
+              </p>
+            </>
           }
         />
 
@@ -170,7 +192,7 @@ export default function RetirementPage() {
               const value = Number(e.target.value);
               handleSubmit((data) => onSubmit({ ...data, retirementAge: value }))();
             }}
-            className="w-full accent-primary"
+            className="w-full accent-primary max-md:h-6"
           />
           <div className="flex justify-between text-xs text-ink-body">
             <span>Current Age: {watched.currentAge}</span>

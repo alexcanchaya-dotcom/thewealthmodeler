@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
+import MobileResultLine from '@/components/MobileResultLine';
 import {
   EXAMPLE_NUMBERS_LINE,
   LONGEVITY_LINK_HREF,
@@ -74,6 +75,7 @@ export default function MortgageRepaymentPage() {
             {MORTGAGE_REPAYMENT_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">Mortgage repayment</h1>
+          <MobileResultLine>{headline}</MobileResultLine>
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
           <p className="text-sm text-ink-body">
             What would this mortgage cost per month? Headline is the repay at the quoted rate. Numbers update as you
@@ -164,7 +166,7 @@ export default function MortgageRepaymentPage() {
               href={LONGEVITY_LINK_HREF}
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-primary hover:underline"
+              className="tap-target font-semibold text-primary hover:underline"
             >
               {LONGEVITY_LINK_TEXT}
             </a>

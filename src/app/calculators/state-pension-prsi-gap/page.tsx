@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
+import MobileResultLine from '@/components/MobileResultLine';
 import {
   EXAMPLE_NUMBERS_LINE,
   LONGEVITY_LINK_HREF,
@@ -74,6 +75,7 @@ export default function StatePensionPrsiGapPage() {
             {STATE_PENSION_PRSI_GAP_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">State Pension / PRSI gap</h1>
+          <MobileResultLine>{headline}</MobileResultLine>
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
           <p className="text-sm text-ink-body">
             How much of your retirement spend the State Pension covers, and the monthly gap to fill from savings.
@@ -173,7 +175,7 @@ export default function StatePensionPrsiGapPage() {
               href={LONGEVITY_LINK_HREF}
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-primary hover:underline"
+              className="tap-target font-semibold text-primary hover:underline"
             >
               {LONGEVITY_LINK_TEXT}
             </a>

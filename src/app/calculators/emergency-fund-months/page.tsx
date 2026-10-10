@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
+import MobileResultLine from '@/components/MobileResultLine';
 import {
   EMERGENCY_FUND_BADGE,
   EMERGENCY_FUND_FOOTNOTE,
@@ -77,6 +78,7 @@ export default function EmergencyFundMonthsPage() {
             {EMERGENCY_FUND_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">Emergency fund months</h1>
+          <MobileResultLine>{headline}</MobileResultLine>
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
           <p className="text-sm text-ink-body">
             How many months of essential expenses your rainy-day cash covers. Numbers update as you type.
@@ -160,7 +162,7 @@ export default function EmergencyFundMonthsPage() {
               href={LONGEVITY_LINK_HREF}
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-primary hover:underline"
+              className="tap-target font-semibold text-primary hover:underline"
             >
               {LONGEVITY_LINK_TEXT}
             </a>

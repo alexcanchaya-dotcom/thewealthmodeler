@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
+import MobileResultLine from '@/components/MobileResultLine';
 import { calculateFIRENumber, calculateYearsToFIRE } from '@/lib/calculations';
 import {
   EXAMPLE_NUMBERS_LINE,
@@ -76,6 +77,7 @@ export default function IrishTakeHomeFirePage() {
             {IRELAND_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">Irish Take-Home → FIRE</h1>
+          <MobileResultLine>{`Years to FIRE: ${yearsLabel}`}</MobileResultLine>
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
           <p className="text-sm text-ink-body">
             Start from a rough Irish take-home, subtract spending, then estimate a FIRE number and years to get there.
@@ -198,7 +200,7 @@ export default function IrishTakeHomeFirePage() {
               href={LONGEVITY_LINK_HREF}
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-primary hover:underline"
+              className="tap-target font-semibold text-primary hover:underline"
             >
               {LONGEVITY_LINK_TEXT}
             </a>
@@ -245,10 +247,6 @@ export default function IrishTakeHomeFirePage() {
           </div>
         </div>
 
-        {/* Amazon affiliate slot — Product can drop in a live tag later. Empty on purpose: this repo has no affiliate IDs. */}
-        <div className="rounded-xl border border-dashed border-glass-line bg-glass px-4 py-3 text-xs text-ink-muted">
-          Optional reading list goes here later. Nothing for sale on this page.
-        </div>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const footerLinks = [
   { name: 'Home', href: '/' },
-  { name: 'Calculators', href: '/calculators/compound-interest' },
+  { name: 'Calculators', href: '/#all-calculators' },
   { name: 'FIRE', href: '/calculators/fire' },
   { name: 'Ireland FIRE', href: '/calculators/irish-take-home-fire' },
   { name: 'State Savings vs bank', href: '/calculators/state-savings-vs-bank' },
@@ -34,7 +34,7 @@ export default function Footer() {
         </div>
         <div className="flex flex-wrap gap-x-5 gap-y-3 text-sm font-medium text-ink-body">
           {footerLinks.map((link) => (
-            <Link key={link.name} href={link.href} className="hover:text-primary">
+            <Link key={link.name} href={link.href} className="tap-target hover:text-primary">
               {link.name}
             </Link>
           ))}

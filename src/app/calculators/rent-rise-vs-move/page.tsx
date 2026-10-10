@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
+import MobileResultLine from '@/components/MobileResultLine';
 import {
   EXAMPLE_NUMBERS_LINE,
   LONGEVITY_LINK_HREF,
@@ -78,6 +79,7 @@ export default function RentRiseVsMovePage() {
             {RENT_RISE_VS_MOVE_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">Rent rise vs cost of moving</h1>
+          <MobileResultLine>{headline}</MobileResultLine>
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
           <p className="text-sm text-ink-body">
             Landlord raises rent — cheaper to stay or move? Compare the extra rent if you stay with the one-time cost of
@@ -184,7 +186,7 @@ export default function RentRiseVsMovePage() {
               href={LONGEVITY_LINK_HREF}
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-primary hover:underline"
+              className="tap-target font-semibold text-primary hover:underline"
             >
               {LONGEVITY_LINK_TEXT}
             </a>

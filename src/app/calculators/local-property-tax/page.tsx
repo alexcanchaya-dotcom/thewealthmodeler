@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
+import MobileResultLine from '@/components/MobileResultLine';
 import {
   EXAMPLE_NUMBERS_LINE,
   LOCAL_PROPERTY_TAX_BADGE,
@@ -68,6 +69,7 @@ export default function LocalPropertyTaxPage() {
             {LOCAL_PROPERTY_TAX_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">Local Property Tax</h1>
+          <MobileResultLine>{headline}</MobileResultLine>
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
           <p className="text-sm text-ink-body">
             About how much Local Property Tax you might pay from property market value. Numbers update as you type.
@@ -139,7 +141,7 @@ export default function LocalPropertyTaxPage() {
               href={LONGEVITY_LINK_HREF}
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-primary hover:underline"
+              className="tap-target font-semibold text-primary hover:underline"
             >
               {LONGEVITY_LINK_TEXT}
             </a>

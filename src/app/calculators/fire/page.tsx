@@ -4,7 +4,8 @@ import { useMemo, useState } from 'react';
 import { Switch } from '@headlessui/react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
-import { US_MODEL_BADGE } from '@/lib/irish-copy';
+import MobileResultLine from '@/components/MobileResultLine';
+import { EXAMPLE_NUMBERS_LINE, LONGEVITY_LINK_HREF, LONGEVITY_LINK_TEXT, US_MODEL_BADGE } from '@/lib/irish-copy';
 import ResultsDisplay from '@/components/ResultsDisplay';
 import { calculateFIRENumber, calculateYearsToFIRE } from '@/lib/calculations';
 import { calculateSavingsRate, formatCurrency, formatNumber } from '@/lib/utils';
@@ -61,8 +62,11 @@ export default function FIREPage() {
         <div>
           <span className="badge badge-us mb-3">{US_MODEL_BADGE}</span>
           <h1 className="text-2xl font-bold text-white">FIRE Calculator</h1>
-          <p className="mt-1 text-sm text-ink-body">These are example numbers — change them. Not advice.</p>
-          <p className="text-sm text-ink-body">Find your FIRE number, timeline, and how much to save each month.</p>
+          <MobileResultLine>
+            FIRE number {formatCurrency(fireNumber)} · about {formatNumber(yearsToFire, 1)} years away
+          </MobileResultLine>
+          <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
+          <p className="mt-3 text-sm text-ink-body">Find your FIRE number, timeline, and how much to save each month.</p>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
           <InputField
@@ -123,9 +127,21 @@ export default function FIREPage() {
             { label: 'Monthly Savings Needed', value: monthlySavingsNeeded },
           ]}
           extra={
-            <div className="rounded-lg bg-primary/15 px-4 py-3 text-xs text-white/80">
-              Savings rate is calculated as (Income - Expenses) / Income. Adjust Coast or Barista modes to see how different strategies impact your timeline.
-            </div>
+            <>
+              <div className="rounded-lg bg-primary/15 px-4 py-3 text-xs text-white/80">
+                Savings rate is calculated as (Income - Expenses) / Income. Adjust Coast or Barista modes to see how different strategies impact your timeline.
+              </div>
+              <p className="text-sm text-ink-body">
+                <a
+                  href={LONGEVITY_LINK_HREF}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="tap-target font-semibold text-primary hover:underline"
+                >
+                  {LONGEVITY_LINK_TEXT}
+                </a>
+              </p>
+            </>
           }
         />
 
