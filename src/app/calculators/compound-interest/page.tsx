@@ -3,7 +3,8 @@
 import { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
-import { US_MODEL_BADGE } from '@/lib/irish-copy';
+import MobileResultLine from '@/components/MobileResultLine';
+import { EXAMPLE_NUMBERS_LINE, LONGEVITY_LINK_HREF, LONGEVITY_LINK_TEXT, US_MODEL_BADGE } from '@/lib/irish-copy';
 import ResultsDisplay from '@/components/ResultsDisplay';
 import Chart from '@/components/Chart';
 import { calculateCompoundInterest } from '@/lib/calculations';
@@ -25,7 +26,7 @@ const defaultValues: CompoundFormValues = {
 };
 
 export default function CompoundInterestPage() {
-  const { register, handleSubmit, formState } = useForm<CompoundFormValues>({ defaultValues });
+  const { register, handleSubmit, watch, formState } = useForm<CompoundFormValues>({ defaultValues });
   const [inputs, setInputs] = useState<CompoundFormValues>(defaultValues);
   const [result, setResult] = useState<CompoundInterestResult>(calculateCompoundInterest(
     defaultValues.principal,
@@ -45,6 +46,16 @@ export default function CompoundInterestPage() {
     setResult(calculation);
   };
 
+  // Phone-only live line: the same calculateCompoundInterest the Calculate button uses,
+  // fed with what is currently typed so it updates without pressing Calculate.
+  const watched = watch();
+  const liveResult = useMemo(() => {
+    const { principal, monthlyContribution, annualRate, years } = watched;
+    const ok = [principal, monthlyContribution, annualRate, years].every((v) => Number.isFinite(v));
+    if (!ok || principal < 0 || monthlyContribution < 0 || annualRate < 0 || annualRate > 30 || years < 1) return null;
+    return calculateCompoundInterest(Number(principal), Number(monthlyContribution), Number(annualRate), Number(years));
+  }, [watched.principal, watched.monthlyContribution, watched.annualRate, watched.years]);
+
   const chartLabels = useMemo(() => result.yearlyBreakdown.map((year) => `Year ${year.year}`), [result]);
   const totalValues = useMemo(() => result.yearlyBreakdown.map((year) => Math.round(year.balance)), [result]);
   const contributions = useMemo(
@@ -60,6 +71,12 @@ export default function CompoundInterestPage() {
       <div className="card">
         <span className="badge badge-us mb-3">{US_MODEL_BADGE}</span>
         <h1 className="text-2xl font-bold text-white">Compound Interest Calculator</h1>
+        <MobileResultLine>
+          {liveResult
+            ? `About ${formatCurrency(liveResult.finalAmount)} after ${watched.years} ${watched.years === 1 ? 'year' : 'years'}`
+            : 'Fill in every box to see your result'}
+        </MobileResultLine>
+        <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
         <p className="text-sm text-ink-body">See how your investments grow with monthly contributions and annual compounding.</p>
         <form className="mt-6 space-y-4" onSubmit={handleSubmit(onSubmit)}>
           <InputField
@@ -97,7 +114,7 @@ export default function CompoundInterestPage() {
         </form>
       </div>
 
-      <div className="space-y-4">
+      <div className="min-w-0 space-y-4">
         <ResultsDisplay
           title="Results"
           rows={[
@@ -106,9 +123,21 @@ export default function CompoundInterestPage() {
             { label: 'Total Interest Earned', value: result.totalInterest },
           ]}
           extra={
-            <div className="text-xs text-ink-muted">
-              Final amount shown with annual compounding. Total contributions include your initial investment plus monthly deposits.
-            </div>
+            <>
+              <div className="text-xs text-ink-muted">
+                Final amount shown with annual compounding. Total contributions include your initial investment plus monthly deposits.
+              </div>
+              <p className="text-sm text-ink-body">
+                <a
+                  href={LONGEVITY_LINK_HREF}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="tap-target font-semibold text-primary hover:underline"
+                >
+                  {LONGEVITY_LINK_TEXT}
+                </a>
+              </p>
+            </>
           }
         />
         <div className="card space-y-3">

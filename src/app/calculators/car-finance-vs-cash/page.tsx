@@ -3,6 +3,7 @@
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
+import MobileResultLine from '@/components/MobileResultLine';
 import {
   CAR_FINANCE_VS_CASH_BADGE,
   CAR_FINANCE_VS_CASH_FOOTNOTE,
@@ -69,6 +70,7 @@ export default function CarFinanceVsCashPage() {
             {CAR_FINANCE_VS_CASH_BADGE}
           </span>
           <h1 className="text-2xl font-bold text-white">Car finance vs cash</h1>
+          <MobileResultLine>{headline}</MobileResultLine>
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
           <p className="text-sm text-ink-body">
             Same car — monthly finance versus paying cash now. Which path costs less over the term? Numbers update as
@@ -171,7 +173,7 @@ export default function CarFinanceVsCashPage() {
               href={LONGEVITY_LINK_HREF}
               target="_blank"
               rel="noreferrer"
-              className="font-semibold text-primary hover:underline"
+              className="tap-target font-semibold text-primary hover:underline"
             >
               {LONGEVITY_LINK_TEXT}
             </a>
