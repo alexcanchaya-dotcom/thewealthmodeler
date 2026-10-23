@@ -43,6 +43,13 @@ export const calculatorRegistry: CalculatorSeo[] = [
       'Free retirement calculator. Estimate your retirement balance, monthly income using the 4% rule, and how many years your savings may last.',
   },
   {
+    slug: 'remaining-years',
+    name: 'How many years must my money last',
+    region: 'us',
+    description:
+      'Free calculator: pick an age your money must last to and see how much you need at retirement, how much you are on track to have, and the age it runs out.',
+  },
+  {
     slug: 'irish-take-home-fire',
     name: 'Irish take-home to FIRE',
     region: 'ireland',

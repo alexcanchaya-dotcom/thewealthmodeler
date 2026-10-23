@@ -7,6 +7,8 @@ const legacyAliases = [
   { source: '/retirement-calculator', destination: '/calculators/retirement' },
   { source: '/compound-interest-calculator', destination: '/calculators/compound-interest' },
   { source: '/privacy-policy', destination: '/privacy' },
+  // Short link from the build spec / Longevity Modeler (?to= is forwarded).
+  { source: '/remaining-years', destination: '/calculators/remaining-years' },
 ];
 
 function withAndWithoutSlash({ source, destination }) {

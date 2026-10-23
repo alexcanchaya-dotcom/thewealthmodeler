@@ -16,6 +16,7 @@ const navItems = [
       { name: 'Compound Interest', href: '/calculators/compound-interest' },
       { name: 'FIRE', href: '/calculators/fire' },
       { name: 'Retirement', href: '/calculators/retirement' },
+      { name: 'How many years must the money last?', href: '/calculators/remaining-years' },
       { name: 'Irish Take-Home → FIRE', href: '/calculators/irish-take-home-fire' },
       { name: 'State Savings vs bank', href: '/calculators/state-savings-vs-bank' },
       { name: 'Mortgage vs rent', href: '/calculators/mortgage-vs-rent' },
