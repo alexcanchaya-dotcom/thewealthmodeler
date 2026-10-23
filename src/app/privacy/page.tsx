@@ -42,6 +42,32 @@ export default function PrivacyPage() {
       <p className="mb-4 text-ink-body">
         The legal basis for processing data via cookies (if applicable) is your consent (Article 6(1)(a) GDPR).
       </p>
+      {/* DRAFT (AdSense prep PR): proposed wording, to be reconciled with the existing
+          "Cookies and Third-Party Services" and "GDPR" sections above before merge. */}
+      <h2 className="text-2xl font-semibold mb-4">Advertising, cookies and your choices (draft)</h2>
+      <p className="mb-4 text-ink-body">
+        We may show ads served by Google. Google and its partners (third-party vendors) may use cookies or similar
+        technologies to show ads based on your visits to this Site and other sites. Our calculators still run in your
+        browser and we never send what you type to Google or anyone else.
+      </p>
+      <p className="mb-4 text-ink-body">
+        <strong>Visitors in the EU, EEA, UK and Switzerland:</strong> no advertising cookies are set until you make a
+        choice in our consent message. You can accept, reject, or manage your choices, and change them at any time
+        using the &quot;Privacy and cookie settings&quot; link at the bottom of every page. If you do not consent, Google may
+        show limited or non-personalised ads that do not use cookies for personalisation.
+      </p>
+      <p className="mb-4 text-ink-body">
+        <strong>Opting out:</strong> you can turn off personalised ads from Google at{' '}
+        <a href="https://adssettings.google.com" className="text-primary hover:underline">Google Ads Settings</a>, and opt out
+        of some third-party vendors at{' '}
+        <a href="https://www.aboutads.info/choices/" className="text-primary hover:underline">aboutads.info</a> or{' '}
+        <a href="https://www.youronlinechoices.eu/" className="text-primary hover:underline">youronlinechoices.eu</a>. Learn how
+        Google uses data at{' '}
+        <a href="https://policies.google.com/technologies/partner-sites" className="text-primary hover:underline">
+          How Google uses information from sites that use its services
+        </a>
+        .
+      </p>
       <h2 className="text-2xl font-semibold mb-4">Changes to This Privacy Policy</h2>
       <p className="mb-4 text-ink-body">
         We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the effective date.
