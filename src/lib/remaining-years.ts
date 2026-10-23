@@ -18,6 +18,8 @@ export interface BalancePoint {
 }
 
 export interface RemainingYearsResult {
+  /** Age money starts being drawn: the later of retire age and current age. */
+  retirementStartAge: number;
   yearsInRetirement: number;
   yearsToRetirement: number;
   needed: number;
@@ -42,6 +44,37 @@ export function parsePlanTo(raw: string | null | undefined): number | null {
   if (!/^\d{2,3}$/.test(s)) return null;
   const n = Number(s);
   return n >= PLAN_TO_MIN && n <= PLAN_TO_MAX ? n : null;
+}
+
+export const AGE_MIN = 18;
+export const AGE_MAX = 100;
+export const RETIRE_MIN = 18;
+export const RETIRE_MAX = 110;
+export const RETURN_MAX_PCT = 8;
+
+export interface RawFormValues {
+  age: number;
+  planToAge: number;
+  retireAge: number;
+  spending: number;
+  savings: number;
+  yearlySaving: number;
+  realReturnPct: number;
+}
+
+/** True only when every input is a finite number inside its allowed range. */
+export function isValidInput(v: RawFormValues): boolean {
+  const ok = (x: number, min: number, max: number) => Number.isFinite(x) && x >= min && x <= max;
+  return (
+    ok(v.age, AGE_MIN, AGE_MAX) &&
+    ok(v.planToAge, PLAN_TO_MIN, PLAN_TO_MAX) &&
+    Number.isInteger(v.planToAge) &&
+    ok(v.retireAge, RETIRE_MIN, RETIRE_MAX) &&
+    ok(v.spending, 0, 1e9) &&
+    ok(v.savings, 0, 1e10) &&
+    ok(v.yearlySaving, 0, 1e9) &&
+    ok(v.realReturnPct, 0, RETURN_MAX_PCT)
+  );
 }
 
 /** Present value of `spending` a year for `years` years at rate r. */
@@ -86,13 +119,14 @@ export function calculateRemainingYears(raw: RemainingYearsInputs): RemainingYea
   const yearlySaving = Math.max(finite(raw.yearlySaving), 0);
   const r = finite(raw.realReturn);
 
-  const yearsInRetirement = Math.max(planToAge - retireAge, 0);
+  // If the retire age is already past, retirement starts now (current age).
+  const startRetire = Math.max(retireAge, age);
+  const yearsInRetirement = Math.max(planToAge - startRetire, 0);
   const yearsToRetirement = Math.max(retireAge - age, 0);
   const needed = moneyNeeded(spending, r, yearsInRetirement);
   const have = moneyAtRetirement(savings, yearlySaving, r, yearsToRetirement);
   const diff = needed - have;
   const runway = runwayYears(have, spending, r);
-  const startRetire = Math.max(retireAge, age);
 
   // Balance by age: grow with saving until retirement, then grow and withdraw at
   // year end (same timing as the annuity and NPER formulas above).
@@ -106,6 +140,7 @@ export function calculateRemainingYears(raw: RemainingYearsInputs): RemainingYea
   }
 
   return {
+    retirementStartAge: startRetire,
     yearsInRetirement,
     yearsToRetirement,
     needed,

@@ -5,7 +5,18 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
 import BalanceChart from './BalanceChart';
-import { calculateRemainingYears, parsePlanTo, PLAN_TO_MAX, PLAN_TO_MIN } from '@/lib/remaining-years';
+import {
+  AGE_MAX,
+  AGE_MIN,
+  calculateRemainingYears,
+  isValidInput,
+  parsePlanTo,
+  PLAN_TO_MAX,
+  PLAN_TO_MIN,
+  RETIRE_MAX,
+  RETIRE_MIN,
+  RETURN_MAX_PCT,
+} from '@/lib/remaining-years';
 
 // Free page: runs only in the browser. Nothing is saved or sent anywhere.
 interface FormValues {
@@ -42,6 +53,8 @@ export default function RemainingYearsPage() {
   }, [setValue]);
 
   const v = watch();
+  // Hold back results while any field is out of range, so an error is never shown next to a result that used it.
+  const valid = isValidInput(v);
   const age = num(v.age, defaultValues.age);
   const planToAge = num(v.planToAge, defaultValues.planToAge);
   const retireAge = num(v.retireAge, defaultValues.retireAge);
@@ -61,7 +74,7 @@ export default function RemainingYearsPage() {
     [age, planToAge, retireAge, v.spending, v.savings, v.yearlySaving, realReturnPct],
   );
 
-  const line1 = `Your money needs to last ${r.yearsInRetirement} years (age ${retireAge} to age ${planToAge}).`;
+  const line1 = `Your money needs to last ${r.yearsInRetirement} years (age ${r.retirementStartAge} to age ${planToAge}).`;
   const line2 = `To do that you need about ${money(r.needed)} at retirement. The 4% rule says ${money(r.fourPercentRule)}.`;
   const lasts = r.runsOutAge === null ? 'That lasts for good at this spending' : `That lasts until about age ${ageText(r.runsOutAge)}`;
   const line3 = `On your current plan you'll have about ${money(r.have)}. ${lasts}.`;
@@ -85,7 +98,7 @@ export default function RemainingYearsPage() {
       <div className="grid gap-8 lg:grid-cols-2">
         <div className="card space-y-4">
           <div className="grid gap-4 sm:grid-cols-2">
-            <InputField label="Your age" step="1" register={register('age', n(18, 100))} error={formState.errors.age} />
+            <InputField label="Your age" step="1" register={register('age', n(AGE_MIN, AGE_MAX))} error={formState.errors.age} />
             <div className="flex flex-col gap-1">
               <InputField
                 label="Plan to age"
@@ -98,17 +111,19 @@ export default function RemainingYearsPage() {
               />
               <p className="text-xs text-ink-muted">Use a lifespan estimate or just pick a safe age. Many planners use 90 to 95.</p>
             </div>
-            <InputField label="Retire at age" step="1" register={register('retireAge', n(18, 110))} error={formState.errors.retireAge} />
+            <InputField label="Retire at age" step="1" register={register('retireAge', n(RETIRE_MIN, RETIRE_MAX))} error={formState.errors.retireAge} />
             <InputField label="Yearly spending in retirement" step="1" register={register('spending', n(0, 1e9))} error={formState.errors.spending} />
             <InputField label="Savings today" step="1" register={register('savings', n(0, 1e10))} error={formState.errors.savings} />
             <InputField label="Saving per year until retirement" step="1" register={register('yearlySaving', n(0, 1e9))} error={formState.errors.yearlySaving} />
-            <InputField label="Real return (after inflation)" step="0.1" suffix="%" register={register('realReturnPct', n(0, 8))} error={formState.errors.realReturnPct} />
+            <InputField label="Real return (after inflation)" step="0.1" suffix="%" register={register('realReturnPct', n(0, RETURN_MAX_PCT))} error={formState.errors.realReturnPct} />
           </div>
           <p className="text-xs text-ink-muted">Amounts are in whatever currency you use. Returns are after inflation, so all figures are in today&apos;s money.</p>
         </div>
 
         <div className="card space-y-4" aria-live="polite">
           <p className="text-sm font-semibold text-ink-body">Result</p>
+          {valid ? (
+            <>
           <ol className="list-decimal space-y-3 pl-5 text-white">
             <li data-testid="line1">{line1}</li>
             <li data-testid="line2">
@@ -120,6 +135,10 @@ export default function RemainingYearsPage() {
             <li data-testid="line4">Change &lsquo;Plan to age&rsquo; to see how much the number moves.</li>
           </ol>
           <BalanceChart ages={r.balances.map((p) => p.age)} balances={r.balances.map((p) => Math.round(p.balance))} planToAge={planToAge} />
+            </>
+          ) : (
+            <p data-testid="invalid" className="text-white">Fix the highlighted fields to see your result.</p>
+          )}
         </div>
       </div>
 
@@ -135,7 +154,7 @@ export default function RemainingYearsPage() {
             Get a free lifespan estimate at Longevity Modeler.
           </a>
         </p>
-        <p className="text-xs text-ink-muted">Estimate only, not financial advice. Educational only. Not financial advice.</p>
+        <p className="text-xs text-ink-muted">Educational only. Not financial advice.</p>
       </div>
     </div>
   );

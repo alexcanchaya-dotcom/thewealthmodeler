@@ -91,3 +91,28 @@ test('junk numeric inputs do not throw or produce NaN', () => {
   assert.ok(Number.isFinite(r.needed));
   assert.ok(Number.isFinite(r.have));
 });
+
+const form = { age: 40, planToAge: 90, retireAge: 65, spending: 40000, savings: 100000, yearlySaving: 10000, realReturnPct: 4 };
+
+test('(a) results held back when any input is out of range', () => {
+  assert.equal(m.isValidInput(form), true);
+  for (const bad of [
+    { age: 17 }, { age: 101 }, { age: NaN },
+    { planToAge: 49 }, { planToAge: 111 }, { planToAge: 88.5 }, { planToAge: NaN },
+    { retireAge: 111 }, { realReturnPct: 9 }, { realReturnPct: -1 }, { spending: -1 }, { savings: NaN },
+  ]) {
+    assert.equal(m.isValidInput({ ...form, ...bad }), false, JSON.stringify(bad));
+  }
+  assert.equal(m.isValidInput({ ...form, age: 18, planToAge: 50 }), true);
+  assert.equal(m.isValidInput({ ...form, age: 100, planToAge: 110 }), true);
+});
+
+test('(b) retire age below current age: retirement starts at current age', () => {
+  const r = m.calculateRemainingYears({ ...defaults, age: 70, retireAge: 65, planToAge: 90 });
+  assert.equal(r.retirementStartAge, 70);
+  assert.equal(r.yearsInRetirement, 20);
+  assert.equal(r.yearsToRetirement, 0);
+  assert.equal(r.have, defaults.savings);
+  const normal = m.calculateRemainingYears(defaults);
+  assert.equal(normal.retirementStartAge, 65);
+});
