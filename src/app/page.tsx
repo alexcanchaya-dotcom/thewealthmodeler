@@ -84,6 +84,13 @@ const calculators: CalculatorEntry[] = [
     group: 'investing',
   },
   {
+    title: 'How many years must the money last?',
+    description: 'Pick an age your money must last to and see what you need at retirement and when it runs out.',
+    href: '/calculators/remaining-years',
+    icon: <ShieldCheckIcon className={iconClass} />,
+    group: 'investing',
+  },
+  {
     title: 'Irish Take-Home → FIRE',
     description: 'Irish take-home from salary, then years to FIRE using Irish numbers.',
     href: '/calculators/irish-take-home-fire',
