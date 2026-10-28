@@ -37,6 +37,8 @@ const FINANCE_BILL =
 const REVENUE_TDM =
   'https://www.revenue.ie/en/tax-professionals/tdm/income-tax-capital-gains-tax-corporation-tax/part-27/27-04-01.pdf';
 
+const KPMG_LOSSES = 'https://kpmg.com/ie/en/insights/tax/finance-bill-2026/investment-funds-life-assurance.html';
+
 const fin = (v: number, f = 0) => (Number.isFinite(v) ? v : f);
 const euro = (v: number, digits = 0) => formatCurrency(v, digits, 'EUR');
 
@@ -105,8 +107,8 @@ export default function ExitTaxEtfIrelandPage() {
                 Tax year of sale or charge
               </label>
               <select id="exit-tax-rate" className="input-base" {...register('ratePercent')}>
-                <option value={String(RATE_FROM_2027)}>From 1 Jan 2027 — 35% (Budget 2027)</option>
-                <option value={String(RATE_2026)}>Sold in 2026 — 38%</option>
+                <option value={String(RATE_FROM_2027)}>2027 onwards — 35%</option>
+                <option value={String(RATE_2026)}>2026 — 38%</option>
               </select>
             </div>
           </div>
@@ -174,8 +176,9 @@ export default function ExitTaxEtfIrelandPage() {
           In Ireland, most ETFs that are based in Ireland or another EU country are not taxed like shares. Instead of
           capital gains tax, the profit is taxed under the funds regime, usually called exit tax. You pay it on the gain:
           what you sell for, minus what you paid. You don&apos;t get the yearly capital gains tax allowance, and
-          you can&apos;t use a loss on an ETF to reduce gains elsewhere. Losses can&apos;t be offset against other
-          gains, so a fund that goes down simply means no exit tax on that fund.
+          you can&apos;t use a loss on an ETF to reduce gains elsewhere (see{' '}
+          <Source href={KPMG_LOSSES}>KPMG on Finance Bill 2026 and investment funds</Source>). A fund that goes down
+          simply means no exit tax on that fund.
         </p>
         <h3 className="text-lg font-semibold text-white">What rate applies?</h3>
         <p>
@@ -236,6 +239,10 @@ export default function ExitTaxEtfIrelandPage() {
           <li>
             <Source href={REVENUE_TDM}>Revenue Tax and Duty Manual Part 27-04-01 (PDF)</Source> — current 38% rate,
             the 8-year deemed disposal and credit for tax already paid.
+          </li>
+          <li>
+            <Source href={KPMG_LOSSES}>KPMG: Finance Bill 2026, investment funds and life assurance</Source> — individual
+            investors can&apos;t use losses on these funds against other income or gains.
           </li>
         </ul>
       </section>
