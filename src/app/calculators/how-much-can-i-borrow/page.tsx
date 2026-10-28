@@ -56,7 +56,7 @@ function formatEuro(value: number, digits = 0) {
 
 function bindingLabel(binding: 'income' | 'ltv' | 'both'): string {
   if (binding === 'income') return 'Income';
-  if (binding === 'ltv') return 'LTV';
+  if (binding === 'ltv') return 'Price limit';
   return 'Both';
 }
 
@@ -105,7 +105,7 @@ export default function HowMuchCanIBorrowPage() {
           <p className="mt-1 text-sm text-ink-body">{EXAMPLE_NUMBERS_LINE}</p>
           <p className="text-sm text-ink-body">
             Roughly how much mortgage you could borrow from income and deposit. The headline is the lower of a simple
-            income (LTI) cap and an LTV cap. Numbers update as you type.
+            income limit and a limit based on the property price (how much of the price you can borrow). Numbers update as you type.
           </p>
         </div>
 
@@ -125,12 +125,12 @@ export default function HowMuchCanIBorrowPage() {
                     : 'border-white/20 bg-white/[0.07] text-ink-body hover:border-white/30'
                 }`}
               >
-                {BUYER_TYPE_LABELS[type]} ({ltiForBuyerType(type)}x, {ltvForBuyerType(type)}%)
+                {BUYER_TYPE_LABELS[type]} ({ltiForBuyerType(type)}x income, {ltvForBuyerType(type)}% of price)
               </button>
             ))}
           </div>
           <p className="text-xs text-ink-muted">
-            Sets the income multiple and max LTV.{' '}
+            Sets how many times your income you can borrow and the most you can borrow as a % of the price.{' '}
             <a
               href={CENTRAL_BANK_MORTGAGE_MEASURES_URL}
               target="_blank"
@@ -190,7 +190,7 @@ export default function HowMuchCanIBorrowPage() {
           />
           <div className="sm:col-span-2 space-y-2">
             <InputField
-              label="Max LTV (%)"
+              label="Max loan as % of price"
               step="0.1"
               register={register('maxLtvPercent', {
                 valueAsNumber: true,
@@ -220,7 +220,7 @@ export default function HowMuchCanIBorrowPage() {
               <p className="mt-1 text-xl font-bold text-white">{formatEuro(result.incomeCap)}</p>
             </div>
             <div className="rounded-lg bg-glass-subtle px-4 py-3">
-              <p className="text-sm font-semibold text-ink-body">LTV cap</p>
+              <p className="text-sm font-semibold text-ink-body">Price-based cap</p>
               <p className="mt-1 text-xl font-bold text-white">
                 {result.ltvCap === null ? 'Unlimited' : formatEuro(result.ltvCap)}
               </p>

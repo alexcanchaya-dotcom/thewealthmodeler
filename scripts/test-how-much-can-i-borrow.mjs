@@ -49,6 +49,7 @@ test('second-time buyer: 3.5x income and 80% LTV, LTV binds', () => {
 test('hint copy reflects selected type', () => {
   assert.match(m.ltiHint('first'), /First-time buyer limit: 4x/);
   assert.match(m.ltiHint('second'), /Second-time buyer limit: 3.5x/);
-  assert.match(m.LTV_HINT, /first-time buyers up to 90%.*second-time buyers up to 80%/);
+  assert.equal(m.LTV_HINT, 'Central Bank limit: first-time buyers can borrow up to 90% of the price, second-time buyers up to 80%.');
+  assert.doesNotMatch(m.LTV_HINT, /LTV/);
   assert.match(m.CENTRAL_BANK_MORTGAGE_MEASURES_URL, /^https:\/\/www\.centralbank\.ie\//);
 });

@@ -22,8 +22,8 @@ export function ltvForBuyerType(type: BuyerType): number {
   return LTV_BY_BUYER_TYPE[type] ?? LTV_BY_BUYER_TYPE[DEFAULT_BUYER_TYPE];
 }
 
-/** Hint under the LTV field. */
-export const LTV_HINT = 'Central Bank limit: first-time buyers up to 90% LTV, second-time buyers up to 80% — banks vary';
+/** Hint under the max-loan-as-%-of-price field. */
+export const LTV_HINT = 'Central Bank limit: first-time buyers can borrow up to 90% of the price, second-time buyers up to 80%.';
 
 /** Hint under the LTI field, e.g. "First-time buyer limit: 4x gross income — banks vary". */
 export function ltiHint(type: BuyerType): string {
