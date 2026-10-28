@@ -166,7 +166,7 @@ export default function HowMuchCanIBorrowPage() {
           />
           <div className="space-y-2">
             <InputField
-              label="LTI multiple"
+              label="Times your income"
               step="0.1"
               register={register('ltiMultiple', {
                 valueAsNumber: true,
