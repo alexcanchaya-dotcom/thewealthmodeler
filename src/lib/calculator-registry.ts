@@ -147,6 +147,13 @@ export const calculatorRegistry: CalculatorSeo[] = [
     description:
       'Free DIRT calculator. See how much DIRT is taken from the interest on your savings and how much interest you keep.',
   },
+  {
+    slug: 'exit-tax-etf-ireland',
+    name: 'Exit tax on ETFs',
+    region: 'ireland',
+    description:
+      'Free Irish ETF exit tax calculator. See the final value, gain, exit tax (35% from 2027 or 38% in 2026), 8-year deemed disposal and what is left after tax.',
+  },
 ];
 
 const REGION_LABEL: Record<CalculatorRegion, string> = { ireland: 'Ireland', us: 'US' };

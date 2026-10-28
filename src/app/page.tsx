@@ -188,6 +188,13 @@ const calculators: CalculatorEntry[] = [
     icon: <PercentBadgeIcon className={iconClass} />,
     group: 'ireland',
   },
+  {
+    title: 'Exit tax on ETFs',
+    description: 'How much exit tax is due on an ETF gain, including the 8-year deemed disposal, and what is left after tax.',
+    href: '/calculators/exit-tax-etf-ireland',
+    icon: <PercentBadgeIcon className={iconClass} />,
+    group: 'ireland',
+  },
 ];
 
 const byHref = (href: string) => calculators.find((c) => c.href === href)!;
