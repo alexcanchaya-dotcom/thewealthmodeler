@@ -31,7 +31,7 @@ const defaultValues: RetirementFormValues = {
 };
 
 export default function RetirementPage() {
-  const { register, handleSubmit, watch, formState } = useForm<RetirementFormValues>({ defaultValues });
+  const { register, handleSubmit, watch, setValue, formState } = useForm<RetirementFormValues>({ defaultValues });
   const [retirementData, setRetirementData] = useState(
     calculateRetirement(
       defaultValues.currentAge,
@@ -190,6 +190,7 @@ export default function RetirementPage() {
             value={watched.retirementAge}
             onChange={(e) => {
               const value = Number(e.target.value);
+              setValue('retirementAge', value, { shouldValidate: true, shouldDirty: true });
               handleSubmit((data) => onSubmit({ ...data, retirementAge: value }))();
             }}
             className="w-full accent-primary max-md:h-6"
