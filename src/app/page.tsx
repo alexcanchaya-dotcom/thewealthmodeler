@@ -99,7 +99,7 @@ const calculators: CalculatorEntry[] = [
   },
   {
     title: 'How much can I borrow',
-    description: 'Roughly how much mortgage you could borrow from income and deposit — the lower of a simple LTI and LTV cap.',
+    description: 'Roughly how much mortgage you could borrow from income and deposit. Based on Central Bank limits on income and price.',
     href: '/calculators/how-much-can-i-borrow',
     icon: <ReceiptPercentIcon className={iconClass} />,
     group: 'ireland',
