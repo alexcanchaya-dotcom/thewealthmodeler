@@ -4,6 +4,8 @@ export type BuyerType = 'first' | 'second';
 
 /** Central Bank of Ireland loan-to-income limits by buyer type. */
 export const LTI_BY_BUYER_TYPE: Record<BuyerType, number> = { first: 4, second: 3.5 };
+/** Central Bank of Ireland loan-to-value limits (%) by buyer type. */
+export const LTV_BY_BUYER_TYPE: Record<BuyerType, number> = { first: 90, second: 80 };
 export const DEFAULT_BUYER_TYPE: BuyerType = 'first';
 export const BUYER_TYPE_LABELS: Record<BuyerType, string> = {
   first: 'First-time buyer',
@@ -16,6 +18,13 @@ export function ltiForBuyerType(type: BuyerType): number {
   return LTI_BY_BUYER_TYPE[type] ?? LTI_BY_BUYER_TYPE[DEFAULT_BUYER_TYPE];
 }
 
+export function ltvForBuyerType(type: BuyerType): number {
+  return LTV_BY_BUYER_TYPE[type] ?? LTV_BY_BUYER_TYPE[DEFAULT_BUYER_TYPE];
+}
+
+/** Hint under the LTV field. */
+export const LTV_HINT = 'Central Bank limit: first-time buyers up to 90% LTV, second-time buyers up to 80% — banks vary';
+
 /** Hint under the LTI field, e.g. "First-time buyer limit: 4x gross income — banks vary". */
 export function ltiHint(type: BuyerType): string {
   return `${BUYER_TYPE_LABELS[type]} limit: ${ltiForBuyerType(type)}x gross income — banks vary`;
@@ -23,7 +32,7 @@ export function ltiHint(type: BuyerType): string {
 
 export const DEFAULT_LTI_MULTIPLE = ltiForBuyerType(DEFAULT_BUYER_TYPE);
 export const DEFAULT_DEPOSIT = 35000;
-export const DEFAULT_MAX_LTV_PERCENT = 90;
+export const DEFAULT_MAX_LTV_PERCENT = ltvForBuyerType(DEFAULT_BUYER_TYPE);
 
 export const EMPTY_HEADLINE = 'Enter income and deposit to see a figure';
 

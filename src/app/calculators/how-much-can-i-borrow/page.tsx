@@ -20,6 +20,7 @@ import {
   type BuyerType,
   ltiForBuyerType,
   ltiHint,
+  ltvForBuyerType,
   DEFAULT_GROSS_ANNUAL_INCOME,
   DEFAULT_LTI_MULTIPLE,
   DEFAULT_MAX_LTV_PERCENT,
@@ -66,6 +67,7 @@ export default function HowMuchCanIBorrowPage() {
   const selectBuyerType = (type: BuyerType) => {
     setBuyerType(type);
     setValue('ltiMultiple', ltiForBuyerType(type), { shouldValidate: true });
+    setValue('maxLtvPercent', ltvForBuyerType(type), { shouldValidate: true });
   };
   const values = watch();
 
@@ -123,12 +125,12 @@ export default function HowMuchCanIBorrowPage() {
                     : 'border-white/20 bg-white/[0.07] text-ink-body hover:border-white/30'
                 }`}
               >
-                {BUYER_TYPE_LABELS[type]} ({ltiForBuyerType(type)}x)
+                {BUYER_TYPE_LABELS[type]} ({ltiForBuyerType(type)}x, {ltvForBuyerType(type)}%)
               </button>
             ))}
           </div>
           <p className="text-xs text-ink-muted">
-            Sets the income multiple only.{' '}
+            Sets the income multiple and max LTV.{' '}
             <a
               href={CENTRAL_BANK_MORTGAGE_MEASURES_URL}
               target="_blank"

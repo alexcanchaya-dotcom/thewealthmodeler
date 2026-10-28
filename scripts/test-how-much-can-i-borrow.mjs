@@ -14,6 +14,7 @@ const m = await import(file);
 
 const base = { grossAnnualIncome: 55000, otherAnnualIncome: 0, deposit: 35000, maxLtvPercent: 90 };
 
+
 test('buyer type multiples: first 4x (default), second 3.5x', () => {
   assert.equal(m.DEFAULT_BUYER_TYPE, 'first');
   assert.equal(m.ltiForBuyerType('first'), 4);
@@ -30,18 +31,24 @@ test('default first-time buyer result', () => {
   assert.equal(r.binding, 'income');
 });
 
-test('second-time buyer changes only the income cap', () => {
-  const a = m.calculateHowMuchCanIBorrow({ ...base, ltiMultiple: m.ltiForBuyerType('first') });
-  const b = m.calculateHowMuchCanIBorrow({ ...base, ltiMultiple: m.ltiForBuyerType('second') });
+test('buyer type LTV: first 90% (default), second 80%', () => {
+  assert.equal(m.ltvForBuyerType('first'), 90);
+  assert.equal(m.ltvForBuyerType('second'), 80);
+  assert.equal(m.DEFAULT_MAX_LTV_PERCENT, 90);
+});
+
+test('second-time buyer: 3.5x income and 80% LTV, LTV binds', () => {
+  const b = m.calculateHowMuchCanIBorrow({ ...base, ltiMultiple: m.ltiForBuyerType('second'), maxLtvPercent: m.ltvForBuyerType('second') });
   assert.equal(b.incomeCap, 192500);
-  assert.equal(b.borrowable, 192500);
-  assert.equal(b.impliedProperty, 227500);
-  assert.equal(b.ltvCap, a.ltvCap);
-  assert.equal(b.totalIncome, a.totalIncome);
+  assert.equal(b.ltvCap, 140000);
+  assert.equal(b.borrowable, 140000);
+  assert.equal(b.impliedProperty, 175000);
+  assert.equal(b.binding, 'ltv');
 });
 
 test('hint copy reflects selected type', () => {
   assert.match(m.ltiHint('first'), /First-time buyer limit: 4x/);
   assert.match(m.ltiHint('second'), /Second-time buyer limit: 3.5x/);
+  assert.match(m.LTV_HINT, /first-time buyers up to 90%.*second-time buyers up to 80%/);
   assert.match(m.CENTRAL_BANK_MORTGAGE_MEASURES_URL, /^https:\/\/www\.centralbank\.ie\//);
 });
