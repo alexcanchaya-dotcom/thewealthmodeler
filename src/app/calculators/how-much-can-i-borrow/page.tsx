@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import InputField from '@/components/InputField';
 import MobileResultLine from '@/components/MobileResultLine';
@@ -8,13 +8,18 @@ import {
   EXAMPLE_NUMBERS_LINE,
   HOW_MUCH_CAN_I_BORROW_BADGE,
   HOW_MUCH_CAN_I_BORROW_FOOTNOTE,
-  HOW_MUCH_CAN_I_BORROW_LTI_HINT,
   HOW_MUCH_CAN_I_BORROW_LTV_HINT,
   LONGEVITY_LINK_HREF,
   LONGEVITY_LINK_TEXT,
 } from '@/lib/irish-copy';
 import {
+  BUYER_TYPE_LABELS,
+  CENTRAL_BANK_MORTGAGE_MEASURES_URL,
+  DEFAULT_BUYER_TYPE,
   DEFAULT_DEPOSIT,
+  type BuyerType,
+  ltiForBuyerType,
+  ltiHint,
   DEFAULT_GROSS_ANNUAL_INCOME,
   DEFAULT_LTI_MULTIPLE,
   DEFAULT_MAX_LTV_PERCENT,
@@ -55,7 +60,13 @@ function bindingLabel(binding: 'income' | 'ltv' | 'both'): string {
 }
 
 export default function HowMuchCanIBorrowPage() {
-  const { register, watch, formState } = useForm<FormValues>({ defaultValues });
+  const { register, watch, formState, setValue } = useForm<FormValues>({ defaultValues });
+  const [buyerType, setBuyerType] = useState<BuyerType>(DEFAULT_BUYER_TYPE);
+
+  const selectBuyerType = (type: BuyerType) => {
+    setBuyerType(type);
+    setValue('ltiMultiple', ltiForBuyerType(type), { shouldValidate: true });
+  };
   const values = watch();
 
   const grossAnnualIncome = Math.max(finiteNumber(values.grossAnnualIncome), 0);
@@ -96,6 +107,39 @@ export default function HowMuchCanIBorrowPage() {
           </p>
         </div>
 
+        <fieldset className="space-y-2">
+          <legend className="text-sm font-semibold text-ink-body">Buyer type</legend>
+          <div role="radiogroup" aria-label="Buyer type" className="grid grid-cols-2 gap-2">
+            {(Object.keys(BUYER_TYPE_LABELS) as BuyerType[]).map((type) => (
+              <button
+                key={type}
+                type="button"
+                role="radio"
+                aria-checked={buyerType === type}
+                onClick={() => selectBuyerType(type)}
+                className={`tap-target rounded-xl border px-3 py-2 text-sm font-semibold transition ${
+                  buyerType === type
+                    ? 'border-primary bg-primary/20 text-white'
+                    : 'border-white/20 bg-white/[0.07] text-ink-body hover:border-white/30'
+                }`}
+              >
+                {BUYER_TYPE_LABELS[type]} ({ltiForBuyerType(type)}x)
+              </button>
+            ))}
+          </div>
+          <p className="text-xs text-ink-muted">
+            Sets the income multiple only.{' '}
+            <a
+              href={CENTRAL_BANK_MORTGAGE_MEASURES_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-primary hover:underline"
+            >
+              Central Bank of Ireland mortgage measures
+            </a>
+          </p>
+        </fieldset>
+
         <div className="grid gap-4 sm:grid-cols-2">
           <InputField
             label="Gross annual income (€)"
@@ -129,7 +173,7 @@ export default function HowMuchCanIBorrowPage() {
               })}
               error={formState.errors.ltiMultiple}
             />
-            <p className="text-xs text-ink-muted">{HOW_MUCH_CAN_I_BORROW_LTI_HINT}</p>
+            <p className="text-xs text-ink-muted">{ltiHint(buyerType)}</p>
           </div>
           <InputField
             label="Deposit / equity (€)"

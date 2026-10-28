@@ -36,7 +36,6 @@ export const STATE_PENSION_COMPLETENESS_HINT = '% of full pension you expect';
 export const HOW_MUCH_CAN_I_BORROW_BADGE = 'Ireland — how much you could borrow (simplified)';
 export const HOW_MUCH_CAN_I_BORROW_FOOTNOTE =
   'Simplified LTI/LTV — not a lender decision. Banks use their own stress tests and rules. Not advice.';
-export const HOW_MUCH_CAN_I_BORROW_LTI_HINT = 'typical Central Bank–style LTI — banks vary';
 export const HOW_MUCH_CAN_I_BORROW_LTV_HINT = 'first-time buyers often up to ~90%';
 export const MORTGAGE_REPAYMENT_BADGE = 'Ireland — mortgage repayment (simplified)';
 export const MORTGAGE_REPAYMENT_FOOTNOTE =
